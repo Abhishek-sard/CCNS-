@@ -7,7 +7,7 @@ import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/testimonials';
-import ContactPage from './Components/Contact/contactpage';
+import Contactpage from './Components/Contact/contactpage';
 import NdisServicesPage from './Components/NDIS/NdisServices'; // renamed import
 
 function Home() {
@@ -23,7 +23,7 @@ function Home() {
 }
 
 function Contact() {
-  return <ContactPage />;
+  return <Contactpage />;
 }
 
 // Wrapper function for NdisServices route

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactPage = () => {
+const Contactpage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -141,4 +141,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default Contactpage;
