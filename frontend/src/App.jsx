@@ -30,6 +30,14 @@ function Contact(){
   )
 }
 
+function NdisServices(){
+  return(
+    <>
+    <NdisServices/>
+    </>
+  )
+}
+
 const App = () => {
   return (
     <Router>
@@ -37,6 +45,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path='/ndis-services' element={<NdisServices/>} />
      
       </Routes>
       <Footer />

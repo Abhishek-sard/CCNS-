@@ -47,6 +47,9 @@ const Navbar = () => {
           <li>
             <a href="/contact" className="cursor-pointer hover:text-gray-200">Contact</a>
           </li>
+          <li>
+            <a href="/ndis-services" className="cursor-pointer hover:text-gray-200">NDIS</a>
+          </li>
         </ul>
 
 
@@ -82,6 +85,7 @@ const Navbar = () => {
           </div>
           <p className="cursor-pointer hover:text-gray-200">Blog</p>
           <p className="cursor-pointer hover:text-gray-200">Contact</p>
+          <p className="cursor-pointer hover:text-gray-200">NDIS</p>
         </div>
       )}
     </nav>
