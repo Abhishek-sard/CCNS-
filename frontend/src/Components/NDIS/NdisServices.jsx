@@ -47,7 +47,7 @@ const NdisServices = () => {
   return (
     <div className="max-w-7xl mx-auto p-5">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-8 rounded-t-lg shadow-md text-center mb-8">
+      <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-8 rounded-t-lg shadow-md text-center mb-8 mt-20">
         <div className="flex flex-col md:flex-row items-center justify-center mb-4">
           <div className="bg-white text-blue-700 w-16 h-16 rounded-full flex items-center justify-center shadow-md mb-4 md:mb-0 md:mr-4">
             <FaHandHoldingHeart size={32} />
@@ -271,17 +271,6 @@ const NdisServices = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="text-center mt-8 border-t border-gray-200 py-5 text-gray-600 text-sm">
-        <p>NDIS Healthcare Services &copy; 2023. All rights reserved.</p>
-        <div className="flex justify-center gap-5 mt-2">
-          <a href="#" className="text-blue-700 hover:underline">Privacy Policy</a>
-          <a href="#" className="text-blue-700 hover:underline">Terms of Service</a>
-          <a href="#" className="text-blue-700 hover:underline">NDIS Provider Information</a>
-          <a href="#" className="text-blue-700 hover:underline">Accessibility</a>
-        </div>
-      </footer>
     </div>
   );
 };

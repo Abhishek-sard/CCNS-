@@ -8,34 +8,27 @@ import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/testimonials';
 import ContactPage from './Components/Contact/contactpage';
+import NdisServicesPage from './Components/NDIS/NdisServices'; // renamed import
 
 function Home() {
   return (
     <>
       <Hero />
-      <AboutSection/>
-      <QuickLinks/>
-      <WhyChooseUs/>
-      <Testimonials/>
+      <AboutSection />
+      <QuickLinks />
+      <WhyChooseUs />
+      <Testimonials />
     </>
   );
 }
 
-function Contact(){
-  return(
-    <>
-    <ContactPage/>
-    
-    </>
-  )
+function Contact() {
+  return <ContactPage />;
 }
 
-function NdisServices(){
-  return(
-    <>
-    <NdisServices/>
-    </>
-  )
+// Wrapper function for NdisServices route
+function NdisServicesWrapper() {
+  return <NdisServicesPage />;
 }
 
 const App = () => {
@@ -44,9 +37,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path='/ndis-services' element={<NdisServices/>} />
-     
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/ndis" element={<NdisServicesWrapper />} />
       </Routes>
       <Footer />
     </Router>
