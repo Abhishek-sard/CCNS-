@@ -7,9 +7,9 @@ import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/Testimonials';
-import Contactpage from './Components/Contact/Contactpage';
+import ContactPage from './Components/Contact/Contactpage';
 
-import Ndisservicespage from './Components/NDIS/NdisServices'; 
+import NdisServicesPage from './Components/NDIS/NdisServices'; //changed NdisServices to NdisServicesPage
 
 function Home() {
   return (
