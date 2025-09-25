@@ -6,20 +6,20 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r from-blue-400 to-gray-600 shadow-md fixed w-full z-50">
-      <div className="container mx-auto px-4 flex justify-between items-center h-18">
+    <nav className="bg-gradient-to-r from-yellow-500 to-gray-600 shadow-md fixed w-full z-50">
+      <div className="container mx-auto px-4 flex justify-between items-center h-22">
         
         {/* Logo */}
         <div className="flex items-center">
           <img 
             src={LOGO} 
             alt="Logo" 
-            className="h-60 mt-3 w-auto" // height set to 60px (h-16 = 64px)
+            className="h-100 mt-6 w-100 ml-2" // height set to 60px (h-16 = 64px)
           />
         </div>
         
         {/* Desktop Menu (centered) */}
-        <ul className="hidden md:flex space-x-8 font-medium items-center mx-auto text-white">
+        <ul src="/" className="hidden md:flex space-x-8 font-medium items-center mx-auto text-white">
           <li className="cursor-pointer hover:text-gray-200">Home</li>
           <li className="cursor-pointer hover:text-gray-200">About</li>
           <li className="cursor-pointer hover:text-gray-200">Job Seekers</li>

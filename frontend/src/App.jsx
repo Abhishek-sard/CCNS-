@@ -5,6 +5,8 @@ import Footer from './Components/Footer';
 import Hero from './Components/Home/Hero';
 import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
+import WhyChooseUs from './Components/Home/WhyChooseUs';
+import Testimonials from './Components/Home/testimonials';
 
 function Home() {
   return (
@@ -12,6 +14,8 @@ function Home() {
       <Hero />
       <AboutSection/>
       <QuickLinks/>
+      <WhyChooseUs/>
+      <Testimonials/>
     </>
   );
 }

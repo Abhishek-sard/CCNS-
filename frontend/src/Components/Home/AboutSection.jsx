@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoNurse from '../../assets/filter.png'
 
 
 const AboutSection = () => {
@@ -10,7 +11,7 @@ const AboutSection = () => {
         {/* Left Image (optional) */}
         <div className="md:w-1/2 flex justify-center md:justify-start">
           <img 
-            src="/about-ccna.png" // replace with your image
+            src={LogoNurse} // replace with your image
             alt="About CCNA Agency"
             className="w-3/4 md:w-full rounded-lg shadow-lg"
           />
