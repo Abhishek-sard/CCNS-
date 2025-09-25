@@ -6,9 +6,10 @@ import Hero from './Components/Home/Hero';
 import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
-import Testimonials from './Components/Home/testimonials';
-import Contactpage from './Components/Contact/contactpage';
-import NdisServicesPage from './Components/NDIS/NdisServices'; // renamed import
+import Testimonials from './Components/Home/Testimonials';
+import Contactpage from './Components/Contact/Contactpage';
+
+import Ndisservicespage from './Components/NDIS/NdisServices'; 
 
 function Home() {
   return (
@@ -27,8 +28,8 @@ function Contact() {
 }
 
 // Wrapper function for NdisServices route
-function NdisServicesWrapper() {
-  return <NdisServicesPage />;
+function Ndisserviceswrapper() {
+  return <Ndisservicespage />;
 }
 
 const App = () => {
@@ -38,7 +39,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/ndis" element={<NdisServicesWrapper />} />
+        <Route path="/ndis" element={<Ndisserviceswrapper />} />
       </Routes>
       <Footer />
     </Router>
