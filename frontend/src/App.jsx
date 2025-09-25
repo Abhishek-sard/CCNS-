@@ -7,12 +7,13 @@ import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/Testimonials';
-import ContactPage from './Components/Contact/ContactPage';
+// import ContactPage from './Components/Contact/ContactPage';
 import NdisServices from './Components/NDIS/NdisServices';
 import Intro from './Components/About/Intro';
 import ImageFile from './Components/About/ImageFile';
 import Animation from './Components/About/Animation';
 import Team from './Components/About/Team';
+import Advantage from './Components/Job/Advantage';
 function Home() {
   return (
     <>
@@ -55,6 +56,15 @@ function AboutPage(){
   )
 }
 
+function JobPage(){
+  return(
+    <>
+    <Advantage/>
+    
+    </>
+  )
+}
+
 const App = () => {
   return (
     <Router>
@@ -64,6 +74,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/ndis" element={<Ndisserviceswrapper />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/job" element={<JobPage />} />
       </Routes>
       <Footer />
     </Router>

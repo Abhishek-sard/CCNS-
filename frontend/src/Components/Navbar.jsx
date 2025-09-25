@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LOGO from '/logoccna.png';
+import Advantage from "./Job/Advantage";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +27,21 @@ const Navbar = () => {
           <li>
             <a href="/about" className="cursor-pointer hover:text-gray-200">About</a>
           </li>
-          <li>
-            <a href="/jobseekers" className="cursor-pointer hover:text-gray-200">Job Seekers</a>
+          <li className="relative group cursor-pointer hover:text-gray-200">
+            <span className="flex items-center">JobSeeker</span>
+            {/* Dropdown */}
+            <ul className="absolute left-0 top-6 bg-white shadow-md rounded-md w-44 hidden group-hover:block">
+              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
+                <a href="/ndis-services">Current Vaccancy</a>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
+                <a href="/staffing-nursing">Apply Online</a>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
+                <a href="/job">CCNA Agency</a>
+              </li>
+
+            </ul>
           </li>
           <li className="relative group cursor-pointer hover:text-gray-200">
             <span className="flex items-center">Services</span>
