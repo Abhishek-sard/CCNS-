@@ -8,35 +8,50 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-yellow-500 to-gray-600 shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 flex justify-between items-center h-22">
-        
+
         {/* Logo */}
         <div className="flex items-center">
-          <img 
-            src={LOGO} 
-            alt="Logo" 
+          <img
+            src={LOGO}
+            alt="Logo"
             className="h-100 mt-6 w-100 ml-2" // height set to 60px (h-16 = 64px)
           />
         </div>
-        
+
         {/* Desktop Menu (centered) */}
-        <ul src="/" className="hidden md:flex space-x-8 font-medium items-center mx-auto text-white">
-          <li className="cursor-pointer hover:text-gray-200">Home</li>
-          <li className="cursor-pointer hover:text-gray-200">About</li>
-          <li className="cursor-pointer hover:text-gray-200">Job Seekers</li>
+        <ul className="hidden md:flex space-x-8 font-medium items-center mx-auto text-white">
+          <li>
+            <a href="/" className="cursor-pointer hover:text-gray-200">Home</a>
+          </li>
+          <li>
+            <a href="/about" className="cursor-pointer hover:text-gray-200">About</a>
+          </li>
+          <li>
+            <a href="/jobseekers" className="cursor-pointer hover:text-gray-200">Job Seekers</a>
+          </li>
           <li className="relative group cursor-pointer hover:text-gray-200">
             <span className="flex items-center">Services</span>
             {/* Dropdown */}
             <ul className="absolute left-0 top-6 bg-white shadow-md rounded-md w-44 hidden group-hover:block">
-              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">NDIS Services</li>
-              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">Staffing & Nursing</li>
+              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
+                <a href="/ndis-services">NDIS Services</a>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
+                <a href="/staffing-nursing">Staffing & Nursing</a>
+              </li>
             </ul>
           </li>
-          <li className="cursor-pointer hover:text-gray-200">Blog</li>
-          <li className="cursor-pointer hover:text-gray-200">Contact</li>
+          <li>
+            <a href="/blog" className="cursor-pointer hover:text-gray-200">Blog</a>
+          </li>
+          <li>
+            <a href="/contact" className="cursor-pointer hover:text-gray-200">Contact</a>
+          </li>
         </ul>
-        
+
+
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-white text-2xl"
           onClick={() => setIsOpen(!isOpen)}
         >

@@ -4,8 +4,8 @@ import Logo from '../assets/logoccna1.png'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 py-10 text-white">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-yellow-600 py-6 text-white">
+      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
 
         {/* Quick Links */}
         <div>
@@ -27,19 +27,21 @@ const Footer = () => {
           <p>📍 Office: 123 Health St, Sydney, Australia</p>
         </div>
 
-        {/* NDIS & Social Media */}
+        {/* NDIS Provider */}
         <div>
           <h3 className="text-lg font-semibold mb-4">NDIS Provider</h3>
           <div className="flex items-center gap-4 mb-4">
             <img
               src={Logo}
               alt="NDIS Logo"
-              className="h-20 w-20 object-contain" // adjusted size
+              className="h-80 w-80 md:h-24 md:w-24 object-contain"
             />
-            <span className="text-sm text-gray-300">Registered NDIS Provider</span>
           </div>
+        </div>
 
-          <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
+        {/* Follow Us */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-4 text-white">
             <a href="#" className="hover:text-blue-400 transition"><FaFacebookF /></a>
             <a href="#" className="hover:text-blue-400 transition"><FaTwitter /></a>
@@ -50,11 +52,10 @@ const Footer = () => {
 
       </div>
 
-      <div className="text-center mt-12 text-gray-400 text-sm">
+      <div className="text-center mt-8 text-black-400 text-sm">
         &copy; {new Date().getFullYear()} CCNA Agency. All rights reserved.
       </div>
     </footer>
-
   );
 };
 

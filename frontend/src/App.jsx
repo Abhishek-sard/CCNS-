@@ -7,6 +7,7 @@ import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/testimonials';
+import ContactPage from './Components/Contact/contactpage';
 
 function Home() {
   return (
@@ -20,12 +21,22 @@ function Home() {
   );
 }
 
+function Contact(){
+  return(
+    <>
+    <ContactPage/>
+    
+    </>
+  )
+}
+
 const App = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact/>} />
      
       </Routes>
       <Footer />
