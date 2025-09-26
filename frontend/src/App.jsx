@@ -7,13 +7,19 @@ import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/Testimonials';
-// import ContactPage from './Components/Contact/ContactPage';
+import ContactPage from './Components/Contact/ContactPage';
 import NdisServices from './Components/NDIS/NdisServices';
 import Intro from './Components/About/Intro';
 import ImageFile from './Components/About/ImageFile';
 import Animation from './Components/About/Animation';
 import Team from './Components/About/Team';
 import Advantage from './Components/Job/Advantage';
+import NdisCover from './Components/Service/NdisCover';
+import Staffing from './Components/Service/Staffing';
+import BlogPage from './Components/Blog/BlogPage';
+import CurrentVaccancy from './Components/Job/CurrentVaccancy'
+import ApplyOnline from './Components/Job/ApplyOnline';
+
 function Home() {
   return (
     <>
@@ -22,7 +28,7 @@ function Home() {
       <QuickLinks />
       <WhyChooseUs />
       <Testimonials />
-      
+
     </>
   );
 }
@@ -45,25 +51,35 @@ function Ndisserviceswrapper() {
 
 }
 
-function AboutPage(){
-  return(
+function AboutPage() {
+  return (
     <>
-    <Intro/>
-    <ImageFile/>
-    <Animation/>
-    <Team/>
+      <Intro />
+      <ImageFile />
+      <Animation />
+      <Team />
     </>
   )
 }
 
-function JobPage(){
-  return(
+function JobPage() {
+  return (
     <>
-    <Advantage/>
-    
+      <Advantage />
+      
+
     </>
   )
 }
+
+function BlogPageReturn(){
+  return(
+    <>
+    <BlogPage/>
+    </>
+  )
+}
+
 
 const App = () => {
   return (
@@ -75,8 +91,16 @@ const App = () => {
         <Route path="/ndis" element={<Ndisserviceswrapper />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/job" element={<JobPage />} />
-      </Routes>
-      <Footer />
+       
+          <Route path="/ndiscover" element={<NdisCover />} />
+          <Route path="/staffing" element={<Staffing />} />
+
+          <Route path="/blog" element={<BlogPageReturn/>} />
+
+          <Route path='/currentvaccancy' element={<CurrentVaccancy/>} />
+          <Route path='/applyonline' element={<ApplyOnline/>} />
+        </Routes>
+        <Footer />
     </Router>
   );
 };

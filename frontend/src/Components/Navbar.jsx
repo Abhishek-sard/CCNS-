@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LOGO from '/logoccna.png';
 import Advantage from "./Job/Advantage";
+import NdisCover from "./Service/NdisCover";
+import Staffing from "./Service/Staffing";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,10 +35,10 @@ const Navbar = () => {
             {/* Dropdown */}
             <ul className="absolute left-0 top-6 bg-white shadow-md rounded-md w-44 hidden group-hover:block">
               <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
-                <a href="/ndis-services">Current Vaccancy</a>
+                <a href="/currentvaccancy">Current Vaccancy</a>
               </li>
               <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
-                <a href="/staffing-nursing">Apply Online</a>
+                <a href="/applyonline">Apply Online</a>
               </li>
               <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
                 <a href="/job">CCNA Agency</a>
@@ -47,11 +50,12 @@ const Navbar = () => {
             <span className="flex items-center">Services</span>
             {/* Dropdown */}
             <ul className="absolute left-0 top-6 bg-white shadow-md rounded-md w-44 hidden group-hover:block">
+
               <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
-                <a href="/ndis-services">NDIS Services</a>
+                <Link to="/staffing">Staffing & Nursing</Link>
               </li>
               <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer text-black">
-                <a href="/staffing-nursing">Staffing & Nursing</a>
+                <Link to="/ndiscover">NDIS Services</Link>
               </li>
             </ul>
           </li>

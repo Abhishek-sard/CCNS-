@@ -1,5 +1,6 @@
 import React from "react";
 import ImageHero from "../../assets/nurse.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
     return (
@@ -22,12 +23,19 @@ const Hero = () => {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+                        <Link
+                            to="/NdisCover"
+                            className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition text-center"
+                        >
                             Explore NDIS Services
-                        </button>
-                        <button className="bg-blue-800 px-6 py-3 rounded-lg font-semibold hover:bg-blue-900 transition">
+                        </Link>
+
+                        <Link
+                            to="/Staffing"
+                            className="bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-900 transition text-center"
+                        >
                             Find Staffing Solutions
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
