@@ -19,6 +19,8 @@ import Staffing from './Components/Service/Staffing';
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy'
 import ApplyOnline from './Components/Job/ApplyOnline';
+import Dashboard from './Components/Dashboard/AdminDashboard';
+
 
 function Home() {
   return (
@@ -66,16 +68,16 @@ function JobPage() {
   return (
     <>
       <Advantage />
-      
+
 
     </>
   )
 }
 
-function BlogPageReturn(){
-  return(
+function BlogPageReturn() {
+  return (
     <>
-    <BlogPage/>
+      <BlogPage />
     </>
   )
 }
@@ -91,16 +93,22 @@ const App = () => {
         <Route path="/ndis" element={<Ndisserviceswrapper />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/job" element={<JobPage />} />
-       
-          <Route path="/ndiscover" element={<NdisCover />} />
-          <Route path="/staffing" element={<Staffing />} />
 
-          <Route path="/blog" element={<BlogPageReturn/>} />
+        <Route path="/ndiscover" element={<NdisCover />} />
+        <Route path="/staffing" element={<Staffing />} />
 
-          <Route path='/currentvaccancy' element={<CurrentVaccancy/>} />
-          <Route path='/applyonline' element={<ApplyOnline/>} />
-        </Routes>
-        <Footer />
+        <Route path="/blog" element={<BlogPageReturn />} />
+
+        <Route path='/currentvaccancy' element={<CurrentVaccancy />} />
+        <Route path='/applyonline' element={<ApplyOnline />} />
+
+
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
+      </Routes>
+      <Footer />
     </Router>
   );
 };
