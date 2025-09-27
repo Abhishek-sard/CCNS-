@@ -19,10 +19,10 @@ const ContactForm = () => {
       });
 
       if (res.data && res.data.success) {
-        setStatus({ loading: false, msg: "Message sent! We'll get back to you soon.", error: false });
+        setStatus({ loading: false, msg: "✅ Message sent! We'll get back to you soon.", error: false });
         setForm({ name: "", email: "", subject: "", message: "" });
       } else {
-        setStatus({ loading: false, msg: res.data?.message || "Failed to send message", error: true });
+        setStatus({ loading: false, msg: res.data?.message || "❌ Failed to send message", error: true });
       }
     } catch (err) {
       console.error(err);
@@ -32,64 +32,75 @@ const ContactForm = () => {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: "0 auto", padding: 20 }}>
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: 10 }}>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-blue-100 p-6">
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-8 mt-19">
+        {/* Header */}
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
+          Contact Us
+        </h2>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-5">
           <input
             name="name"
-            placeholder="Your name"
+            type="text"
+            placeholder="Your Name"
             value={form.name}
             onChange={handleChange}
             required
-            style={{ width: "100%", padding: 8 }}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
-        </div>
 
-        <div style={{ marginBottom: 10 }}>
           <input
             name="email"
-            placeholder="Your email"
+            type="email"
+            placeholder="Your Email"
             value={form.email}
             onChange={handleChange}
             required
-            type="email"
-            style={{ width: "100%", padding: 8 }}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
-        </div>
 
-        <div style={{ marginBottom: 10 }}>
           <input
             name="subject"
-            placeholder="Subject (optional)"
+            type="text"
+            placeholder="Subject (Optional)"
             value={form.subject}
             onChange={handleChange}
-            style={{ width: "100%", padding: 8 }}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
-        </div>
 
-        <div style={{ marginBottom: 10 }}>
           <textarea
             name="message"
-            placeholder="Your message"
+            placeholder="Your Message"
             value={form.message}
             onChange={handleChange}
             required
-            rows={6}
-            style={{ width: "100%", padding: 8 }}
-          />
-        </div>
+            rows={5}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          ></textarea>
 
-        <button type="submit" disabled={status.loading} style={{ padding: "10px 16px" }}>
-          {status.loading ? "Sending..." : "Send Message"}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={status.loading}
+            className={`w-full py-3 text-white font-semibold rounded-lg shadow-md transition 
+              ${status.loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
+          >
+            {status.loading ? "Sending..." : "Send Message"}
+          </button>
+        </form>
 
-      {status.msg && (
-        <div style={{ marginTop: 12, color: status.error ? "red" : "green" }}>
-          {status.msg}
-        </div>
-      )}
+        {/* Status Message */}
+        {status.msg && (
+          <p
+            className={`mt-5 text-center font-medium ${
+              status.error ? "text-red-600" : "text-green-600"
+            }`}
+          >
+            {status.msg}
+          </p>
+        )}
+      </div>
     </div>
   );
 };
