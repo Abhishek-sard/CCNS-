@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaHandHoldingHeart, FaFileMedical, FaInfoCircle, FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaUserMd, FaMapMarkedAlt, FaCheckCircle } from "react-icons/fa";
+import { FaHandHoldingHeart, FaFileMedical, FaCheckCircle } from "react-icons/fa";
 
 const NdisServices = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ const NdisServices = () => {
     message: "",
     privacy: false,
   });
+
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
@@ -28,12 +29,12 @@ const NdisServices = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/send-email", {
+      const response = await fetch("http://localhost:5000/api/enquiry/send-agency-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+      
       const data = await response.json();
 
       if (response.ok) {
@@ -93,9 +94,8 @@ const NdisServices = () => {
         </div>
       )}
 
-      {/* Contact Section */}
+      {/* Form */}
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Form */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md">
           <div className="flex items-center mb-6 pb-4 border-b-2 border-gray-200">
             <div className="bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center mr-4">
@@ -105,7 +105,6 @@ const NdisServices = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Participant Name */}
             <div>
               <label className="font-semibold text-gray-700">
                 Participant Name <span className="text-red-600">*</span>
@@ -120,7 +119,6 @@ const NdisServices = () => {
               />
             </div>
 
-            {/* NDIS Number */}
             <div>
               <label className="font-semibold text-gray-700">NDIS Number</label>
               <input
@@ -133,7 +131,6 @@ const NdisServices = () => {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="font-semibold text-gray-700">
                 Email Address <span className="text-red-600">*</span>
@@ -148,7 +145,6 @@ const NdisServices = () => {
               />
             </div>
 
-            {/* Phone */}
             <div>
               <label className="font-semibold text-gray-700">
                 Phone Number <span className="text-red-600">*</span>
@@ -163,7 +159,6 @@ const NdisServices = () => {
               />
             </div>
 
-            {/* Service Type */}
             <div>
               <label className="font-semibold text-gray-700">
                 Type of Service Needed <span className="text-red-600">*</span>
@@ -184,7 +179,6 @@ const NdisServices = () => {
               </select>
             </div>
 
-            {/* Preferred Contact */}
             <div>
               <label className="font-semibold text-gray-700">
                 Preferred Contact Method <span className="text-red-600">*</span>
@@ -215,7 +209,6 @@ const NdisServices = () => {
               </div>
             </div>
 
-            {/* Message */}
             <div>
               <label className="font-semibold text-gray-700">
                 Healthcare Needs Description <span className="text-red-600">*</span>
@@ -230,7 +223,6 @@ const NdisServices = () => {
               ></textarea>
             </div>
 
-            {/* Privacy */}
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -248,9 +240,9 @@ const NdisServices = () => {
           </form>
         </div>
 
-        {/* Contact Details (unchanged) */}
+        {/* Contact Details placeholder */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md">
-          {/* ... Your existing contact details JSX ... */}
+          {/* Add contact details if needed */}
         </div>
       </div>
     </div>

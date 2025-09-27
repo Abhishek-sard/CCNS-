@@ -1,8 +1,9 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import { text } from "express";
 dotenv.config();
 
-// Nodemailer transporter
+// Nodemailer transporter (always use EMAIL_USER + EMAIL_PASS)
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -11,8 +12,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Send NDIS inquiry email
-export const sendEmail = async (req, res) => {
+// Send Agency inquiry email
+export const sendAgencyEmail = async (req, res) => {
   try {
     const { participantName, ndisNumber, email, phone, serviceType, preferredContact, message } = req.body;
 
@@ -20,12 +21,10 @@ export const sendEmail = async (req, res) => {
       return res.status(400).json({ message: "All required fields must be filled" });
     }
 
-    const receivers = process.env.RECEIVER_EMAILS.split(",");
-
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: receivers,
-      subject: `NDIS Inquiry from ${participantName}`,
+      from: process.env.EMAIL_USER, // your Gmail
+      to: process.env.RECEIVER_EMAIL1, // agency@ccnacare.com.au
+      subject: `Agency Inquiry from ${participantName}`,
       text: `
         Participant Name: ${participantName}
         NDIS Number: ${ndisNumber || "N/A"}
@@ -34,14 +33,15 @@ export const sendEmail = async (req, res) => {
         Service Type: ${serviceType}
         Preferred Contact: ${preferredContact}
         Message: ${message}
+        Privacy: ${text}
       `,
     };
 
     await transporter.sendMail(mailOptions);
 
-    res.status(200).json({ message: "Inquiry sent successfully!" });
+    res.status(200).json({ message: "Agency inquiry sent successfully!" });
   } catch (error) {
-    console.error("Email sending error:", error);
+    console.error("Agency Email sending error:", error.message);
     res.status(500).json({ message: "Server error, email not sent" });
   }
 };

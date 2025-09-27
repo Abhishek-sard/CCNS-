@@ -4,35 +4,33 @@ import cors from "cors";
 import VacancyRoutes from "./routes/vacancyRoutes.js";
 import connectDB from "./config/db.js";
 import rateLimit from "express-rate-limit";
-import emailRoutes from "./routes/emailRoutes.js";
-
-
+import emailRoutes from "./routes/emailRoutes.js";       // NDIS contact form
+import enquiryRoutes from "./routes/enquiryRoutes.js";   // Agency enquiry form
 
 dotenv.config();
 
-//  connect database
+// connect database
 connectDB();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-//Rate limiting (basic)
+// Rate limiting (basic, for general email API)
 const limiter = rateLimit({
-    windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60*60*1000,//default 1 hour
-    max: Number(process.env.RATE_LIMIT_MAX) || 10, //DEFAULT 10 REQUEST PER HOUR
-    message: "Too many requests from this IP, please try again later.",
+  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60 * 60 * 1000, // default 1 hour
+  max: Number(process.env.RATE_LIMIT_MAX) || 10, // default 10 requests per hour
+  message: "Too many requests from this IP, please try again later.",
 });
 app.use("/api/email", limiter);
 
 // Routes
 app.use("/api/vacancies", VacancyRoutes);
-app.use("/api/email", emailRoutes);
+app.use("/api/email", emailRoutes);      // for NDIS contact form
+app.use("/api/enquiry", enquiryRoutes);  // for Agency enquiry form
 
-//basic health check
-app.get("/", (req,res)=> res.send("Email backend running"));
+// basic health check
+app.get("/", (req, res) => res.send("Email backend running"));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
- 
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
