@@ -21,7 +21,6 @@ import CurrentVaccancy from './Components/Job/CurrentVaccancy'
 import ApplyOnline from './Components/Job/ApplyOnline';
 import Dashboard from './Components/Dashboard/AdminDashboard';
 
-
 function Home() {
   return (
     <>
@@ -101,6 +100,7 @@ const App = () => {
 
         <Route path='/currentvaccancy' element={<CurrentVaccancy />} />
         <Route path='/applyonline' element={<ApplyOnline />} />
+
 
 
         <Route
