@@ -64,7 +64,7 @@ const BlogPage = () => {
     return (
         <div className="bg-gray-100 min-h-screen pt-28 px-6 md:px-20">
             <h1 className="text-4xl font-extrabold text-center text-blue-800 mb-12">
-                Project Blog
+                CCNA  Blog
             </h1>
 
             <div className="flex flex-wrap gap-6 justify-center">

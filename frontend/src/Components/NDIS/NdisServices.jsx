@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaHandHoldingHeart, FaFileMedical, FaCheckCircle } from "react-icons/fa";
+import { FaHandHoldingHeart, FaFileMedical, FaCheckCircle, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 const NdisServices = () => {
   const [formData, setFormData] = useState({
@@ -34,13 +34,12 @@ const NdisServices = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      
+
       const data = await response.json();
 
       if (response.ok) {
         setSuccess(true);
         window.scrollTo(0, 0);
-
         setTimeout(() => {
           setFormData({
             participantName: "",
@@ -94,8 +93,9 @@ const NdisServices = () => {
         </div>
       )}
 
-      {/* Form */}
+      {/* Main Layout */}
       <div className="flex flex-col md:flex-row gap-8">
+        {/* Left Side: Form */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md">
           <div className="flex items-center mb-6 pb-4 border-b-2 border-gray-200">
             <div className="bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center mr-4">
@@ -105,6 +105,7 @@ const NdisServices = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Participant Name */}
             <div>
               <label className="font-semibold text-gray-700">
                 Participant Name <span className="text-red-600">*</span>
@@ -119,6 +120,7 @@ const NdisServices = () => {
               />
             </div>
 
+            {/* NDIS Number */}
             <div>
               <label className="font-semibold text-gray-700">NDIS Number</label>
               <input
@@ -131,6 +133,7 @@ const NdisServices = () => {
               />
             </div>
 
+            {/* Email */}
             <div>
               <label className="font-semibold text-gray-700">
                 Email Address <span className="text-red-600">*</span>
@@ -145,6 +148,7 @@ const NdisServices = () => {
               />
             </div>
 
+            {/* Phone */}
             <div>
               <label className="font-semibold text-gray-700">
                 Phone Number <span className="text-red-600">*</span>
@@ -159,6 +163,7 @@ const NdisServices = () => {
               />
             </div>
 
+            {/* Service Type */}
             <div>
               <label className="font-semibold text-gray-700">
                 Type of Service Needed <span className="text-red-600">*</span>
@@ -179,6 +184,7 @@ const NdisServices = () => {
               </select>
             </div>
 
+            {/* Preferred Contact */}
             <div>
               <label className="font-semibold text-gray-700">
                 Preferred Contact Method <span className="text-red-600">*</span>
@@ -209,6 +215,7 @@ const NdisServices = () => {
               </div>
             </div>
 
+            {/* Message */}
             <div>
               <label className="font-semibold text-gray-700">
                 Healthcare Needs Description <span className="text-red-600">*</span>
@@ -223,6 +230,7 @@ const NdisServices = () => {
               ></textarea>
             </div>
 
+            {/* Privacy */}
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -231,18 +239,78 @@ const NdisServices = () => {
                 onChange={handleChange}
                 required
               />
-              <label>I agree to the privacy policy and consent to being contacted regarding NDIS services</label>
+              <label>
+                I agree to the privacy policy and consent to being contacted regarding NDIS services
+              </label>
             </div>
 
-            <button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded font-semibold mt-2">
+            {/* Submit */}
+            <button
+              type="submit"
+              className="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded font-semibold mt-2"
+            >
               Submit Healthcare Inquiry
             </button>
           </form>
         </div>
 
-        {/* Contact Details placeholder */}
-        <div className="flex-1 bg-white p-8 rounded-lg shadow-md">
-          {/* Add contact details if needed */}
+        {/* Right Side: CCNA Details & Map */}
+        <div className="flex-1 bg-white p-8 rounded-lg shadow-md flex flex-col justify-between">
+          <div className="space-y-4">
+            <h3 className="text-3xl font-bold text-green-700">CCNA Agency</h3>
+            <p className="flex items-center gap-3">
+              <FaPhoneAlt className="text-green-600" /> 0421 079 928
+            </p>
+            <p className="flex items-center gap-3">
+              <FaEnvelope className="text-green-600 text-3xl" /> info@ccnaagency.com
+            </p>
+            <p className="flex items-start gap-3">
+              <FaMapMarkerAlt className="text-green-600 text-3xl mt-1" />
+              Suite 616, Level 6, <br />
+              368 Sussex St, Sydney, NSW 2000
+            </p>
+            <p className="flex items-center gap-3 text-3xl">
+              <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00 PM
+            </p>
+
+            {/* Social Media */}
+            <div className="flex items-center gap-4 mt-2">
+              <a href="https://www.facebook.com/CCNASouthAustralia/" target="_blank" className="text-blue-700 hover:text-blue-900 ">
+                <FaFacebookF />
+              </a>
+              <a href="https://www.linkedin.com/in/ccnasa-679912282/" target="_blank" className="text-blue-500 hover:text-blue-700">
+                <FaLinkedinIn />
+              </a>
+              <a href="https://wa.me/0421079928" target="_blank" className="text-green-600 hover:text-green-800">
+                <FaWhatsapp />
+              </a>
+            </div>
+
+            {/* Get Directions Button */}
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=368+Sussex+St,+Sydney,+NSW+2000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg shadow-md font-semibold transition"
+            >
+              ➡️ Get Directions
+            </a>
+          </div>
+
+          {/* Google Map */}
+          <div className="mt-6">
+            <iframe
+              title="CCNA Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.808943522107!2d151.20344357613655!3d-33.87721002041602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3b6bdb4d0d%3A0x3b6e66e3d52e5f8!2s368%20Sussex%20St%2C%20Sydney%20NSW%202000%2C%20Australia!5e0!3m2!1sen!2sau!4v1695975086741!5m2!1sen!2sau"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg shadow-md"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

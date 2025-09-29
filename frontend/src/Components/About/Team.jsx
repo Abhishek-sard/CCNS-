@@ -5,7 +5,6 @@ const teamMembers = [
   {
     name: "Dr. Sarah Johnson",
     role: "Chief Medical Officer",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
     linkedin: "#",
     twitter: "#",
     facebook: "#",
@@ -13,7 +12,6 @@ const teamMembers = [
   {
     name: "John Smith",
     role: "Head of Recruitment",
-    image: "https://randomuser.me/api/portraits/men/45.jpg",
     linkedin: "#",
     twitter: "#",
     facebook: "#",
@@ -21,7 +19,6 @@ const teamMembers = [
   {
     name: "Emily Davis",
     role: "Operations Manager",
-    image: "https://randomuser.me/api/portraits/women/46.jpg",
     linkedin: "#",
     twitter: "#",
     facebook: "#",
@@ -29,7 +26,6 @@ const teamMembers = [
   {
     name: "Michael Brown",
     role: "HR Specialist",
-    image: "https://randomuser.me/api/portraits/men/47.jpg",
     linkedin: "#",
     twitter: "#",
     facebook: "#",

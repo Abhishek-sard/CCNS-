@@ -32,10 +32,10 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-2">NDIS Provider</h3>
           <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
           <div className="flex gap-3 text-white text-lg">
-            <a href="#" className="hover:text-blue-400 transition"><FaFacebookF /></a>
+            <a href="https://www.facebook.com/CCNASouthAustralia/" className="hover:text-blue-400 transition"><FaFacebookF /></a>
             <a href="#" className="hover:text-blue-400 transition"><FaTwitter /></a>
-            <a href="#" className="hover:text-blue-400 transition"><FaLinkedinIn /></a>
-            <a href="#" className="hover:text-blue-400 transition"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/in/ccnasa-679912282/" className="hover:text-blue-400 transition"><FaLinkedinIn /></a>
+            <a href="https://www.instagram.com/creative_career_nursing_agency/" className="hover:text-blue-400 transition"><FaInstagram /></a>
           </div>
         </div>
 
