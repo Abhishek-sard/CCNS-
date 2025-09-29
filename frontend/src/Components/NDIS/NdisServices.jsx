@@ -269,22 +269,23 @@ const NdisServices = () => {
               Suite 616, Level 6, <br />
               368 Sussex St, Sydney, NSW 2000
             </p>
-            <p className="flex items-center gap-3 text-3xl">
+            <p className="flex items-center gap-3 text-2xl">
               <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00 PM
             </p>
 
             {/* Social Media */}
             <div className="flex items-center gap-4 mt-2">
-              <a href="https://www.facebook.com/CCNASouthAustralia/" target="_blank" className="text-blue-700 hover:text-blue-900 ">
+              <a href="https://www.facebook.com/CCNASouthAustralia/" target="_blank" className="text-blue-700 hover:text-blue-900 text-2xl">
                 <FaFacebookF />
               </a>
-              <a href="https://www.linkedin.com/in/ccnasa-679912282/" target="_blank" className="text-blue-500 hover:text-blue-700">
+              <a href="https://www.linkedin.com/in/ccnasa-679912282/" target="_blank" className="text-blue-500 hover:text-blue-700 text-2xl">
                 <FaLinkedinIn />
               </a>
-              <a href="https://wa.me/0421079928" target="_blank" className="text-green-600 hover:text-green-800">
+              <a href="https://wa.me/0421079928" target="_blank" className="text-green-600 hover:text-green-800 text-2xl">
                 <FaWhatsapp />
               </a>
             </div>
+
 
             {/* Get Directions Button */}
             <a
