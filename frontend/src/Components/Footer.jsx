@@ -4,12 +4,12 @@ import Logo from '../assets/logoccna1.png'
 
 const Footer = () => {
   return (
-    <footer className="bg-yellow-600 py-2 text-white">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+    <footer className="bg-yellow-600 py-3 text-white">
+      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
+          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <ul className="space-y-1 text-sm">
             <li><a href="#" className="hover:text-blue-400 transition">NDIS Services</a></li>
             <li><a href="#" className="hover:text-blue-400 transition">Staffing Services</a></li>
@@ -21,15 +21,15 @@ const Footer = () => {
 
         {/* Contact Details */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
-          <p className="mb-1 text-sm">📞 Phone: +61 123 456 789</p>
+          <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
+          <p className="mb-1 text-sm">📞 Phone: 0421 079 928 </p>
           <p className="mb-1 text-sm">✉️ Email: info@ccnaagency.com</p>
-          <p className="text-sm">📍 Office: 123 Health St, Sydney, Australia</p>
+          <p className="text-sm">📍 Office: Suite 616, level 6, 368 Sussex St-Sydney-NSW-2000</p>
         </div>
 
         {/* NDIS Provider / Social Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">NDIS Provider</h3>
+          <h3 className="text-lg font-semibold mb-2">NDIS Provider</h3>
           <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
           <div className="flex gap-3 text-white text-lg">
             <a href="#" className="hover:text-blue-400 transition"><FaFacebookF /></a>
@@ -44,13 +44,13 @@ const Footer = () => {
           <img
             src={Logo}
             alt="NDIS Logo"
-            className="h-[200px] w-[200px] md:h-[350px] md:w-[350px] object-contain"
+            className="h-[150px] w-[150px] md:h-[200px] md:w-[200px] object-contain"
           />
         </div>
 
       </div>
 
-      <div className="text-center mt-4 text-black text-xs">
+      <div className="text-center mt-3 text-black text-xs">
         &copy; {new Date().getFullYear()} CCNA Agency. All rights reserved.
       </div>
     </footer>

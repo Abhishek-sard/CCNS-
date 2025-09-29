@@ -1,5 +1,5 @@
 import React from "react";
-import TeamImage from "../../assets/group.jpg"
+import TeamImage from "../../assets/groupdoctor.jpg.jpg"
 const ImageFile = () => {
   return (
     <section className="py-16 bg-gray-50">
