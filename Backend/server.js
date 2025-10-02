@@ -4,8 +4,9 @@ import cors from "cors";
 import VacancyRoutes from "./routes/vacancyRoutes.js";
 import connectDB from "./config/db.js";
 import rateLimit from "express-rate-limit";
-import emailRoutes from "./routes/emailRoutes.js";       // NDIS contact form
-import enquiryRoutes from "./routes/enquiryRoutes.js";   // Agency enquiry form
+import emailRoutes from "./routes/emailRoutes.js";       
+import enquiryRoutes from "./routes/enquiryRoutes.js";  
+import authRoutes from "./routes/auth.js";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use("/api/email", limiter);
 app.use("/api/vacancies", VacancyRoutes);
 app.use("/api/email", emailRoutes);      // for NDIS contact form
 app.use("/api/enquiry", enquiryRoutes);  // for Agency enquiry form
+app.use("/api/auth", authRoutes);
 
 // basic health check
 app.get("/", (req, res) => res.send("Email backend running"));
