@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Hero from './Components/Home/Hero';
@@ -20,6 +20,8 @@ import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy'
 import ApplyOnline from './Components/Job/ApplyOnline';
 import Dashboard from './Components/Dashboard/AdminDashboard';
+import Login from './Components/Login/Login';
+import Register from './Components/Login/Register';
 
 function Home() {
   return (
@@ -83,6 +85,7 @@ function BlogPageReturn() {
 
 
 const App = () => {
+  const role = localStorage.getItem("role");
   return (
     <Router>
       <Navbar />
@@ -102,11 +105,10 @@ const App = () => {
         <Route path='/applyonline' element={<ApplyOnline />} />
 
 
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path="/dashboard" element={role === "admin" ? <Dashboard /> : <Navigate to="/" />} />
 
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
       </Routes>
       <Footer />
     </Router>
