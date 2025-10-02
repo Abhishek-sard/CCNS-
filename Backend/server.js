@@ -15,7 +15,7 @@ connectDB();
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // ✅ only once
 
 // Rate limiting (basic, for general email API)
 const limiter = rateLimit({
@@ -27,8 +27,8 @@ app.use("/api/email", limiter);
 
 // Routes
 app.use("/api/vacancies", VacancyRoutes);
-app.use("/api/email", emailRoutes);      // for NDIS contact form
-app.use("/api/enquiry", enquiryRoutes);  // for Agency enquiry form
+app.use("/api/email", emailRoutes);      
+app.use("/api/enquiry", enquiryRoutes);  
 app.use("/api/auth", authRoutes);
 
 // basic health check
