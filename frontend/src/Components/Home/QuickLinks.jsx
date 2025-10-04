@@ -13,7 +13,7 @@ const QuickLinks = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {/* NDIS Services Card */}
           <Link
-            to="/NdisServices"
+            to="/NdisCover"
             className="flex flex-col items-center bg-blue-50 hover:bg-blue-100 transition rounded-lg shadow-lg p-8 text-center"
           >
             <FaHospital className="text-6xl text-blue-700 mb-4" />
