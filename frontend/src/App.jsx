@@ -23,6 +23,7 @@ import Dashboard from './Components/Dashboard/AdminDashboard';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
 import ImageCollection from './Components/Home/ImageCollection';
+import AboutUs from './Components/About/AboutUs';
 
 function Home() {
   return (
@@ -64,6 +65,7 @@ function AboutPage() {
       <Animation />
       <Team />
       <Intro />
+      <AboutUs/>
     </>
   )
 }
