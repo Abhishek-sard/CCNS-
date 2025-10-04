@@ -10,7 +10,6 @@ import Testimonials from './Components/Home/Testimonials';
 import ContactPage from './Components/Contact/ContactPage';
 import NdisServices from './Components/NDIS/NdisServices';
 import Intro from './Components/About/Intro';
-import ImageFile from './Components/About/ImageFile';
 import Animation from './Components/About/Animation';
 import Team from './Components/About/Team';
 import Advantage from './Components/Job/Advantage';
@@ -22,6 +21,7 @@ import ApplyOnline from './Components/Job/ApplyOnline';
 import Dashboard from './Components/Dashboard/AdminDashboard';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
+import ImageCollection from './Components/Home/ImageCollection';
 
 function Home() {
   return (
@@ -30,7 +30,7 @@ function Home() {
       <AboutSection />
       <QuickLinks />
       <WhyChooseUs />
-      <ImageFile/>
+      <ImageCollection/>
       <Testimonials />
 
     </>
