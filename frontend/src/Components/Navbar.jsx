@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; // ✅ use NavLink
+import { NavLink } from "react-router-dom"; 
 import LOGO from '/logoccna.png';
 
 const Navbar = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 font-medium items-center mx-auto">
+        <ul className="hidden md:flex space-x-8 font-medium text-lg items-center mx-auto">
           <li>
             <NavLink to="/" className={linkClasses}>Home</NavLink>
           </li>

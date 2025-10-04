@@ -77,19 +77,80 @@ const AnimatedCard = ({ card, direction = "left", delay = 0 }) => {
 
 const QuickLinks = () => {
   const cards = [
-    { title: "Personal Care", description: "Dignified assistance...", image: personalImage, color: "bg-blue-600" },
-    { title: "Nursing", description: "Assistance with daily tasks...", image: nursingImage, color: "bg-green-600" },
-    { title: "Hospitality", description: "Accommodation, transport...", image: hospitalityImage, color: "bg-yellow-600" },
-    { title: "Healthcare", description: "Support with medical procedures...", image: healthcareImage, color: "bg-red-600" },
-    { title: "Rehabilitation", description: "Rehab & physical therapy...", image: rehabImage, color: "bg-purple-600" },
-    { title: "Wellness", description: "Exercise, diet & relaxation...", image: wellnessImage, color: "bg-pink-600" },
-    { title: "Education", description: "Educational programs...", image: educationImage, color: "bg-indigo-600" },
-    { title: "Finance", description: "Financial management...", image: financeImage, color: "bg-orange-600" },
-    { title: "Legal", description: "Legal matters support...", image: legalImage, color: "bg-teal-600" },
-    { title: "Security", description: "Security procedures & more...", image: securityImage, color: "bg-gray-700" },
-    { title: "Business", description: "Business solutions...", image: businessImage, color: "bg-cyan-600" },
-    { title: "IT", description: "Computer & network issues...", image: itImage, color: "bg-rose-600" },
+    {
+      title: "Personal Care",
+      description: "Compassionate support with daily living activities such as bathing, grooming, and dressing, ensuring dignity and comfort at all times.",
+      image: personalImage,
+      color: "bg-blue-600"
+    },
+    {
+      title: "Nursing Care",
+      description: "Professional nursing services including wound care, medication management, and monitoring of vital health conditions at home.",
+      image: nursingImage,
+      color: "bg-green-600"
+    },
+    {
+      title: "Companionship",
+      description: "Building meaningful connections through friendly conversations, shared activities, and emotional support to reduce loneliness.",
+      image: hospitalityImage,
+      color: "bg-yellow-600"
+    },
+    {
+      title: "Healthcare Support",
+      description: "Assistance with hospital visits, doctor appointments, physiotherapy sessions, and coordination of medical services.",
+      image: healthcareImage,
+      color: "bg-red-600"
+    },
+    {
+      title: "Rehabilitation",
+      description: "Tailored rehabilitation plans including physical therapy, mobility exercises, and recovery programs for faster healing.",
+      image: rehabImage,
+      color: "bg-purple-600"
+    },
+    {
+      title: "Wellness & Lifestyle",
+      description: "Promoting healthy living with fitness sessions, nutrition planning, and relaxation techniques for overall wellbeing.",
+      image: wellnessImage,
+      color: "bg-pink-600"
+    },
+    {
+      title: "Health Education",
+      description: "Workshops and training for families and caregivers to understand health needs, first aid, and chronic condition management.",
+      image: educationImage,
+      color: "bg-indigo-600"
+    },
+    {
+      title: "Financial Guidance",
+      description: "Support in managing healthcare-related finances, insurance claims, and planning for affordable long-term care.",
+      image: financeImage,
+      color: "bg-orange-600"
+    },
+    {
+      title: "Legal Assistance",
+      description: "Guidance on legal matters such as patient rights, guardianship, and healthcare documentation support.",
+      image: legalImage,
+      color: "bg-teal-600"
+    },
+    {
+      title: "Safety & Security",
+      description: "Ensuring a safe environment with fall-prevention strategies, home safety checks, and emergency response readiness.",
+      image: securityImage,
+      color: "bg-gray-700"
+    },
+    {
+      title: "Community Engagement",
+      description: "Encouraging social participation through group activities, volunteering opportunities, and community events.",
+      image: businessImage,
+      color: "bg-cyan-600"
+    },
+    {
+      title: "Digital Support",
+      description: "Helping seniors and families with technology, from telehealth consultations to staying connected through video calls.",
+      image: itImage,
+      color: "bg-rose-600"
+    },
   ];
+
 
   const directions = ["left", "right", "top", "bottom"];
 
