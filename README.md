@@ -57,3 +57,8 @@ Hover effects on cards and buttons for enhanced user experience.
 
 Users provide consent to comply with privacy policies when submitting inquiries.
 
+name:Admin
+email:admin@example.com
+password: admin123
+role=admin
+
