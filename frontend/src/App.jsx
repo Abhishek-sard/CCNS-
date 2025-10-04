@@ -9,6 +9,7 @@ import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/Testimonials';
 import ContactPage from './Components/Contact/ContactPage';
 import NdisServices from './Components/NDIS/NdisServices';
+import ImageFile from './Components/About/ImageFile';
 import Intro from './Components/About/Intro';
 import Animation from './Components/About/Animation';
 import Team from './Components/About/Team';
@@ -30,7 +31,7 @@ function Home() {
       <AboutSection />
       <QuickLinks />
       <WhyChooseUs />
-      <ImageCollection/>
+      <ImageCollection />
       <Testimonials />
 
     </>
@@ -58,10 +59,11 @@ function Ndisserviceswrapper() {
 function AboutPage() {
   return (
     <>
-      <Intro />
+
       <ImageFile />
       <Animation />
       <Team />
+      <Intro />
     </>
   )
 }

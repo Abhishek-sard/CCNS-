@@ -6,7 +6,7 @@ const ImageFile = () => {
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-10">
         
         {/* Left Side - Image with badge */}
-        <div className="relative w-full md:w-1/2">
+        <div className="relative w-full md:w-1/2 mt-7">
           <img 
             src={TeamImage} 
             alt="Team" 
