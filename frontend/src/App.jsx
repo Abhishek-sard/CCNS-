@@ -30,6 +30,7 @@ function Home() {
       <AboutSection />
       <QuickLinks />
       <WhyChooseUs />
+      <ImageFile/>
       <Testimonials />
 
     </>
