@@ -60,7 +60,7 @@ const Navbar = () => {
             <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
           </li>
           <li>
-            <NavLink to="/contact" className={linkClasses}>Contact</NavLink>
+            <NavLink to="/contact" className={linkClasses}>Register</NavLink>
           </li>
           <li>
             <NavLink to="/ndis" className={linkClasses}>NDIS</NavLink>
@@ -110,7 +110,7 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
-          <NavLink to="/contact" className={linkClasses}>Contact</NavLink>
+          <NavLink to="/contact" className={linkClasses}>Register</NavLink>
           <NavLink to="/ndis" className={linkClasses}>NDIS</NavLink>
         </div>
       )}

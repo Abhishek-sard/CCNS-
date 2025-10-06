@@ -15,7 +15,7 @@ connectDB();
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // ✅ only once
+app.use(express.json()); 
 
 // Rate limiting (basic, for general email API)
 const limiter = rateLimit({
