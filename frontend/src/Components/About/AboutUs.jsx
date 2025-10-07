@@ -43,7 +43,7 @@ const AboutUs = () => {
           ].map((val, i) => (
             <div key={i} className="bg-white p-6 rounded-xl shadow-lg text-center hover:-translate-y-2 transition">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white text-2xl">
-                {val.icon}``
+                {val.icon}
               </div>
               <h3 className="text-xl font-bold mb-2">{val.title}</h3>
               <p className="text-gray-600">{val.text}</p>

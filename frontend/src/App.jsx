@@ -24,6 +24,11 @@ import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
 import ImageCollection from './Components/Home/ImageCollection';
 import AboutUs from './Components/About/AboutUs';
+import MainDashboard from './Components/Dashboard/MainDashboard';
+
+import RegisterPage from "./Components/Dashboard/VacancyForm.jsx";
+import OnlineFormPage from "./Components/Dashboard/Applied.jsx";
+import VacancyPage from "./Components/Dashboard/AdminDashboard.jsx"
 
 
 function Home() {
@@ -114,6 +119,13 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path="/dashboard" element={role === "admin" ? <Dashboard /> : <Navigate to="/" />} />
+
+
+
+        <Route path="/*" element={<MainDashboard />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/online-form" element={<OnlineFormPage />} />
+        <Route path="/vacancy" element={<VacancyPage />} />
 
       </Routes>
       <Footer />
