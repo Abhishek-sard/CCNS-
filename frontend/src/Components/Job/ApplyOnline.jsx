@@ -18,18 +18,38 @@ const ApplyOnline = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  // ✅ Updated handleSubmit function
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can send formData to backend API
-    console.log(formData);
-    alert("Application submitted successfully!");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      resume: null,
-      message: "",
-    });
+
+    try {
+      // Create FormData object to send file + text data
+      const dataToSend = new FormData();
+      dataToSend.append("name", formData.name);
+      dataToSend.append("email", formData.email);
+      dataToSend.append("phone", formData.phone);
+      dataToSend.append("message", formData.message);
+      dataToSend.append("resume", formData.resume);
+
+      const res = await fetch("http://localhost:5000/api/applications", {
+        method: "POST",
+        body: dataToSend,
+      });
+
+      const data = await res.json();
+
+      alert(data.message || "Application submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        resume: null,
+        message: "",
+      });
+    } catch (err) {
+      alert("Error submitting form!");
+      console.error(err);
+    }
   };
 
   return (
@@ -41,6 +61,7 @@ const ApplyOnline = () => {
       <form
         className="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto"
         onSubmit={handleSubmit}
+        encType="multipart/form-data"
       >
         <div className="mb-4">
           <label className="block text-gray-700 font-semibold mb-2">
@@ -57,7 +78,9 @@ const ApplyOnline = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Email</label>
+          <label className="block text-gray-700 font-semibold mb-2">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -69,7 +92,9 @@ const ApplyOnline = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Phone</label>
+          <label className="block text-gray-700 font-semibold mb-2">
+            Phone
+          </label>
           <input
             type="tel"
             name="phone"
@@ -81,7 +106,9 @@ const ApplyOnline = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Upload Resume</label>
+          <label className="block text-gray-700 font-semibold mb-2">
+            Upload Resume
+          </label>
           <input
             type="file"
             name="resume"
@@ -92,7 +119,9 @@ const ApplyOnline = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Message</label>
+          <label className="block text-gray-700 font-semibold mb-2">
+            Message
+          </label>
           <textarea
             name="message"
             value={formData.message}
