@@ -16,37 +16,38 @@ import blogRoutes from "./routes/blogRoutes.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-//middleware
-app.use(bodyParser.json());
-app.use(cors());
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-
 dotenv.config();
 
 // connect database
 connectDB();
 
+// ✅ Initialize app before using it
 const app = express();
+
+// ✅ Middleware
+app.use(bodyParser.json());
 app.use(cors());
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use(express.json());
 
-// Rate limiting (basic, for general email API)
+// ✅ Rate limiting
 const limiter = rateLimit({
-  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60 * 60 * 1000, // default 1 hour
-  max: Number(process.env.RATE_LIMIT_MAX) || 10, // default 10 requests per hour
+  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60 * 60 * 1000, // 1 hour
+  max: Number(process.env.RATE_LIMIT_MAX) || 10, // 10 requests/hour
   message: "Too many requests from this IP, please try again later.",
 });
 app.use("/api/email", limiter);
 
-// Routes
+// ✅ Routes
 app.use("/api/vacancies", VacancyRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/enquiry", enquiryRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/blogs", blogRoutes);
 
-// basic health check
+// ✅ Health Check
 app.get("/", (req, res) => res.send("Email backend running"));
 
+// ✅ Start Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
