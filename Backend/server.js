@@ -1,12 +1,25 @@
 import express from "express";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import VacancyRoutes from "./routes/vacancyRoutes.js";
 import connectDB from "./config/db.js";
 import rateLimit from "express-rate-limit";
-import emailRoutes from "./routes/emailRoutes.js";       
-import enquiryRoutes from "./routes/enquiryRoutes.js";  
+import emailRoutes from "./routes/emailRoutes.js";
+import enquiryRoutes from "./routes/enquiryRoutes.js";
 import authRoutes from "./routes/auth.js";
+import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import blogRoutes from "./routes/blogRoutes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+//middleware
+app.use(bodyParser.json());
+app.use(cors());
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 dotenv.config();
 
@@ -15,7 +28,7 @@ connectDB();
 
 const app = express();
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
 // Rate limiting (basic, for general email API)
 const limiter = rateLimit({
@@ -27,9 +40,10 @@ app.use("/api/email", limiter);
 
 // Routes
 app.use("/api/vacancies", VacancyRoutes);
-app.use("/api/email", emailRoutes);      
-app.use("/api/enquiry", enquiryRoutes);  
+app.use("/api/email", emailRoutes);
+app.use("/api/enquiry", enquiryRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/blogs", blogRoutes);
 
 // basic health check
 app.get("/", (req, res) => res.send("Email backend running"));
