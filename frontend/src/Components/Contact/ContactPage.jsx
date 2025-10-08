@@ -86,15 +86,7 @@ const ContactForm = () => {
             <option value="Group Center">Group Center Activities</option>
           </select>
 
-          <input
-            name="subject"
-            type="text"
-            placeholder="Subject (Optional)"
-            value={form.subject}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-
+         
           <textarea
             name="message"
             placeholder="Your Message"

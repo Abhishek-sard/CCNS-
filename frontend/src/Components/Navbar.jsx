@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; 
+import { NavLink } from "react-router-dom";
 import LOGO from '/logoccna.png';
 
 const Navbar = () => {
@@ -7,8 +7,7 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const linkClasses = ({ isActive }) =>
-    `cursor-pointer transition ${
-      isActive ? "text-blue-400 font-bold underline" : "text-white hover:text-gray-200"
+    `cursor-pointer transition ${isActive ? "text-blue-400 font-bold underline" : "text-white hover:text-gray-200"
     }`;
 
   return (
@@ -52,6 +51,9 @@ const Navbar = () => {
               </li>
               <li className="px-4 py-2 hover:bg-blue-300">
                 <NavLink to="/ndiscover" className="block text-black">NDIS Services</NavLink>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/nursing" className="block text-black">Accommodation / Tendency</NavLink>
               </li>
             </ul>
           </li>
@@ -103,6 +105,11 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/staffing" className="block px-2 py-1 hover:text-blue-600">
                     Staffing & Nursing
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/nursing" className="block px-2 py-1 hover:text-blue-600">
+                    Accommodation / Tendency
                   </NavLink>
                 </li>
               </ul>

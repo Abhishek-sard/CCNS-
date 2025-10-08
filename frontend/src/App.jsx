@@ -16,6 +16,7 @@ import Team from './Components/About/Team';
 import Advantage from './Components/Job/Advantage';
 import NdisCover from './Components/Service/NdisCover';
 import Staffing from './Components/Service/Staffing';
+import Nursing from './Components/Service/CCNANursingAgency.jsx'
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy'
 import ApplyOnline from './Components/Job/ApplyOnline';
@@ -109,6 +110,7 @@ const App = () => {
 
         <Route path="/ndiscover" element={<NdisCover />} />
         <Route path="/staffing" element={<Staffing />} />
+        <Route path='/nursing' element={<Nursing/>}/>
 
         <Route path="/blog" element={<BlogPageReturn />} />
 
