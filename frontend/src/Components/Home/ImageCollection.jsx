@@ -1,9 +1,9 @@
 import React from 'react';
-import image1 from '../../assets/doctor.jpg';
-import image2 from '../../assets/group.jpg';
-import image3 from '../../assets/hospility.jpg';
-import image4 from '../../assets/nurse.png';
-import image5 from '../../assets/It.jpg';
+import image1 from '../../assets/doctor1 (1).jpeg';
+import image2 from '../../assets/doctor1 (2).jpeg';
+import image3 from '../../assets/doctor1 (3).jpeg';
+import image4 from '../../assets/doctor1 (4).jpeg';
+import image5 from '../../assets/doctor1.jpg';
 
 import image6 from '../../assets/legal.jpg';
 

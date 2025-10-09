@@ -7,8 +7,7 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const linkClasses = ({ isActive }) =>
-    `cursor-pointer transition ${isActive ? "text-blue-400 font-bold underline" : "text-white hover:text-gray-200"
-    }`;
+    `cursor-pointer transition ${isActive ? "text-blue-400 font-bold underline" : "text-white hover:text-gray-200"}`;
 
   return (
     <nav className="bg-gradient-to-r from-yellow-500 to-gray-600 shadow-md fixed w-full z-50">
@@ -45,70 +44,37 @@ const Navbar = () => {
 
           <li className="relative group">
             <span className="flex items-center text-white">Services</span>
-            <ul className="absolute left-0 top-6 bg-white shadow-md rounded-md w-44 hidden group-hover:block">
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/staffing" className="block text-black">Staffing & Nursing</NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/ndiscover" className="block text-black">NDIS Services</NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/nursing" className="block text-black">Accommodation / Tendency</NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/assist" className="block text-black">Assist Personal Activities High
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/lifeStage" className="block text-black">Assist-Life Stage, Transition
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/stage" className="block text-black">Assist Personal Activities
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/travel" className="block text-black">Assist Travel/Transport
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/community" className="block text-black">Community Nursing Care
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/dailyTask1" className="block text-black">Daily Tasks/Shared Living
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/development" className="block text-black">Development Life Skills
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/innovCommunity" className="block text-black">Innov Community Participation
-
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/household" className="block text-black">Household Task
-
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/participation" className="block text-black">Participate Community
-
-                </NavLink>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/support" className="block text-black">Support Coordinator
-
-                </NavLink>
-              </li>
-
-              <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/center" className="block text-black">Group/Centre Activities
-
-                </NavLink>
-              </li>
+            {/* Dropdown: more right side, 3 rows per column, transparent */}
+            <ul className="absolute right-1/2 translate-x-1/4 top-6 bg-white/90 backdrop-blur-md shadow-md rounded-md hidden group-hover:grid grid-cols-3 divide-x divide-gray-300 w-[600px] p-4">
+              {[
+                "/staffing", "/ndiscover", "/nursing",
+                "/assist", "/lifeStage", "/stage",
+                "/travel", "/community", "/dailyTask1",
+                "/development", "/innovCommunity", "/household",
+                "/participation", "/support", "/center"
+              ].map((path, index) => (
+                <li key={index} className="px-2 py-2 hover:bg-blue-300 text-black">
+                  <NavLink to={path} className="block text-black">
+                    {[
+                      "Staffing & Nursing",
+                      "NDIS Services",
+                      "Accommodation / Tendency",
+                      "Assist Personal Activities High",
+                      "Assist-Life Stage, Transition",
+                      "Assist Personal Activities",
+                      "Assist Travel/Transport",
+                      "Community Nursing Care",
+                      "Daily Tasks/Shared Living",
+                      "Development Life Skills",
+                      "Innov Community Participation",
+                      "Household Task",
+                      "Participate Community",
+                      "Support Coordinator",
+                      "Group/Centre Activities"
+                    ][index]}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </li>
 
@@ -133,116 +99,48 @@ const Navbar = () => {
       </div >
 
       {/* Mobile Menu */}
-      {
-        isOpen && (
-          <div className="md:hidden bg-gradient-to-r from-blue-600 to-gray-600 px-6 py-4 space-y-3 font-medium text-white">
-            <NavLink to="/" className={linkClasses}>Home</NavLink>
-            <NavLink to="/about" className={linkClasses}>About</NavLink>
-            <NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink>
-            <NavLink to="/applyonline" className={linkClasses}>Apply Online</NavLink>
-            <NavLink to="/job" className={linkClasses}>CCNA Agency</NavLink>
+      {isOpen && (
+        <div className="md:hidden bg-gradient-to-r from-blue-600 to-gray-600 px-6 py-4 space-y-3 font-medium text-white">
+          <NavLink to="/" className={linkClasses}>Home</NavLink>
+          <NavLink to="/about" className={linkClasses}>About</NavLink>
+          <NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink>
+          <NavLink to="/applyonline" className={linkClasses}>Apply Online</NavLink>
+          <NavLink to="/job" className={linkClasses}>CCNA Agency</NavLink>
 
-            {/* Dropdown */}
-            <div>
-              <button
-                className="flex items-center w-full"
-                onClick={() => setDropdown(!dropdown)}
-              >
-                Services
-              </button>
-              {dropdown && (
-                <ul className="ml-6 mt-2 space-y-2 bg-white rounded-md shadow-md text-black">
-                  <li>
-                    <NavLink to="/ndiscover" className="block px-2 py-1 hover:text-blue-600">
-                      NDIS Services
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/staffing" className="block px-2 py-1 hover:text-blue-600">
-                      Staffing & Nursing
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/nursing" className="block px-2 py-1 hover:text-blue-600">
-                      Accommodation / Tendency
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/assist" className="block px-2 py-1 hover:text-blue-600">
-                      Assist Personal Activities High
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/lifeStage" className="block px-2 py-1 hover:text-blue-600">
-                      Assist-Life Stage, Transition
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/stage" className="block px-2 py-1 hover:text-blue-600">
-                      Assist Personal Activities
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/travel" className="block px-2 py-1 hover:text-blue-600">
-                      Assist Travel/Transport
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/community" className="block px-2 py-1 hover:text-blue-600">
-                      Community Nursing Care
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dailyTask" className="block px-2 py-1 hover:text-blue-600">
-                      Daily Tasks/Shared Living
-
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/development" className="block px-2 py-1 hover:text-blue-600">
-                      Development Life Skills
-
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/innovCommunity" className="block px-2 py-1 hover:text-blue-600">
-                      Innov Community Participation
-
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/household" className="block px-2 py-1 hover:text-blue-600">
-                      Household Task
-
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/participation" className="block px-2 py-1 hover:text-blue-600">
-                      Participate Community
-
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/support" className="block px-2 py-1 hover:text-blue-600">
-                      Support Coordinator
-
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/center" className="block px-2 py-1 hover:text-blue-600">
-                      Group/Centre Activities
-                    </NavLink>
-                  </li>
-                </ul>
-              )}
-            </div>
-
-            <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
-            <NavLink to="/contact" className={linkClasses}>Register</NavLink>
-            <NavLink to="/ndis" className={linkClasses}>NDIS</NavLink>
+          {/* Mobile Dropdown */}
+          <div>
+            <button
+              className="flex items-center w-full"
+              onClick={() => setDropdown(!dropdown)}
+            >
+              Services
+            </button>
+            {dropdown && (
+              <ul className="ml-6 mt-2 space-y-2 bg-white rounded-md shadow-md text-black">
+                <li><NavLink to="/ndiscover" className="block px-2 py-1 hover:text-blue-600">NDIS Services</NavLink></li>
+                <li><NavLink to="/staffing" className="block px-2 py-1 hover:text-blue-600">Staffing & Nursing</NavLink></li>
+                <li><NavLink to="/nursing" className="block px-2 py-1 hover:text-blue-600">Accommodation / Tendency</NavLink></li>
+                <li><NavLink to="/assist" className="block px-2 py-1 hover:text-blue-600">Assist Personal Activities High</NavLink></li>
+                <li><NavLink to="/lifeStage" className="block px-2 py-1 hover:text-blue-600">Assist-Life Stage, Transition</NavLink></li>
+                <li><NavLink to="/stage" className="block px-2 py-1 hover:text-blue-600">Assist Personal Activities</NavLink></li>
+                <li><NavLink to="/travel" className="block px-2 py-1 hover:text-blue-600">Assist Travel/Transport</NavLink></li>
+                <li><NavLink to="/community" className="block px-2 py-1 hover:text-blue-600">Community Nursing Care</NavLink></li>
+                <li><NavLink to="/dailyTask" className="block px-2 py-1 hover:text-blue-600">Daily Tasks/Shared Living</NavLink></li>
+                <li><NavLink to="/development" className="block px-2 py-1 hover:text-blue-600">Development Life Skills</NavLink></li>
+                <li><NavLink to="/innovCommunity" className="block px-2 py-1 hover:text-blue-600">Innov Community Participation</NavLink></li>
+                <li><NavLink to="/household" className="block px-2 py-1 hover:text-blue-600">Household Task</NavLink></li>
+                <li><NavLink to="/participation" className="block px-2 py-1 hover:text-blue-600">Participate Community</NavLink></li>
+                <li><NavLink to="/support" className="block px-2 py-1 hover:text-blue-600">Support Coordinator</NavLink></li>
+                <li><NavLink to="/center" className="block px-2 py-1 hover:text-blue-600">Group/Centre Activities</NavLink></li>
+              </ul>
+            )}
           </div>
-        )
-      }
+
+          <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
+          <NavLink to="/contact" className={linkClasses}>Register</NavLink>
+          <NavLink to="/ndis" className={linkClasses}>NDIS</NavLink>
+        </div>
+      )}
     </nav >
   );
 };
