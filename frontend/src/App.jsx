@@ -26,6 +26,7 @@ import CommunityNurse from './Components/Service/CommunityNursingCare.jsx';
 import DailyTask from './Components/Service/DailyTasksSharedLiving.jsx';
 import DailyLife from './Components/Service/DevelopmentLifeSkills .jsx';
 import InvolveCommunity from './Components/Service/InnovCommunityParticipation.jsx';
+import HouseholdTasks from './Components/Service/HouseholdTasks.jsx';
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy';
@@ -128,6 +129,7 @@ const App = () => {
         <Route path='/dailyTask' element={<DailyTask/>}/>
         <Route path='/development' element={<DailyLife/>}/>
         <Route path='/innovCommunity' element={<InvolveCommunity/>}/>
+        <Route path='/household' element={<HouseholdTasks/>}/>
 
          
 
