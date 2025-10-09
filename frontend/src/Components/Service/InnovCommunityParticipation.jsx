@@ -10,21 +10,26 @@ import {
 
 const InnovCommunityParticipation = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-100 flex flex-col items-center justify-center px-6 py-16">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-purple-50 via-white to-indigo-100 px-6 pt-[76px] pb-16">
       {/* Header Section */}
       <div className="text-center mb-12 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-extrabold text-purple-700 mb-4">
           Innovative Community Participation
         </h1>
         <p className="text-lg text-gray-700 leading-relaxed">
-          Encouraging creativity, inclusion, and connection — our community
-          participation programs empower individuals to engage meaningfully with
-          others while discovering new passions and talents.
+          Innovative community participation encourages individuals to engage
+          actively and creatively in their communities through unique and
+          tailored programs. This registration scope might include workshops,
+          social groups, or volunteer opportunities designed to build
+          connections and skills. By fostering inclusion and creativity, these
+          services empower individuals to contribute to society, enhance their
+          social networks, and discover new interests — all while overcoming
+          barriers to participation.
         </p>
       </div>
 
       {/* Card Section */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mb-16">
         {[
           {
             icon: <Users className="text-purple-600 w-10 h-10 mb-3" />,
@@ -75,7 +80,7 @@ const InnovCommunityParticipation = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="mt-16 text-center">
+      <div className="text-center">
         <button className="bg-purple-600 hover:bg-purple-800 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">
           Join the Community
         </button>

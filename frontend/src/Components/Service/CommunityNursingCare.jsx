@@ -25,7 +25,7 @@ const CommunityNursingCare = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-tr from-blue-50 via-white to-blue-100 py-16 px-6 md:px-12 text-gray-800">
+    <div className="w-full min-h-screen bg-gradient-to-tr from-blue-50 via-white to-blue-100 px-6 md:px-12 pt-[76px] pb-16 flex flex-col justify-start text-gray-800">
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">

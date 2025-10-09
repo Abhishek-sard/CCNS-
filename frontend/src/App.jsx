@@ -133,9 +133,9 @@ const App = () => {
         <Route path='/development' element={<DailyLife/>}/>
         <Route path='/innovCommunity' element={<InvolveCommunity/>}/>
         <Route path='/household' element={<HouseholdTasks/>}/>
-        <Route path='/participate' element={<ParticipateCommunity/>}/>
+        <Route path='/participation' element={<ParticipateCommunity/>}/>
         <Route path='/support' element={<SupportCoordination/>}/>
-        <Route path='/groupCentre' element={<GroupCentreActivities/>}/>
+        <Route path='/center' element={<GroupCentreActivities/>}/>
 
          
 
@@ -147,7 +147,7 @@ const App = () => {
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path="/dashboard" element={role === "admin" ? <Dashboard /> : <Navigate to="/" />} />
+        <Route path="/dashboard" element={role === "admin" ? <Dashboard /> : <Navigate to="/*" />} />
 
 
 

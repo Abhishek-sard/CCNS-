@@ -3,9 +3,9 @@ import { Home, UtensilsCrossed, HandCoins, Users } from "lucide-react";
 
 const DailyTasksSharedLiving = () => {
   return (
-    <div className="bg-amber-50 min-h-screen flex flex-col items-center py-16 px-6 md:px-20">
+    <div className="bg-amber-50 min-h-screen flex flex-col items-center px-6 md:px-20 pt-20 md:pt-24 pb-16">
       {/* Header Section */}
-      <div className="text-center max-w-3xl">
+      <div className="text-center max-w-3xl mt-6">
         <h1 className="text-4xl md:text-5xl font-extrabold text-amber-800 mb-4">
           Daily Tasks / Shared Living
         </h1>

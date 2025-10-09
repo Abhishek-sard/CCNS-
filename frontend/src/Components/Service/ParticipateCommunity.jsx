@@ -3,14 +3,19 @@ import { Users, Calendar, Handshake, Smile } from "lucide-react";
 
 const ParticipateCommunity = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-teal-100 flex flex-col items-center justify-center px-6 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-teal-100 flex flex-col items-center justify-center px-6 py-16 pt-24">
       {/* Header Section */}
-      <div className="text-center mb-12 max-w-3xl">
+      <div className="text-center mb-12 max-w-3xl mt-6">
         <h1 className="text-4xl md:text-5xl font-extrabold text-teal-700 mb-4">
           Participate Community
         </h1>
         <p className="text-lg text-gray-700 leading-relaxed">
-          Community participation support helps individuals connect with and contribute to their local areas through social, recreational, or cultural activities. This scope involves organizing outings, facilitating group events, or providing companionship to encourage engagement. The focus is on building social skills, fostering relationships, and enhancing a sense of belonging. By breaking down isolation, this service enriches lives and strengthens community ties.
+          Community participation support helps individuals connect with and contribute to their
+          local areas through social, recreational, or cultural activities. This scope involves
+          organizing outings, facilitating group events, or providing companionship to encourage
+          engagement. The focus is on building social skills, fostering relationships, and enhancing
+          a sense of belonging. By breaking down isolation, this service enriches lives and
+          strengthens community ties.
         </p>
       </div>
 
@@ -47,13 +52,7 @@ const ParticipateCommunity = () => {
           </div>
         ))}
       </div>
-
-      {/* CTA Section */}
-      <div className="mt-16 text-center">
-        <button className="bg-teal-600 hover:bg-teal-800 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">
-          Join the Community
-        </button>
-      </div>
+      
     </div>
   );
 };

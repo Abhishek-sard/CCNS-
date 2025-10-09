@@ -49,7 +49,7 @@ const Navbar = () => {
               {[
                 "/staffing", "/ndiscover", "/nursing",
                 "/assist", "/lifeStage", "/stage",
-                "/travel", "/community", "/dailyTask1",
+                "/travel", "/community", "/dailyTask",
                 "/development", "/innovCommunity", "/household",
                 "/participation", "/support", "/center"
               ].map((path, index) => (
