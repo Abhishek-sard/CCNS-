@@ -98,8 +98,14 @@ const Navbar = () => {
 
                 </NavLink>
               </li>
-                <li className="px-4 py-2 hover:bg-blue-300">
+              <li className="px-4 py-2 hover:bg-blue-300">
                 <NavLink to="/support" className="block text-black">Support Coordinator
+
+                </NavLink>
+              </li>
+
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/center" className="block text-black">Group/Centre Activities
 
                 </NavLink>
               </li>
@@ -124,113 +130,120 @@ const Navbar = () => {
         >
           ☰
         </button>
-      </div>
+      </div >
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-gradient-to-r from-blue-600 to-gray-600 px-6 py-4 space-y-3 font-medium text-white">
-          <NavLink to="/" className={linkClasses}>Home</NavLink>
-          <NavLink to="/about" className={linkClasses}>About</NavLink>
-          <NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink>
-          <NavLink to="/applyonline" className={linkClasses}>Apply Online</NavLink>
-          <NavLink to="/job" className={linkClasses}>CCNA Agency</NavLink>
+      {
+        isOpen && (
+          <div className="md:hidden bg-gradient-to-r from-blue-600 to-gray-600 px-6 py-4 space-y-3 font-medium text-white">
+            <NavLink to="/" className={linkClasses}>Home</NavLink>
+            <NavLink to="/about" className={linkClasses}>About</NavLink>
+            <NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink>
+            <NavLink to="/applyonline" className={linkClasses}>Apply Online</NavLink>
+            <NavLink to="/job" className={linkClasses}>CCNA Agency</NavLink>
 
-          {/* Dropdown */}
-          <div>
-            <button
-              className="flex items-center w-full"
-              onClick={() => setDropdown(!dropdown)}
-            >
-              Services
-            </button>
-            {dropdown && (
-              <ul className="ml-6 mt-2 space-y-2 bg-white rounded-md shadow-md text-black">
-                <li>
-                  <NavLink to="/ndiscover" className="block px-2 py-1 hover:text-blue-600">
-                    NDIS Services
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/staffing" className="block px-2 py-1 hover:text-blue-600">
-                    Staffing & Nursing
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/nursing" className="block px-2 py-1 hover:text-blue-600">
-                    Accommodation / Tendency
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/assist" className="block px-2 py-1 hover:text-blue-600">
-                    Assist Personal Activities High
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/lifeStage" className="block px-2 py-1 hover:text-blue-600">
-                    Assist-Life Stage, Transition
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/stage" className="block px-2 py-1 hover:text-blue-600">
-                    Assist Personal Activities
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/travel" className="block px-2 py-1 hover:text-blue-600">
-                    Assist Travel/Transport
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/community" className="block px-2 py-1 hover:text-blue-600">
-                    Community Nursing Care
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dailyTask" className="block px-2 py-1 hover:text-blue-600">
-                    Daily Tasks/Shared Living
+            {/* Dropdown */}
+            <div>
+              <button
+                className="flex items-center w-full"
+                onClick={() => setDropdown(!dropdown)}
+              >
+                Services
+              </button>
+              {dropdown && (
+                <ul className="ml-6 mt-2 space-y-2 bg-white rounded-md shadow-md text-black">
+                  <li>
+                    <NavLink to="/ndiscover" className="block px-2 py-1 hover:text-blue-600">
+                      NDIS Services
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/staffing" className="block px-2 py-1 hover:text-blue-600">
+                      Staffing & Nursing
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/nursing" className="block px-2 py-1 hover:text-blue-600">
+                      Accommodation / Tendency
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/assist" className="block px-2 py-1 hover:text-blue-600">
+                      Assist Personal Activities High
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/lifeStage" className="block px-2 py-1 hover:text-blue-600">
+                      Assist-Life Stage, Transition
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/stage" className="block px-2 py-1 hover:text-blue-600">
+                      Assist Personal Activities
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/travel" className="block px-2 py-1 hover:text-blue-600">
+                      Assist Travel/Transport
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/community" className="block px-2 py-1 hover:text-blue-600">
+                      Community Nursing Care
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dailyTask" className="block px-2 py-1 hover:text-blue-600">
+                      Daily Tasks/Shared Living
 
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/development" className="block px-2 py-1 hover:text-blue-600">
-                    Development Life Skills
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/development" className="block px-2 py-1 hover:text-blue-600">
+                      Development Life Skills
 
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/innovCommunity" className="block px-2 py-1 hover:text-blue-600">
-                    Innov Community Participation
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/innovCommunity" className="block px-2 py-1 hover:text-blue-600">
+                      Innov Community Participation
 
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/household" className="block px-2 py-1 hover:text-blue-600">
-                    Household Task
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/household" className="block px-2 py-1 hover:text-blue-600">
+                      Household Task
 
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/participation" className="block px-2 py-1 hover:text-blue-600">
-                    Participate Community
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/participation" className="block px-2 py-1 hover:text-blue-600">
+                      Participate Community
 
-                  </NavLink>
-                </li>
-                                <li>
-                  <NavLink to="/support" className="block px-2 py-1 hover:text-blue-600">
-                  Support Coordinator
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/support" className="block px-2 py-1 hover:text-blue-600">
+                      Support Coordinator
 
-                  </NavLink>
-                </li>
-              </ul>
-            )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/center" className="block px-2 py-1 hover:text-blue-600">
+                      Group/Centre Activities
+                    </NavLink>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
+            <NavLink to="/contact" className={linkClasses}>Register</NavLink>
+            <NavLink to="/ndis" className={linkClasses}>NDIS</NavLink>
           </div>
-
-          <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
-          <NavLink to="/contact" className={linkClasses}>Register</NavLink>
-          <NavLink to="/ndis" className={linkClasses}>NDIS</NavLink>
-        </div>
-      )}
-    </nav>
+        )
+      }
+    </nav >
   );
 };
 

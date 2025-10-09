@@ -29,6 +29,7 @@ import InvolveCommunity from './Components/Service/InnovCommunityParticipation.j
 import HouseholdTasks from './Components/Service/HouseholdTasks.jsx';
 import ParticipateCommunity from './Components/Service/ParticipateCommunity.jsx';
 import SupportCoordination from './Components/Service/SupportCoordination.jsx';
+import GroupCentreActivities from './Components/Service/GroupCentreActivities.jsx';
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy';
@@ -134,6 +135,7 @@ const App = () => {
         <Route path='/household' element={<HouseholdTasks/>}/>
         <Route path='/participate' element={<ParticipateCommunity/>}/>
         <Route path='/support' element={<SupportCoordination/>}/>
+        <Route path='/groupCentre' element={<GroupCentreActivities/>}/>
 
          
 
