@@ -55,6 +55,10 @@ const Navbar = () => {
               <li className="px-4 py-2 hover:bg-blue-300">
                 <NavLink to="/nursing" className="block text-black">Accommodation / Tendency</NavLink>
               </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/assist" className="block text-black">Assist Personal Activities High
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -110,6 +114,11 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/nursing" className="block px-2 py-1 hover:text-blue-600">
                     Accommodation / Tendency
+                  </NavLink>
+                </li>
+                                <li>
+                  <NavLink to="/assist" className="block px-2 py-1 hover:text-blue-600">
+                    Assist Personal Activities High
                   </NavLink>
                 </li>
               </ul>
