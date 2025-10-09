@@ -78,78 +78,79 @@ const AnimatedCard = ({ card, direction = "left", delay = 0 }) => {
 const QuickLinks = () => {
   const cards = [
     {
-      title: "Personal Care",
-      description: "Compassionate support with daily living activities such as bathing, grooming, and dressing, ensuring dignity and comfort at all times.",
+      title: "Assist Access/Maintain Employ",
+      description: "Support individuals to find and maintain employment through guidance, skill-building, and workplace assistance.",
       image: personalImage,
       color: "bg-blue-600"
     },
     {
-      title: "Nursing Care",
-      description: "Professional nursing services including wound care, medication management, and monitoring of vital health conditions at home.",
+      title: "Assist Personal Activities High",
+      description: "Provide help with high-level personal care activities such as bathing, grooming, dressing, and other daily living tasks.",
       image: nursingImage,
       color: "bg-green-600"
     },
     {
-      title: "Companionship",
-      description: "Building meaningful connections through friendly conversations, shared activities, and emotional support to reduce loneliness.",
+      title: "Assist-Life Stage, Transition",
+      description: "Support individuals through life stage changes, helping them adapt to new routines, responsibilities, and social environments.",
       image: hospitalityImage,
       color: "bg-yellow-600"
     },
     {
-      title: "Healthcare Support",
-      description: "Assistance with hospital visits, doctor appointments, physiotherapy sessions, and coordination of medical services.",
+      title: "Assist-Personal Activities",
+      description: "Offer assistance with personal tasks like attending medical appointments, therapy sessions, and daily routines.",
       image: healthcareImage,
       color: "bg-red-600"
     },
     {
-      title: "Rehabilitation",
-      description: "Tailored rehabilitation plans including physical therapy, mobility exercises, and recovery programs for faster healing.",
+      title: "Assist Travel/Transport",
+      description: "Provide safe and reliable transport support, helping individuals reach destinations such as appointments, social events, or workplaces.",
       image: rehabImage,
       color: "bg-purple-600"
     },
     {
-      title: "Wellness & Lifestyle",
-      description: "Promoting healthy living with fitness sessions, nutrition planning, and relaxation techniques for overall wellbeing.",
+      title: "Community Nursing Care",
+      description: "Deliver nursing support in the community, promoting health, wellbeing, and personalized care for individuals in their homes.",
       image: wellnessImage,
       color: "bg-pink-600"
     },
     {
-      title: "Health Education",
-      description: "Workshops and training for families and caregivers to understand health needs, first aid, and chronic condition management.",
+      title: "Daily Tasks/Shared Living",
+      description: "Assist individuals in shared living or household settings with daily tasks, fostering independence and routine management.",
       image: educationImage,
       color: "bg-indigo-600"
     },
     {
-      title: "Financial Guidance",
-      description: "Support in managing healthcare-related finances, insurance claims, and planning for affordable long-term care.",
+      title: "Innov Community Participation",
+      description: "Encourage involvement in social, recreational, and community activities to build skills, relationships, and a sense of belonging.",
       image: financeImage,
       color: "bg-orange-600"
     },
     {
-      title: "Legal Assistance",
-      description: "Guidance on legal matters such as patient rights, guardianship, and healthcare documentation support.",
+      title: "Development-Life Skills",
+      description: "Provide guidance and training to enhance life skills, independence, and personal development for everyday living.",
       image: legalImage,
       color: "bg-teal-600"
     },
     {
-      title: "Safety & Security",
-      description: "Ensuring a safe environment with fall-prevention strategies, home safety checks, and emergency response readiness.",
+      title: "Household Tasks",
+      description: "Assist with household chores and maintenance to ensure a safe, organized, and comfortable home environment.",
       image: securityImage,
       color: "bg-gray-700"
     },
     {
-      title: "Community Engagement",
-      description: "Encouraging social participation through group activities, volunteering opportunities, and community events.",
+      title: "Participate Community",
+      description: "Support individuals to actively participate in their local community through social, recreational, or cultural activities.",
       image: businessImage,
       color: "bg-cyan-600"
     },
     {
-      title: "Digital Support",
-      description: "Helping seniors and families with technology, from telehealth consultations to staying connected through video calls.",
+      title: "Group/Centre Activities",
+      description: "Provide opportunities to join structured group programs, workshops, and social activities that foster learning and interaction.",
       image: itImage,
       color: "bg-rose-600"
     },
   ];
+
 
 
   const directions = ["left", "right", "top", "bottom"];
