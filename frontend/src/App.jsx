@@ -24,6 +24,7 @@ import AssistStage from './Components/Service/AssistPersonalActivitiesHigh.jsx';
 import Travel from './Components/Service/AssistTravelTransport.jsx';
 import CommunityNurse from './Components/Service/CommunityNursingCare.jsx';
 import DailyTask from './Components/Service/DailyTasksSharedLiving.jsx';
+import DailyLife from './Components/Service/DevelopmentLifeSkills .jsx';
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy';
@@ -124,6 +125,7 @@ const App = () => {
         <Route path='/travel' element={<Travel/>}/>
         <Route path='/community' element={<CommunityNurse/>}/>
         <Route path='/dailyTask' element={<DailyTask/>}/>
+        <Route path='/development' element={<DailyLife/>}/>
 
          
 
