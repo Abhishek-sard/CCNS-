@@ -1,5 +1,5 @@
 import React from "react";
-import { Broom, ShoppingBag, WashingMachine, Home, Wrench } from "lucide-react";
+import { Brush, ShoppingBag, WashingMachine, Home, Wrench } from "lucide-react";
 
 const HouseholdTasks = () => {
   return (
@@ -21,7 +21,7 @@ const HouseholdTasks = () => {
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
         {[
           {
-            icon: <Broom className="text-amber-600 w-10 h-10 mb-3" />,
+            icon: <Brush className="text-amber-600 w-10 h-10 mb-3" />,
             title: "Cleaning & Tidying",
             desc: "Keep your home spotless and hygienic with professional cleaning support.",
           },
@@ -46,7 +46,7 @@ const HouseholdTasks = () => {
             desc: "Declutter and arrange your home to create a peaceful environment.",
           },
           {
-            icon: <Broom className="text-amber-600 w-10 h-10 mb-3" />,
+            icon: <Brush className="text-amber-600 w-10 h-10 mb-3" />,
             title: "Outdoor Chores",
             desc: "Support with simple gardening or outdoor cleaning for a welcoming space.",
           },

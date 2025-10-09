@@ -93,6 +93,16 @@ const Navbar = () => {
 
                 </NavLink>
               </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/participation" className="block text-black">Participate Community
+
+                </NavLink>
+              </li>
+                <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/support" className="block text-black">Support Coordinator
+
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -196,6 +206,18 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/household" className="block px-2 py-1 hover:text-blue-600">
                     Household Task
+
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/participation" className="block px-2 py-1 hover:text-blue-600">
+                    Participate Community
+
+                  </NavLink>
+                </li>
+                                <li>
+                  <NavLink to="/support" className="block px-2 py-1 hover:text-blue-600">
+                  Support Coordinator
 
                   </NavLink>
                 </li>

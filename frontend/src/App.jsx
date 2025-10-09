@@ -27,6 +27,8 @@ import DailyTask from './Components/Service/DailyTasksSharedLiving.jsx';
 import DailyLife from './Components/Service/DevelopmentLifeSkills .jsx';
 import InvolveCommunity from './Components/Service/InnovCommunityParticipation.jsx';
 import HouseholdTasks from './Components/Service/HouseholdTasks.jsx';
+import ParticipateCommunity from './Components/Service/ParticipateCommunity.jsx';
+import SupportCoordination from './Components/Service/SupportCoordination.jsx';
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy';
@@ -130,6 +132,8 @@ const App = () => {
         <Route path='/development' element={<DailyLife/>}/>
         <Route path='/innovCommunity' element={<InvolveCommunity/>}/>
         <Route path='/household' element={<HouseholdTasks/>}/>
+        <Route path='/participate' element={<ParticipateCommunity/>}/>
+        <Route path='/support' element={<SupportCoordination/>}/>
 
          
 
