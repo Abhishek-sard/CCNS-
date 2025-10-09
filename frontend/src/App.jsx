@@ -22,10 +22,11 @@ import Assist from './Components/Service/AssistPersonalActivities.jsx';
 import LifeStage from './Components/Service/AssistLifeStage.jsx';
 import AssistStage from './Components/Service/AssistPersonalActivitiesHigh.jsx';
 import Travel from './Components/Service/AssistTravelTransport.jsx';
-import CommunityNurse from './Components/Service/CommunityNursingCare.jsx'
+import CommunityNurse from './Components/Service/CommunityNursingCare.jsx';
+import DailyTask from './Components/Service/DailyTasksSharedLiving.jsx';
 
 import BlogPage from './Components/Blog/BlogPage';
-import CurrentVaccancy from './Components/Job/CurrentVaccancy'
+import CurrentVaccancy from './Components/Job/CurrentVaccancy';
 import ApplyOnline from './Components/Job/ApplyOnline';
 import Dashboard from './Components/Dashboard/AdminDashboard';
 import Login from './Components/Login/Login';
@@ -36,8 +37,7 @@ import MainDashboard from './Components/Dashboard/MainDashboard';
 
 import RegisterPage from "./Components/Dashboard/VacancyForm.jsx";
 import OnlineFormPage from "./Components/Dashboard/Applied.jsx";
-import VacancyPage from "./Components/Dashboard/AdminDashboard.jsx"
-
+import VacancyPage from "./Components/Dashboard/AdminDashboard.jsx";
 
 function Home() {
   return (
@@ -123,6 +123,7 @@ const App = () => {
         <Route path='/stage' element={<AssistStage/>}/>
         <Route path='/travel' element={<Travel/>}/>
         <Route path='/community' element={<CommunityNurse/>}/>
+        <Route path='/dailyTask' element={<DailyTask/>}/>
 
          
 

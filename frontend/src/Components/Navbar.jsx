@@ -72,7 +72,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="px-4 py-2 hover:bg-blue-300">
-                <NavLink to="/community" className="block text-black">Community Nursing Care 
+                <NavLink to="/community" className="block text-black">Community Nursing Care
+                </NavLink>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/dailyTask1" className="block text-black">Daily Tasks/Shared Living
                 </NavLink>
               </li>
             </ul>
@@ -155,6 +159,12 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/community" className="block px-2 py-1 hover:text-blue-600">
                     Community Nursing Care
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dailyTask" className="block px-2 py-1 hover:text-blue-600">
+                    Daily Tasks/Shared Living
+
                   </NavLink>
                 </li>
               </ul>
