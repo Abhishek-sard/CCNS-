@@ -59,6 +59,10 @@ const Navbar = () => {
                 <NavLink to="/assist" className="block text-black">Assist Personal Activities High
                 </NavLink>
               </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/lifeStage" className="block text-black">Assist-Life Stage, Transition
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -116,9 +120,14 @@ const Navbar = () => {
                     Accommodation / Tendency
                   </NavLink>
                 </li>
-                                <li>
+                <li>
                   <NavLink to="/assist" className="block px-2 py-1 hover:text-blue-600">
                     Assist Personal Activities High
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/lifeStage" className="block px-2 py-1 hover:text-blue-600">
+                    Assist-Life Stage, Transition
                   </NavLink>
                 </li>
               </ul>

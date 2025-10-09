@@ -19,6 +19,7 @@ import NdisCover from './Components/Service/NdisCover';
 import Staffing from './Components/Service/Staffing';
 import Nursing from './Components/Service/CCNANursingAgency.jsx'
 import Assist from './Components/Service/AssistPersonalActivities.jsx'
+import LifeStage from './Components/Service/AssistLifeStage.jsx'
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy'
@@ -115,6 +116,7 @@ const App = () => {
         <Route path="/staffing" element={<Staffing />} />
         <Route path='/nursing' element={<Nursing/>}/>
         <Route path='/assist' element={<Assist/>}/>
+        <Route path='/lifeStage' element={<LifeStage/>}/>
          
 
         <Route path="/blog" element={<BlogPageReturn />} />
