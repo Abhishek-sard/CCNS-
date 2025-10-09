@@ -17,10 +17,11 @@ import Advantage from './Components/Job/Advantage';
 
 import NdisCover from './Components/Service/NdisCover';
 import Staffing from './Components/Service/Staffing';
-import Nursing from './Components/Service/CCNANursingAgency.jsx'
-import Assist from './Components/Service/AssistPersonalActivities.jsx'
-import LifeStage from './Components/Service/AssistLifeStage.jsx'
-import AssistStage from './Components/Service/AssistPersonalActivitiesHigh.jsx'
+import Nursing from './Components/Service/CCNANursingAgency.jsx';
+import Assist from './Components/Service/AssistPersonalActivities.jsx';
+import LifeStage from './Components/Service/AssistLifeStage.jsx';
+import AssistStage from './Components/Service/AssistPersonalActivitiesHigh.jsx';
+import Travel from './Components/Service/AssistTravelTransport.jsx';
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy'
@@ -119,6 +120,8 @@ const App = () => {
         <Route path='/assist' element={<Assist/>}/>
         <Route path='/lifeStage' element={<LifeStage/>}/>
         <Route path='/stage' element={<AssistStage/>}/>
+        <Route path='/travel' element={<Travel/>}/>
+
          
 
         <Route path="/blog" element={<BlogPageReturn />} />
