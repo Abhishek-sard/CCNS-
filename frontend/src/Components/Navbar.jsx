@@ -63,6 +63,10 @@ const Navbar = () => {
                 <NavLink to="/lifeStage" className="block text-black">Assist-Life Stage, Transition
                 </NavLink>
               </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/stage" className="block text-black">Assist Personal Activities
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -128,6 +132,11 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/lifeStage" className="block px-2 py-1 hover:text-blue-600">
                     Assist-Life Stage, Transition
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/stage" className="block px-2 py-1 hover:text-blue-600">
+                    Assist Personal Activities
                   </NavLink>
                 </li>
               </ul>
