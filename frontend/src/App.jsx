@@ -22,6 +22,7 @@ import Assist from './Components/Service/AssistPersonalActivities.jsx';
 import LifeStage from './Components/Service/AssistLifeStage.jsx';
 import AssistStage from './Components/Service/AssistPersonalActivitiesHigh.jsx';
 import Travel from './Components/Service/AssistTravelTransport.jsx';
+import CommunityNurse from './Components/Service/CommunityNursingCare.jsx'
 
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy'
@@ -121,6 +122,7 @@ const App = () => {
         <Route path='/lifeStage' element={<LifeStage/>}/>
         <Route path='/stage' element={<AssistStage/>}/>
         <Route path='/travel' element={<Travel/>}/>
+        <Route path='/community' element={<CommunityNurse/>}/>
 
          
 
