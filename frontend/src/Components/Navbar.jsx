@@ -83,6 +83,11 @@ const Navbar = () => {
                 <NavLink to="/development" className="block text-black">Development Life Skills
                 </NavLink>
               </li>
+              <li className="px-4 py-2 hover:bg-blue-300">
+                <NavLink to="/innovCommunity" className="block text-black">Innov Community Participation
+
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -171,9 +176,15 @@ const Navbar = () => {
 
                   </NavLink>
                 </li>
-                    <li>
+                <li>
                   <NavLink to="/development" className="block px-2 py-1 hover:text-blue-600">
                     Development Life Skills
+
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/innovCommunity" className="block px-2 py-1 hover:text-blue-600">
+                    Innov Community Participation
 
                   </NavLink>
                 </li>
