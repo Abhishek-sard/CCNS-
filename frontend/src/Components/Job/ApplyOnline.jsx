@@ -66,7 +66,7 @@ const ApplyOnline = () => {
           <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
           Start Your Career Journey
         </div>
-        
+
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           <span className="bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
             Apply Online
@@ -209,11 +209,10 @@ const ApplyOnline = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
-                  isSubmitting
+                className={`w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl"
-                } text-white`}
+                  } text-white`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -237,38 +236,39 @@ const ApplyOnline = () => {
                 <span>💼</span>
                 Why Join Us?
               </h3>
-              
+
               <div className="space-y-6">
                 {[
                   {
-                    icon: "🌟",
-                    title: "Professional Growth",
-                    desc: "Continuous learning and career advancement opportunities"
+                    icon: "💉",
+                    title: "Quality Nursing Services",
+                    desc: "Delivering skilled and compassionate nursing care to every patient"
                   },
                   {
-                    icon: "💝",
-                    title: "Make a Difference",
-                    desc: "Impact lives through compassionate healthcare services"
+                    icon: "🏠",
+                    title: "Home-Based Care",
+                    desc: "Providing professional medical assistance and comfort within your home"
                   },
                   {
-                    icon: "⚡",
-                    title: "Quick Response",
-                    desc: "We review applications within 48 hours"
+                    icon: "🕒",
+                    title: "24/7 Availability",
+                    desc: "Always ready to support patients with timely and dedicated service"
                   },
                   {
-                    icon: "🛡️",
-                    title: "Supportive Environment",
-                    desc: "Work with a team that values collaboration and respect"
+                    icon: "🤝",
+                    title: "Trusted & Caring Team",
+                    desc: "Our experienced nurses and caregivers work with empathy and professionalism"
                   }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="text-2xl flex-shrink-0">{item.icon}</div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-1">{item.title}</h4>
-                      <p className="text-blue-100 text-sm">{item.desc}</p>
+                ]
+                  .map((item, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="text-2xl flex-shrink-0">{item.icon}</div>
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                        <p className="text-blue-100 text-sm">{item.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
 
               {/* Contact Info */}
