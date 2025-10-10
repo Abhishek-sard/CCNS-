@@ -62,10 +62,6 @@ const ApplyOnline = () => {
     <div className="min-h-screen pt-28 px-6 md:px-20 bg-gradient-to-br from-blue-50 via-white to-gray-100">
       {/* Header Section */}
       <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
-          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-          Start Your Career Journey
-        </div>
 
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           <span className="bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">

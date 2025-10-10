@@ -14,7 +14,6 @@ import Intro from './Components/About/Intro';
 import Animation from './Components/About/Animation';
 import Team from './Components/About/Team';
 import Advantage from './Components/Job/Advantage';
-
 import NdisCover from './Components/Service/NdisCover';
 import Staffing from './Components/Service/Staffing';
 import Nursing from './Components/Service/CCNANursingAgency.jsx';
@@ -30,20 +29,19 @@ import HouseholdTasks from './Components/Service/HouseholdTasks.jsx';
 import ParticipateCommunity from './Components/Service/ParticipateCommunity.jsx';
 import SupportCoordination from './Components/Service/SupportCoordination.jsx';
 import GroupCentreActivities from './Components/Service/GroupCentreActivities.jsx';
-
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy';
 import ApplyOnline from './Components/Job/ApplyOnline';
-import Dashboard from './Components/Dashboard/AdminDashboard';
+// import Dashboard from './Components/Dashboard/AdminDashboard';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
 import ImageCollection from './Components/Home/ImageCollection';
 import AboutUs from './Components/About/AboutUs';
 import MainDashboard from './Components/Dashboard/MainDashboard';
 
-import RegisterPage from "./Components/Dashboard/VacancyForm.jsx";
-import OnlineFormPage from "./Components/Dashboard/Applied.jsx";
-import VacancyPage from "./Components/Dashboard/AdminDashboard.jsx";
+import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
+import Applied from './Components/Dashboard/Applied.jsx';
+
 
 function Home() {
   return (
@@ -54,108 +52,72 @@ function Home() {
       <WhyChooseUs />
       <ImageCollection />
       <Testimonials />
-
     </>
   );
-}
-
-function Contact() {
-  return (
-    <>
-      <ContactPage />
-    </>
-  );
-}
-
-// Wrapper function for NdisServices route
-function Ndisserviceswrapper() {
-  return (
-    <>
-      <NdisServices />
-    </>
-  )
-
 }
 
 function AboutPage() {
   return (
     <>
-
       <ImageFile />
       <Animation />
       <Team />
       <Intro />
-      <AboutUs/>
+      <AboutUs />
     </>
-  )
+  );
 }
-
-function JobPage() {
-  return (
-    <>
-      <Advantage />
-
-
-    </>
-  )
-}
-
-function BlogPageReturn() {
-  return (
-    <>
-      <BlogPage />
-    </>
-  )
-}
-
 
 const App = () => {
   const role = localStorage.getItem("role");
+
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/ndis" element={<Ndisserviceswrapper />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/ndis" element={<NdisServices />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/job" element={<JobPage />} />
+        <Route path="/job" element={<Advantage />} />
 
+        {/* Services */}
         <Route path="/ndiscover" element={<NdisCover />} />
         <Route path="/staffing" element={<Staffing />} />
-        <Route path='/nursing' element={<Nursing/>}/>
-        <Route path='/assist' element={<Assist/>}/>
-        <Route path='/lifeStage' element={<LifeStage/>}/>
-        <Route path='/stage' element={<AssistStage/>}/>
-        <Route path='/travel' element={<Travel/>}/>
-        <Route path='/community' element={<CommunityNurse/>}/>
-        <Route path='/dailyTask' element={<DailyTask/>}/>
-        <Route path='/development' element={<DailyLife/>}/>
-        <Route path='/innovCommunity' element={<InvolveCommunity/>}/>
-        <Route path='/household' element={<HouseholdTasks/>}/>
-        <Route path='/participation' element={<ParticipateCommunity/>}/>
-        <Route path='/support' element={<SupportCoordination/>}/>
-        <Route path='/center' element={<GroupCentreActivities/>}/>
+        <Route path="/nursing" element={<Nursing />} />
+        <Route path="/assist" element={<Assist />} />
+        <Route path="/lifeStage" element={<LifeStage />} />
+        <Route path="/stage" element={<AssistStage />} />
+        <Route path="/travel" element={<Travel />} />
+        <Route path="/community" element={<CommunityNurse />} />
+        <Route path="/dailyTask" element={<DailyTask />} />
+        <Route path="/development" element={<DailyLife />} />
+        <Route path="/innovCommunity" element={<InvolveCommunity />} />
+        <Route path="/household" element={<HouseholdTasks />} />
+        <Route path="/participation" element={<ParticipateCommunity />} />
+        <Route path="/support" element={<SupportCoordination />} />
+        <Route path="/center" element={<GroupCentreActivities />} />
 
-         
+        {/* Blog & Job */}
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/currentvaccancy" element={<CurrentVaccancy />} />
+        <Route path="/applyonline" element={<ApplyOnline />} />
 
-        <Route path="/blog" element={<BlogPageReturn />} />
+        {/* Auth */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        <Route path='/currentvaccancy' element={<CurrentVaccancy />} />
-        <Route path='/applyonline' element={<ApplyOnline />} />
+        {/* Admin Access */}
+        <Route
+          path="/dashboard/*"
+          element={role === "admin" ? <MainDashboard /> : <Navigate to="/login" />}
+        />
+        <Route path='/vacancy' element={<VacancyForm />} />
+        <Route path='/applied' element={<Applied />} />
 
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path="/" element={role === "admin" ? <Dashboard /> : <Navigate to="" />} />
-
-
-
-        <Route path="/dashboard" element={<MainDashboard />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/online-form" element={<OnlineFormPage />} />
-        <Route path="/vacancy" element={<VacancyPage />} />
-
+        {/* Main Dashboard with Nested Routes */}
+        {/* <Route path="/dashboard/*" element={<MainDashboard />} /> */}
       </Routes>
       <Footer />
     </Router>

@@ -7,9 +7,9 @@ import VacancyPage from "./AdminDashboard.jsx";
 
 const MainDashboard = () => {
   const menuItems = [
-    { name: "Register", icon: <FaUser />, path: "/register" },
-    { name: "Online Form Applied", icon: <FaFileAlt />, path: "/online-form" },
-    { name: "Vacancy", icon: <FaBriefcase />, path: "/vacancy" },
+    { name: "Register", icon: <FaUser />, path: "register" },
+    { name: "Online Form Applied", icon: <FaFileAlt />, path: "online-form" },
+    { name: "Vacancy", icon: <FaBriefcase />, path: "vacancy" },
   ];
 
   return (
@@ -23,7 +23,7 @@ const MainDashboard = () => {
           {menuItems.map((item) => (
             <Link
               key={item.name}
-              to={item.path}
+              to={item.path} // ✅ relative path is correct
               className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 font-medium hover:bg-blue-100 transition"
             >
               {item.icon} {item.name}
@@ -35,9 +35,9 @@ const MainDashboard = () => {
       {/* Main content */}
       <div className="ml-64 p-8 flex-1 overflow-auto pb-20">
         <Routes>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/online-form" element={<OnlineFormPage />} />
-          <Route path="/vacancy" element={<VacancyPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="online-form" element={<OnlineFormPage />} />
+          <Route path="vacancy" element={<VacancyPage />} /> {/* ✅ fixed space */}
         </Routes>
       </div>
     </div>
