@@ -147,11 +147,11 @@ const App = () => {
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path="/dashboard" element={role === "admin" ? <Dashboard /> : <Navigate to="/*" />} />
+        <Route path="/" element={role === "admin" ? <Dashboard /> : <Navigate to="" />} />
 
 
 
-        <Route path="/*" element={<MainDashboard />} />
+        <Route path="/dashboard" element={<MainDashboard />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/online-form" element={<OnlineFormPage />} />
         <Route path="/vacancy" element={<VacancyPage />} />
