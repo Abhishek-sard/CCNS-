@@ -44,7 +44,7 @@ app.use("/api/vacancies", VacancyRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/enquiry", enquiryRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/blogs", blogRoutes);
+app.use("/api/blogs", blogRoutes);
 app.use("/api/applications", applicationRoutes);
 
 // ✅ Health Check

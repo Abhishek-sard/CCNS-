@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
             const res = await axios.post("http://localhost:5000/api/auth/login", {
@@ -16,8 +20,13 @@ const Login = () => {
                 password,
             });
 
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("role", res.data.role);
+            // Store user data using auth context
+            login({
+                token: res.data.token,
+                role: res.data.role,
+                name: res.data.name,
+                email: res.data.email
+            });
 
             if (res.data.role === "admin") {
                 navigate("/dashboard");
@@ -27,7 +36,9 @@ const Login = () => {
 
         } catch (error) {
             console.error(error);
-            alert(error.response?.data?.msg || "Login failed");
+            alert(error.response?.data?.error || "Login failed");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -49,8 +60,12 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
-                    Login
+                <button 
+                    type="submit" 
+                    disabled={loading}
+                    className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                >
+                    {loading ? 'Logging in...' : 'Login'}
                 </button>
             </form>
         </div>

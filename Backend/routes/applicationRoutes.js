@@ -1,10 +1,10 @@
 import express from "express";
-import mongoose from "mongoose";
 import multer from "multer";
+import Application from "../models/Application.js";
 
 const router = express.Router();
 
-//  Multer setup for file upload
+// Multer setup for file upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads/"),
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
@@ -12,17 +12,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-//  Schema + Model
-const applicationSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
-  resume: String,
-  message: String,
-  date: { type: Date, default: Date.now },
+// Test endpoint to verify server is working
+router.get("/test", (req, res) => {
+  res.json({ message: "Applications route is working!" });
 });
-
-const Application = mongoose.model("Application", applicationSchema);
 
 //  POST - Submit Form (with file upload)
 router.post("/", upload.single("resume"), async (req, res) => {
@@ -53,6 +46,29 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.error(" Error getting applications:", error);
     res.status(500).json({ message: "Error getting applications!" });
+  }
+});
+
+// ✅ DELETE - Delete single application
+router.delete("/:id", async (req, res) => {
+  console.log("DELETE route hit for ID:", req.params.id);
+  try {
+    const { id } = req.params;
+    
+    // Check if application exists
+    const application = await Application.findById(id);
+    if (!application) {
+      console.log("Application not found for ID:", id);
+      return res.status(404).json({ message: "Application not found!" });
+    }
+
+    // Delete the application
+    await Application.findByIdAndDelete(id);
+    console.log("Application deleted successfully for ID:", id);
+    res.json({ message: "Application deleted successfully!" });
+  } catch (error) {
+    console.error("Error deleting application:", error);
+    res.status(500).json({ message: "Error deleting application!" });
   }
 });
 

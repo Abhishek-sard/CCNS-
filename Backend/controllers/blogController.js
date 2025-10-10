@@ -11,7 +11,7 @@ export const createBlog = async (req, res) => {
       image: req.file ? `/uploads/${req.file.filename}` : null,
     });
     await newBlog.save();
-    res.json({ message: "Blog created successfully, blog: newBlog" });
+    res.json({ message: "Blog created successfully", blog: newBlog });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -62,6 +62,7 @@ export const updateBlog = async (req, res) => {
 export const deleteBlog = async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
+    res.json({ message: "Blog deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

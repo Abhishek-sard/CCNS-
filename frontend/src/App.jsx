@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute';
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Hero from './Components/Home/Hero';
@@ -40,6 +43,7 @@ import MainDashboard from './Components/Dashboard/MainDashboard';
 
 import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
 import Applied from './Components/Dashboard/Applied.jsx';
+import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
 
 function Home() {
   return (
@@ -80,12 +84,12 @@ const LayoutWrapper = ({ children }) => {
 };
 
 const App = () => {
-  const role = localStorage.getItem("role");
-
   return (
-    <Router>
-      <LayoutWrapper>
-        <Routes>
+    <AuthProvider>
+      <Router>
+        <ScrollToTop />
+        <LayoutWrapper>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/ndis" element={<NdisServices />} />
@@ -121,15 +125,22 @@ const App = () => {
           {/* Admin Dashboard */}
           <Route
             path="/dashboard"
-            element={role === "admin" ? <MainDashboard /> : <Navigate to="/login" />}
-          />
-
-          {/* Extra Dashboard Pages (optional) */}
-          <Route path="/vacancy" element={<VacancyForm />} />
-          <Route path="/applied" element={<Applied />} />
+            element={
+              <ProtectedRoute requireAdmin={true}>
+                <MainDashboard />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="vacancy" replace />} />
+            <Route path="register" element={<Register />} />
+            <Route path="online-form" element={<Applied />} />
+            <Route path="vacancy" element={<VacancyForm />} />
+            <Route path="blog" element={<BlogManagement />} />
+          </Route>
         </Routes>
       </LayoutWrapper>
     </Router>
+    </AuthProvider>
   );
 };
 

@@ -1,53 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { blogApi } from "../../services/blogApi";
 
-const blogData = [
-    {
-        id: 1,
-        title: "NDIS & Staffing Solutions Overview",
-        snippet: "Learn how our NDIS and staffing services support participants and healthcare facilities...",
-        fullContent: "Our project provides comprehensive NDIS services including Core Supports, Therapy, SIL, Support Coordination, and Plan Management. Additionally, we provide skilled staffing solutions for hospitals, aged care homes, and disability providers, ensuring the right workforce is available where needed.",
-    },
-    {
-        id: 2,
-        title: "How Our NDIS Services Work",
-        snippet: "Understand the key supports offered under NDIS and how participants benefit...",
-        fullContent: "NDIS supports are designed to promote independence and community participation. We provide personalized plans, connect participants to providers, and offer therapy and support coordination to meet individual goals.",
-    },
-    {
-        id: 3,
-        title: "Staffing & Nursing Services Explained",
-        snippet: "Discover our staffing solutions for healthcare and disability providers...",
-        fullContent: "We offer qualified Registered Nurses, Enrolled Nurses, PCAs, and allied health staff for temporary or permanent placements. Our services help hospitals, aged care, and NDIS providers maintain high-quality care and compliance.",
-    },
-    {
-        id: 4,
-        title: "Core Supports for Daily Living",
-        snippet: "Explore the daily living supports available under NDIS...",
-        fullContent: "Our core supports include assistance with personal care, household tasks, meal preparation, and other activities that help participants live independently and comfortably.",
-    },
-    {
-        id: 5,
-        title: "Community & Social Participation",
-        snippet: "See how we promote inclusion and social engagement...",
-        fullContent: "We organize and support community participation, social skill programs, and recreational activities that foster confidence, independence, and connection with others.",
-    },
-    {
-        id: 6,
-        title: "Therapy & Allied Health Services",
-        snippet: "Learn about physiotherapy, OT, and speech therapy options...",
-        fullContent: "Our allied health services include physiotherapy, occupational therapy, speech therapy, and psychology support, tailored to meet the individual needs of participants.",
-    },
-];
-
-const BlogCard = ({ title, snippet, fullContent }) => {
+const BlogCard = ({ blog }) => {
     const [expanded, setExpanded] = useState(false);
+    
+    // Create snippet from description (first 100 characters)
+    const snippet = blog.description.length > 100 
+        ? blog.description.substring(0, 100) + "..." 
+        : blog.description;
 
     return (
         <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-all duration-300 w-80 flex flex-col justify-between border-l-4 border-blue-600">
             <div>
-                <h3 className="text-lg font-bold text-blue-700 mb-2">{title}</h3>
+                {blog.image && (
+                    <img 
+                        src={`http://localhost:5000${blog.image}`} 
+                        alt={blog.title}
+                        className="w-full h-48 object-cover rounded-lg mb-3"
+                    />
+                )}
+                <h3 className="text-lg font-bold text-blue-700 mb-2">{blog.title}</h3>
+                <p className="text-gray-600 text-xs mb-2">By {blog.author}</p>
                 <p className="text-gray-700 text-sm">
-                    {expanded ? fullContent : snippet}
+                    {expanded ? blog.content : snippet}
+                </p>
+                <p className="text-gray-500 text-xs mt-2">
+                    {new Date(blog.createdAt).toLocaleDateString()}
                 </p>
             </div>
             <button
@@ -61,22 +39,74 @@ const BlogCard = ({ title, snippet, fullContent }) => {
 };
 
 const BlogPage = () => {
+    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
+
+    const fetchBlogs = async () => {
+        try {
+            setLoading(true);
+            const data = await blogApi.getBlogs();
+            setBlogs(data);
+        } catch (err) {
+            setError('Failed to fetch blogs');
+            console.error('Error fetching blogs:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (loading) {
+        return (
+            <div className="bg-gray-100 min-h-screen pt-28 px-6 md:px-20 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+                    <p className="mt-4 text-lg text-gray-600">Loading blogs...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="bg-gray-100 min-h-screen pt-28 px-6 md:px-20 flex items-center justify-center">
+                <div className="text-center">
+                    <p className="text-red-600 text-lg">{error}</p>
+                    <button 
+                        onClick={fetchBlogs}
+                        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                    >
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-gray-100 min-h-screen pt-28 px-6 md:px-20">
             <h1 className="text-4xl font-extrabold text-center text-blue-800 mb-12">
-                CCNA  Blog
+                CCNA Blog
             </h1>
 
-            <div className="flex flex-wrap gap-6 justify-center">
-                {blogData.map((blog) => (
-                    <BlogCard
-                        key={blog.id}
-                        title={blog.title}
-                        snippet={blog.snippet}
-                        fullContent={blog.fullContent}
-                    />
-                ))}
-            </div>
+            {blogs.length === 0 ? (
+                <div className="text-center">
+                    <p className="text-gray-600 text-lg">No blogs available yet.</p>
+                </div>
+            ) : (
+                <div className="flex flex-wrap gap-6 justify-center">
+                    {blogs.map((blog) => (
+                        <BlogCard
+                            key={blog._id}
+                            blog={blog}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
