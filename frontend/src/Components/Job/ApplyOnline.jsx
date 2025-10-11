@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BASE_URL } from "../../services/constants";
 
 const ApplyOnline = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ const ApplyOnline = () => {
       dataToSend.append("message", formData.message);
       dataToSend.append("resume", formData.resume);
 
-      const res = await fetch("http://localhost:5000/api/applications", {
+      const res = await fetch(`${BASE_URL}/applications`, {
         method: "POST",
         body: dataToSend,
       });
@@ -62,14 +63,14 @@ const ApplyOnline = () => {
     <div className="min-h-screen pt-28 px-6 md:px-20 bg-gradient-to-br from-blue-50 via-white to-gray-100">
       {/* Header Section */}
       <div className="text-center mb-16">
-
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           <span className="bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
             Apply Online
           </span>
         </h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Join our team of healthcare professionals and make a difference in people's lives
+          Join our team of healthcare professionals and make a difference in
+          people's lives
         </p>
       </div>
 
@@ -195,9 +196,7 @@ const ApplyOnline = () => {
                     className="w-full border border-gray-200 bg-white/50 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400 resize-none"
                     placeholder="Tell us why you're interested in joining our team..."
                   />
-                  <div className="absolute right-4 top-4 text-gray-400">
-                    💬
-                  </div>
+                  <div className="absolute right-4 top-4 text-gray-400">💬</div>
                 </div>
               </div>
 
@@ -205,10 +204,11 @@ const ApplyOnline = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${isSubmitting
+                className={`w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
+                  isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl"
-                  } text-white`}
+                } text-white`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -238,33 +238,34 @@ const ApplyOnline = () => {
                   {
                     icon: "💉",
                     title: "Quality Nursing Services",
-                    desc: "Delivering skilled and compassionate nursing care to every patient"
+                    desc: "Delivering skilled and compassionate nursing care to every patient",
                   },
                   {
                     icon: "🏠",
                     title: "Home-Based Care",
-                    desc: "Providing professional medical assistance and comfort within your home"
+                    desc: "Providing professional medical assistance and comfort within your home",
                   },
                   {
                     icon: "🕒",
                     title: "24/7 Availability",
-                    desc: "Always ready to support patients with timely and dedicated service"
+                    desc: "Always ready to support patients with timely and dedicated service",
                   },
                   {
                     icon: "🤝",
                     title: "Trusted & Caring Team",
-                    desc: "Our experienced nurses and caregivers work with empathy and professionalism"
-                  }
-                ]
-                  .map((item, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="text-2xl flex-shrink-0">{item.icon}</div>
-                      <div>
-                        <h4 className="font-semibold text-white mb-1">{item.title}</h4>
-                        <p className="text-blue-100 text-sm">{item.desc}</p>
-                      </div>
+                    desc: "Our experienced nurses and caregivers work with empathy and professionalism",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="text-2xl flex-shrink-0">{item.icon}</div>
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-blue-100 text-sm">{item.desc}</p>
                     </div>
-                  ))}
+                  </div>
+                ))}
               </div>
 
               {/* Contact Info */}
@@ -275,7 +276,10 @@ const ApplyOnline = () => {
                 </h4>
                 <p className="text-blue-100 text-sm">
                   Contact our HR team at{" "}
-                  <a href="mailto:careers@ccnaagency.com" className="text-white underline">
+                  <a
+                    href="mailto:careers@ccnaagency.com"
+                    className="text-white underline"
+                  >
                     careers@ccnaagency.com
                   </a>
                 </p>

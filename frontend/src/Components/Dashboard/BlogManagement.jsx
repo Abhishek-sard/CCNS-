@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { blogApi } from "../../services/blogApi";
+import { BASE_URL_IMAGE } from "../../services/constants";
 
 const BlogManagement = () => {
   const [blogs, setBlogs] = useState([]);
@@ -47,7 +48,7 @@ const BlogManagement = () => {
       } else {
         await blogApi.createBlog(formData);
       }
-      
+
       setFormData({
         title: "",
         author: "",
@@ -152,7 +153,7 @@ const BlogManagement = () => {
                 />
               </div>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Description
@@ -166,7 +167,7 @@ const BlogManagement = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Content
@@ -180,7 +181,7 @@ const BlogManagement = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Image
@@ -193,7 +194,7 @@ const BlogManagement = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            
+
             <div className="flex gap-2">
               <button
                 type="submit"
@@ -218,18 +219,20 @@ const BlogManagement = () => {
           <div key={blog._id} className="bg-white p-6 rounded-lg shadow-md">
             {blog.image && (
               <img
-                src={`http://localhost:5000${blog.image}`}
+                src={`${BASE_URL_IMAGE}${blog.image}`}
                 alt={blog.title}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
             )}
-            <h3 className="text-xl font-bold text-blue-700 mb-2">{blog.title}</h3>
+            <h3 className="text-xl font-bold text-blue-700 mb-2">
+              {blog.title}
+            </h3>
             <p className="text-gray-600 text-sm mb-2">By {blog.author}</p>
             <p className="text-gray-700 text-sm mb-4">{blog.description}</p>
             <p className="text-gray-500 text-xs mb-4">
               {new Date(blog.createdAt).toLocaleDateString()}
             </p>
-            
+
             <div className="flex gap-2">
               <button
                 onClick={() => handleEdit(blog)}
@@ -247,7 +250,7 @@ const BlogManagement = () => {
           </div>
         ))}
       </div>
-      
+
       {blogs.length === 0 && (
         <div className="text-center py-8">
           <p className="text-gray-600 text-lg">No blogs available yet.</p>
@@ -258,4 +261,3 @@ const BlogManagement = () => {
 };
 
 export default BlogManagement;
-

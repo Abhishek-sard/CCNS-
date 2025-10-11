@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BASE_URL } from "../../services/constants";
 
 const Applied = () => {
   const [applications, setApplications] = useState([]);
@@ -11,7 +12,7 @@ const Applied = () => {
   const fetchApplications = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/applications");
+      const response = await fetch(`${BASE_URL}/applications`);
       const data = await response.json();
       setApplications(data);
     } catch (err) {
@@ -23,28 +24,28 @@ const Applied = () => {
 
   const handleDelete = async (id) => {
     console.log("Delete button clicked for ID:", id);
-    console.log("Full URL will be:", `http://localhost:5000/api/applications/${id}`);
-    
+    console.log("Full URL will be:", `${BASE_URL}/applications/${id}`);
+
     if (window.confirm("Are you sure you want to delete this application?")) {
       try {
-        const url = `http://localhost:5000/api/applications/${id}`;
+        const url = `${BASE_URL}/applications/${id}`;
         console.log("Making DELETE request to:", url);
-        
+
         const response = await fetch(url, {
           method: "DELETE",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
-        
+
         console.log("Response status:", response.status);
         console.log("Response headers:", response.headers);
-        
+
         if (response.ok) {
           const data = await response.json();
           console.log("Delete successful:", data);
           // Remove the deleted application from the state
-          setApplications(applications.filter(app => app._id !== id));
+          setApplications(applications.filter((app) => app._id !== id));
           alert("Application deleted successfully!");
         } else {
           const text = await response.text();
@@ -53,15 +54,19 @@ const Applied = () => {
         }
       } catch (error) {
         console.error("Error deleting application:", error);
-        alert("Network error. Please check if the backend server is running on port 5000.");
+        alert(
+          "Network error. Please check if the backend server is running on port 5000."
+        );
       }
     }
   };
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-blue-700">Submitted Applications</h1>
-      
+      <h1 className="text-3xl font-bold mb-6 text-blue-700">
+        Submitted Applications
+      </h1>
+
       {loading ? (
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>

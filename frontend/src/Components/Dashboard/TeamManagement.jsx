@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BASE_URL, BASE_URL_IMAGE } from "../../services/constants";
 
 const TeamManagement = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -23,7 +24,7 @@ const TeamManagement = () => {
   const fetchTeamMembers = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/team");
+      const response = await fetch(`${BASE_URL}/team`);
       const data = await response.json();
       setTeamMembers(data);
     } catch (error) {
@@ -53,15 +54,15 @@ const TeamManagement = () => {
       formDataToSend.append("twitter", formData.twitter);
       formDataToSend.append("facebook", formData.facebook);
       formDataToSend.append("order", formData.order);
-      
+
       if (formData.image) {
         formDataToSend.append("image", formData.image);
       }
 
-      const url = editingMember 
-        ? `http://localhost:5000/api/team/${editingMember._id}`
-        : "http://localhost:5000/api/team";
-      
+      const url = editingMember
+        ? `${BASE_URL}/team/${editingMember._id}`
+        : `${BASE_URL}/team`;
+
       const method = editingMember ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -71,7 +72,11 @@ const TeamManagement = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert(editingMember ? "Team member updated successfully!" : "Team member added successfully!");
+        alert(
+          editingMember
+            ? "Team member updated successfully!"
+            : "Team member added successfully!"
+        );
         resetForm();
         fetchTeamMembers();
       } else {
@@ -102,10 +107,10 @@ const TeamManagement = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this team member?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/team/${id}`, {
+        const response = await fetch(`${BASE_URL}/team/${id}`, {
           method: "DELETE",
         });
-        
+
         if (response.ok) {
           alert("Team member deleted successfully!");
           fetchTeamMembers();
@@ -293,29 +298,46 @@ const TeamManagement = () => {
           <div key={member._id} className="bg-white p-6 rounded-lg shadow-md">
             {member.image && (
               <img
-                src={`http://localhost:5000${member.image}`}
+                src={`${BASE_URL_IMAGE}${member.image}`}
                 alt={member.name}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
             )}
-            <h3 className="text-xl font-bold text-blue-700 mb-2">{member.name}</h3>
+            <h3 className="text-xl font-bold text-blue-700 mb-2">
+              {member.name}
+            </h3>
             <p className="text-gray-600 text-sm mb-2">{member.role}</p>
             {member.bio && (
               <p className="text-gray-700 text-sm mb-4">{member.bio}</p>
             )}
             <div className="flex gap-2 mb-4">
               {member.linkedin && (
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800"
+                >
                   LinkedIn
                 </a>
               )}
               {member.twitter && (
-                <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-600">
+                <a
+                  href={member.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-600"
+                >
                   Twitter
                 </a>
               )}
               {member.facebook && (
-                <a href={member.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-900">
+                <a
+                  href={member.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-800 hover:text-blue-900"
+                >
                   Facebook
                 </a>
               )}
