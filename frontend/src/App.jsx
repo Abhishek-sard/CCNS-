@@ -44,6 +44,7 @@ import MainDashboard from './Components/Dashboard/MainDashboard';
 import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
 import Applied from './Components/Dashboard/Applied.jsx';
 import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
+import TeamManagement from './Components/Dashboard/TeamManagement.jsx';
 
 function Home() {
   return (
@@ -136,6 +137,7 @@ const App = () => {
             <Route path="online-form" element={<Applied />} />
             <Route path="vacancy" element={<VacancyForm />} />
             <Route path="blog" element={<BlogManagement />} />
+            <Route path="team" element={<TeamManagement />} />
           </Route>
         </Routes>
       </LayoutWrapper>

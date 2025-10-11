@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUser, FaFileAlt, FaBriefcase, FaBlog, FaSignOutAlt } from "react-icons/fa";
+import { FaUser, FaFileAlt, FaBriefcase, FaBlog, FaSignOutAlt, FaUsers } from "react-icons/fa";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -17,6 +17,7 @@ const MainDashboard = () => {
     { name: "Online Form Applied", icon: <FaFileAlt />, path: "online-form" },
     { name: "Vacancy", icon: <FaBriefcase />, path: "vacancy" },
     { name: "Blog Management", icon: <FaBlog />, path: "blog" },
+    { name: "Team Management", icon: <FaUsers />, path: "team" },
   ];
 
   return (

@@ -13,6 +13,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import blogRoutes from "./routes/blogRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
+import teamRoutes from "./routes/teamRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,6 +47,7 @@ app.use("/api/enquiry", enquiryRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/applications", applicationRoutes);
+app.use("/api/team", teamRoutes);
 
 // ✅ Health Check
 app.get("/", (req, res) => res.send("Email backend running"));
