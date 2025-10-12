@@ -12,6 +12,7 @@ const Login = () => {
   const { login } = useAuth();
 
   const handleLogin = async (e) => {
+    console.log("login initiate");
     e.preventDefault();
     setLoading(true);
 
