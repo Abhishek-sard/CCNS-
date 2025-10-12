@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
@@ -12,14 +12,10 @@ const Login = () => {
   const { login } = useAuth();
 
   const handleLogin = async (e) => {
-    console.log("login initiate");
     e.preventDefault();
     setLoading(true);
 
     try {
-      console.log("Attempting login to:", `${BASE_URL}/auth/login`);
-      console.log("Login data:", { email, password: "***" });
-
       const res = await axios.post(
         `${BASE_URL}/auth/login`,
         { email, password },
@@ -30,8 +26,6 @@ const Login = () => {
           },
         }
       );
-
-      console.log("Login response:", res.data);
 
       // Store user data using auth context
       login({
