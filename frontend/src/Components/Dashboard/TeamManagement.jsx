@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BASE_URL, BASE_URL_IMAGE } from "../../services/constants";
+import { BASE_URL } from "../../services/constants";
 
 const TeamManagement = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -71,12 +71,8 @@ const TeamManagement = () => {
       });
 
       if (response.ok) {
-        const result = await response.json();
-        alert(
-          editingMember
-            ? "Team member updated successfully!"
-            : "Team member added successfully!"
-        );
+        await response.json(); // just wait for JSON so promise resolves
+        alert(editingMember ? "Team member updated successfully!" : "Team member added successfully!");
         resetForm();
         fetchTeamMembers();
       } else {
@@ -298,46 +294,29 @@ const TeamManagement = () => {
           <div key={member._id} className="bg-white p-6 rounded-lg shadow-md">
             {member.image && (
               <img
-                src={`${BASE_URL_IMAGE}${member.image}`}
+                src={`${BASE_URL.replace('/api', '')}${member.image}`}
                 alt={member.name}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
             )}
-            <h3 className="text-xl font-bold text-blue-700 mb-2">
-              {member.name}
-            </h3>
+            <h3 className="text-xl font-bold text-blue-700 mb-2">{member.name}</h3>
             <p className="text-gray-600 text-sm mb-2">{member.role}</p>
             {member.bio && (
               <p className="text-gray-700 text-sm mb-4">{member.bio}</p>
             )}
             <div className="flex gap-2 mb-4">
               {member.linkedin && (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800"
-                >
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                   LinkedIn
                 </a>
               )}
               {member.twitter && (
-                <a
-                  href={member.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-600"
-                >
+                <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-600">
                   Twitter
                 </a>
               )}
               {member.facebook && (
-                <a
-                  href={member.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-800 hover:text-blue-900"
-                >
+                <a href={member.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-900">
                   Facebook
                 </a>
               )}
@@ -370,3 +349,6 @@ const TeamManagement = () => {
 };
 
 export default TeamManagement;
+
+
+

@@ -16,10 +16,21 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${BASE_URL}/auth/login`, {
-        email,
-        password,
-      });
+      console.log("Attempting login to:", `${BASE_URL}/auth/login`);
+      console.log("Login data:", { email, password: "***" });
+
+      const res = await axios.post(
+        `${BASE_URL}/auth/login`,
+        { email, password },
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("Login response:", res.data);
 
       // Store user data using auth context
       login({
@@ -29,14 +40,22 @@ const Login = () => {
         email: res.data.email,
       });
 
+      // Redirect based on role
       if (res.data.role === "admin") {
         navigate("/dashboard");
       } else {
         navigate("/");
       }
     } catch (error) {
-      console.error(error);
-      alert(error.response?.data?.error || "Login failed");
+      console.error("Login error:", error);
+      console.error("Error response:", error.response?.data);
+      console.error("Error status:", error.response?.status);
+
+      const errorMessage =
+        error.response?.data?.error ||
+        error.message ||
+        "Login failed. Please check your credentials and try again.";
+      alert(errorMessage);
     } finally {
       setLoading(false);
     }
