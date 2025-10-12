@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BASE_URL } from "../../services/constants";
 
 const Team = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -10,7 +11,7 @@ const Team = () => {
 
   const fetchTeamMembers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/team");
+      const response = await fetch(`${BASE_URL}/team`);
       const data = await response.json();
       setTeamMembers(data);
     } catch (error) {
@@ -82,7 +83,7 @@ const Team = () => {
                         src={
                           member.image.startsWith("http")
                             ? member.image
-                            : `http://localhost:5000${member.image}`
+                            : `${BASE_URL.replace('/api', '')}${member.image}`
                         }
                         alt={member.name}
                         className="w-full h-full rounded-full object-cover border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-500"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext.jsx';
+import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './Components/Navbar';
@@ -45,6 +45,9 @@ import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
 import Applied from './Components/Dashboard/Applied.jsx';
 import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
 import TeamManagement from './Components/Dashboard/TeamManagement.jsx';
+
+// Import console cleanup utility
+import './utils/consoleCleanup';
 
 function Home() {
   return (
@@ -133,7 +136,6 @@ const App = () => {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Navigate to="vacancy" replace />} />
               <Route path="register" element={<Register />} />
               <Route path="online-form" element={<Applied />} />
               <Route path="vacancy" element={<VacancyForm />} />

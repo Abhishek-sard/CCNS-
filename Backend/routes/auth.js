@@ -6,6 +6,15 @@ import User from "../models/User.js";
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "secret123";
 
+// Health check endpoint
+router.get("/health", (req, res) => {
+  res.json({ 
+    message: "Auth service is running", 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 //register
 router.post("/register", async (req, res) => {
   try {
@@ -23,18 +32,33 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    
+    console.log('Login attempt for email:', email);
+    console.log('Request origin:', req.headers.origin);
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password are required" });
+    }
 
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ error: "User not found" });
+    if (!user) {
+      console.log('User not found:', email);
+      return res.status(400).json({ error: "User not found" });
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
+    if (!isMatch) {
+      console.log('Invalid password for:', email);
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
 
     const token = jwt.sign(
       { id: user._id, role: user.role }, // include role in payload
-      process.env.JWT_SECRET,
+      JWT_SECRET,
       { expiresIn: "1h" }
     );
+
+    console.log('Login successful for:', email, 'Role:', user.role);
 
     res.json({
       token,
@@ -43,7 +67,7 @@ router.post("/login", async (req, res) => {
       email: user.email, // optional: send email
     });
   } catch (err) {
-    console.error(err);
+    console.error('Login error:', err);
     res.status(500).json({ error: "Server error" });
   }
 });

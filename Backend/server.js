@@ -2,41 +2,73 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Routes
 import VacancyRoutes from "./routes/vacancyRoutes.js";
-import connectDB from "./config/db.js";
-import rateLimit from "express-rate-limit";
 import emailRoutes from "./routes/emailRoutes.js";
 import enquiryRoutes from "./routes/enquiryRoutes.js";
 import authRoutes from "./routes/auth.js";
-import bodyParser from "body-parser";
-import path from "path";
-import { fileURLToPath } from "url";
 import blogRoutes from "./routes/blogRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import teamRoutes from "./routes/teamRoutes.js";
+import connectDB from "./config/db.js";
+import rateLimit from "express-rate-limit";
+
+dotenv.config();
+connectDB();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-dotenv.config();
-
-// connect database
-connectDB();
-
-// ✅ Initialize app before using it
 const app = express();
 
-// ✅ Middleware
-app.use(bodyParser.json());
-app.use(cors());
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-app.use(express.json());
+// ✅ Allowed Origins - Updated for production
+const allowedOrigins = [
+  "https://ccns.novaitsolutionnp.com", // production frontend - confirmed
+  "https://ccna.novaitsolutionnp.com", // alternative production frontend
+  "https://ccna-agency.novaitsolutionnp.com", // another possible frontend domain
+  "http://localhost:5173", // local frontend
+  "http://localhost:5174", // local frontend alternative port
+  "http://localhost:5175", // local frontend alternative port
+  "http://localhost:3000", // alternative local frontend port
+];
 
-// ✅ Rate limiting
+// ✅ Global CORS Middleware - Enhanced for production
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is in allowed list
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    
+    // Allow any novaitsolutionnp.com subdomain for production
+    if (origin.includes('novaitsolutionnp.com')) {
+      return callback(null, true);
+    }
+    
+    // Log the blocked origin for debugging
+    console.log('CORS blocked origin:', origin);
+    callback(new Error("CORS not allowed for this origin: " + origin));
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+  optionsSuccessStatus: 200
+}));
+
+// ✅ Middleware
+app.use(express.json());
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+// ✅ Rate Limiting (for email routes)
 const limiter = rateLimit({
-  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60 * 60 * 1000, // 1 hour
-  max: Number(process.env.RATE_LIMIT_MAX) || 10, // 10 requests/hour
-  message: "Too many requests from this IP, please try again later.",
+  windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60 * 60 * 1000, // default 1 hour
+  max: Number(process.env.RATE_LIMIT_MAX) || 100, // default 100 requests per window
+  message: "Too many requests from this IP, please try again later."
 });
 app.use("/api/email", limiter);
 
@@ -50,7 +82,9 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/team", teamRoutes);
 
 // ✅ Health Check
-app.get("/", (req, res) => res.send("Email backend running"));
+app.get("/", (req, res) => {
+  res.send("✅ Backend server running successfully");
+});
 
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;

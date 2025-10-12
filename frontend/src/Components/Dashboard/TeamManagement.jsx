@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BASE_URL } from "../../services/constants";
 
 const TeamManagement = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -23,7 +24,7 @@ const TeamManagement = () => {
   const fetchTeamMembers = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/team");
+      const response = await fetch(`${BASE_URL}/team`);
       const data = await response.json();
       setTeamMembers(data);
     } catch (error) {
@@ -59,8 +60,8 @@ const TeamManagement = () => {
       }
 
       const url = editingMember
-        ? `http://localhost:5000/api/team/${editingMember._id}`
-        : "http://localhost:5000/api/team";
+        ? `${BASE_URL}/team/${editingMember._id}`
+        : `${BASE_URL}/team`;
 
       const method = editingMember ? "PUT" : "POST";
 
@@ -102,7 +103,7 @@ const TeamManagement = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this team member?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/team/${id}`, {
+        const response = await fetch(`${BASE_URL}/team/${id}`, {
           method: "DELETE",
         });
 
@@ -293,7 +294,7 @@ const TeamManagement = () => {
           <div key={member._id} className="bg-white p-6 rounded-lg shadow-md">
             {member.image && (
               <img
-                src={`http://localhost:5000${member.image}`}
+                src={`${BASE_URL.replace('/api', '')}${member.image}`}
                 alt={member.name}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
@@ -348,5 +349,6 @@ const TeamManagement = () => {
 };
 
 export default TeamManagement;
+
 
 

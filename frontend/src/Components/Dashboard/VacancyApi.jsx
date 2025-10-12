@@ -8,7 +8,7 @@ const VACANCY_API = `${BASE_URL}/vacancies`;
 export const getVacancies = async () => {
   try {
     const response = await axios.get(VACANCY_API);
-    return response.data; // return data directly
+    return response; // return full response object to match AdminDashboard expectation
   } catch (error) {
     console.error("Error fetching vacancies:", error);
     throw error;
