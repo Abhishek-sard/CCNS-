@@ -2,12 +2,12 @@ import axios from "axios";
 import { BASE_URL } from "../../services/constants";
 
 // Base URL of your backend API
-const BASE_URL = `${BASE_URL}/vacancie`;
+const VACANCY_URL = `${BASE_URL}/vacancies`;
 
 // Get all vacancies
 export const getVacancies = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(VACANCY_URL);
     return response;
   } catch (error) {
     console.error("Error fetching vacancies:", error);
@@ -18,7 +18,7 @@ export const getVacancies = async () => {
 // Create a new vacancy
 export const createVacancy = async (vacancyData) => {
   try {
-    const response = await axios.post(BASE_URL, vacancyData);
+    const response = await axios.post(VACANCY_URL, vacancyData);
     return response;
   } catch (error) {
     console.error("Error creating vacancy:", error);
@@ -29,7 +29,7 @@ export const createVacancy = async (vacancyData) => {
 // Update an existing vacancy by ID
 export const updateVacancy = async (id, vacancyData) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${id}`, vacancyData);
+    const response = await axios.put(`${VACANCY_URL}/${id}`, vacancyData);
     return response;
   } catch (error) {
     console.error("Error updating vacancy:", error);
