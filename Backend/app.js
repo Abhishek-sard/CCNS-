@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import cors from "cors";
+// import cors from "cors";
 
 dotenv.config();
 
@@ -20,13 +20,13 @@ import teamRoutes from "./routes/teamRoutes.js";
 const app = express();
 
 // Enable CORS
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://ccnss.novaitsolutionnp.com"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:5173", "https://ccnss.novaitsolutionnp.com"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
 // Middlewares
 app.use(express.json());
