@@ -53,15 +53,15 @@ const TeamManagement = () => {
       formDataToSend.append("twitter", formData.twitter);
       formDataToSend.append("facebook", formData.facebook);
       formDataToSend.append("order", formData.order);
-      
+
       if (formData.image) {
         formDataToSend.append("image", formData.image);
       }
 
-      const url = editingMember 
+      const url = editingMember
         ? `http://localhost:5000/api/team/${editingMember._id}`
         : "http://localhost:5000/api/team";
-      
+
       const method = editingMember ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -70,7 +70,7 @@ const TeamManagement = () => {
       });
 
       if (response.ok) {
-        const result = await response.json();
+        await response.json(); // just wait for JSON so promise resolves
         alert(editingMember ? "Team member updated successfully!" : "Team member added successfully!");
         resetForm();
         fetchTeamMembers();
@@ -105,7 +105,7 @@ const TeamManagement = () => {
         const response = await fetch(`http://localhost:5000/api/team/${id}`, {
           method: "DELETE",
         });
-        
+
         if (response.ok) {
           alert("Team member deleted successfully!");
           fetchTeamMembers();

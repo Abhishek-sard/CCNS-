@@ -64,9 +64,10 @@ function AboutPage() {
     <>
       <ImageFile />
       <Animation />
-      <Team />
       <Intro />
       <AboutUs />
+      <Team />
+
     </>
   );
 }
@@ -91,57 +92,57 @@ const App = () => {
         <ScrollToTop />
         <LayoutWrapper>
           <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/ndis" element={<NdisServices />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/job" element={<Advantage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/ndis" element={<NdisServices />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/job" element={<Advantage />} />
 
-          {/* Services */}
-          <Route path="/ndiscover" element={<NdisCover />} />
-          <Route path="/staffing" element={<Staffing />} />
-          <Route path="/nursing" element={<Nursing />} />
-          <Route path="/assist" element={<Assist />} />
-          <Route path="/lifeStage" element={<LifeStage />} />
-          <Route path="/stage" element={<AssistStage />} />
-          <Route path="/travel" element={<Travel />} />
-          <Route path="/community" element={<CommunityNurse />} />
-          <Route path="/dailyTask" element={<DailyTask />} />
-          <Route path="/development" element={<DailyLife />} />
-          <Route path="/innovCommunity" element={<InvolveCommunity />} />
-          <Route path="/household" element={<HouseholdTasks />} />
-          <Route path="/participation" element={<ParticipateCommunity />} />
-          <Route path="/support" element={<SupportCoordination />} />
-          <Route path="/center" element={<GroupCentreActivities />} />
+            {/* Services */}
+            <Route path="/ndiscover" element={<NdisCover />} />
+            <Route path="/staffing" element={<Staffing />} />
+            <Route path="/nursing" element={<Nursing />} />
+            <Route path="/assist" element={<Assist />} />
+            <Route path="/lifeStage" element={<LifeStage />} />
+            <Route path="/stage" element={<AssistStage />} />
+            <Route path="/travel" element={<Travel />} />
+            <Route path="/community" element={<CommunityNurse />} />
+            <Route path="/dailyTask" element={<DailyTask />} />
+            <Route path="/development" element={<DailyLife />} />
+            <Route path="/innovCommunity" element={<InvolveCommunity />} />
+            <Route path="/household" element={<HouseholdTasks />} />
+            <Route path="/participation" element={<ParticipateCommunity />} />
+            <Route path="/support" element={<SupportCoordination />} />
+            <Route path="/center" element={<GroupCentreActivities />} />
 
-          {/* Blog & Job */}
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/currentvaccancy" element={<CurrentVaccancy />} />
-          <Route path="/applyonline" element={<ApplyOnline />} />
+            {/* Blog & Job */}
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/currentvaccancy" element={<CurrentVaccancy />} />
+            <Route path="/applyonline" element={<ApplyOnline />} />
 
-          {/* Auth */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+            {/* Auth */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-          {/* Admin Dashboard */}
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute requireAdmin={true}>
-                <MainDashboard />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<Navigate to="vacancy" replace />} />
-            <Route path="register" element={<Register />} />
-            <Route path="online-form" element={<Applied />} />
-            <Route path="vacancy" element={<VacancyForm />} />
-            <Route path="blog" element={<BlogManagement />} />
-            <Route path="team" element={<TeamManagement />} />
-          </Route>
-        </Routes>
-      </LayoutWrapper>
-    </Router>
+            {/* Admin Dashboard */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute requireAdmin={true}>
+                  <MainDashboard />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Navigate to="vacancy" replace />} />
+              <Route path="register" element={<Register />} />
+              <Route path="online-form" element={<Applied />} />
+              <Route path="vacancy" element={<VacancyForm />} />
+              <Route path="blog" element={<BlogManagement />} />
+              <Route path="team" element={<TeamManagement />} />
+            </Route>
+          </Routes>
+        </LayoutWrapper>
+      </Router>
     </AuthProvider>
   );
 };
