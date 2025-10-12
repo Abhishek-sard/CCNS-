@@ -1,5 +1,17 @@
 import React, { useState } from "react";
-import { FaHandHoldingHeart, FaFileMedical, FaCheckCircle, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import {
+  FaHandHoldingHeart,
+  FaFileMedical,
+  FaCheckCircle,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { BASE_URL } from "../../services/constants";
 
 const NdisServices = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +41,7 @@ const NdisServices = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/enquiry/send-agency-enquiry", {
+      const response = await fetch(`${BASE_URL}/enquiry/send-agency-enquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -73,7 +85,8 @@ const NdisServices = () => {
           <div>
             <h1 className="text-3xl font-semibold">NDIS Healthcare Services</h1>
             <p className="text-base opacity-90 max-w-xl mx-auto">
-              Contact us for personalized healthcare support under the National Disability Insurance Scheme
+              Contact us for personalized healthcare support under the National
+              Disability Insurance Scheme
             </p>
           </div>
         </div>
@@ -101,7 +114,9 @@ const NdisServices = () => {
             <div className="bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center mr-4">
               <FaFileMedical />
             </div>
-            <h2 className="text-blue-700 text-xl font-semibold">Healthcare Inquiry Form</h2>
+            <h2 className="text-blue-700 text-xl font-semibold">
+              Healthcare Inquiry Form
+            </h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -179,7 +194,9 @@ const NdisServices = () => {
                 <option value="nursing">Nursing Care</option>
                 <option value="therapy">Therapy Services</option>
                 <option value="personalCare">Personal Care</option>
-                <option value="supportCoordination">Support Coordination</option>
+                <option value="supportCoordination">
+                  Support Coordination
+                </option>
                 <option value="other">Other Healthcare Service</option>
               </select>
             </div>
@@ -218,7 +235,8 @@ const NdisServices = () => {
             {/* Message */}
             <div>
               <label className="font-semibold text-gray-700">
-                Healthcare Needs Description <span className="text-red-600">*</span>
+                Healthcare Needs Description{" "}
+                <span className="text-red-600">*</span>
               </label>
               <textarea
                 name="message"
@@ -240,7 +258,8 @@ const NdisServices = () => {
                 required
               />
               <label>
-                I agree to the privacy policy and consent to being contacted regarding NDIS services
+                I agree to the privacy policy and consent to being contacted
+                regarding NDIS services
               </label>
             </div>
 
@@ -262,7 +281,8 @@ const NdisServices = () => {
               <FaPhoneAlt className="text-green-600" /> 0421 079 928
             </p>
             <p className="flex items-center gap-3">
-              <FaEnvelope className="text-green-600 text-3xl" /> info@ccnaagency.com
+              <FaEnvelope className="text-green-600 text-3xl" />{" "}
+              info@ccnaagency.com
             </p>
             <p className="flex items-start gap-3">
               <FaMapMarkerAlt className="text-green-600 text-3xl mt-1" />
@@ -270,22 +290,34 @@ const NdisServices = () => {
               368 Sussex St, Sydney, NSW 2000
             </p>
             <p className="flex items-center gap-3 text-2xl">
-              <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00 PM
+              <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00
+              PM
             </p>
 
             {/* Social Media */}
             <div className="flex items-center gap-4 mt-2">
-              <a href="https://www.facebook.com/CCNASouthAustralia/" target="_blank" className="text-blue-700 hover:text-blue-900 text-2xl">
+              <a
+                href="https://www.facebook.com/CCNASouthAustralia/"
+                target="_blank"
+                className="text-blue-700 hover:text-blue-900 text-2xl"
+              >
                 <FaFacebookF />
               </a>
-              <a href="https://www.linkedin.com/in/ccnasa-679912282/" target="_blank" className="text-blue-500 hover:text-blue-700 text-2xl">
+              <a
+                href="https://www.linkedin.com/in/ccnasa-679912282/"
+                target="_blank"
+                className="text-blue-500 hover:text-blue-700 text-2xl"
+              >
                 <FaLinkedinIn />
               </a>
-              <a href="https://wa.me/0421079928" target="_blank" className="text-green-600 hover:text-green-800 text-2xl">
+              <a
+                href="https://wa.me/0421079928"
+                target="_blank"
+                className="text-green-600 hover:text-green-800 text-2xl"
+              >
                 <FaWhatsapp />
               </a>
             </div>
-
 
             {/* Get Directions Button */}
             <a

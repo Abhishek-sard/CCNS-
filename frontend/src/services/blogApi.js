@@ -1,12 +1,11 @@
-import axios from 'axios';
-
-const API_BASE_URL = 'http://localhost:5000/api';
+import axios from "axios";
+import { BASE_URL } from "./constants";
 
 // Create axios instance with base configuration
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
@@ -15,10 +14,10 @@ export const blogApi = {
   // Get all blogs
   getBlogs: async () => {
     try {
-      const response = await api.get('/blogs');
+      const response = await api.get("/blogs");
       return response.data;
     } catch (error) {
-      console.error('Error fetching blogs:', error);
+      console.error("Error fetching blogs:", error);
       throw error;
     }
   },
@@ -29,7 +28,7 @@ export const blogApi = {
       const response = await api.get(`/blogs/${id}`);
       return response.data;
     } catch (error) {
-      console.error('Error fetching blog:', error);
+      console.error("Error fetching blog:", error);
       throw error;
     }
   },
@@ -38,23 +37,23 @@ export const blogApi = {
   createBlog: async (blogData) => {
     try {
       const formData = new FormData();
-      formData.append('title', blogData.title);
-      formData.append('author', blogData.author);
-      formData.append('description', blogData.description);
-      formData.append('content', blogData.content);
-      
+      formData.append("title", blogData.title);
+      formData.append("author", blogData.author);
+      formData.append("description", blogData.description);
+      formData.append("content", blogData.content);
+
       if (blogData.image) {
-        formData.append('image', blogData.image);
+        formData.append("image", blogData.image);
       }
 
-      const response = await api.post('/blogs', formData, {
+      const response = await api.post("/blogs", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
       return response.data;
     } catch (error) {
-      console.error('Error creating blog:', error);
+      console.error("Error creating blog:", error);
       throw error;
     }
   },
@@ -63,23 +62,23 @@ export const blogApi = {
   updateBlog: async (id, blogData) => {
     try {
       const formData = new FormData();
-      formData.append('title', blogData.title);
-      formData.append('author', blogData.author);
-      formData.append('description', blogData.description);
-      formData.append('content', blogData.content);
-      
+      formData.append("title", blogData.title);
+      formData.append("author", blogData.author);
+      formData.append("description", blogData.description);
+      formData.append("content", blogData.content);
+
       if (blogData.image) {
-        formData.append('image', blogData.image);
+        formData.append("image", blogData.image);
       }
 
       const response = await api.put(`/blogs/${id}`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
       return response.data;
     } catch (error) {
-      console.error('Error updating blog:', error);
+      console.error("Error updating blog:", error);
       throw error;
     }
   },
@@ -90,11 +89,10 @@ export const blogApi = {
       const response = await api.delete(`/blogs/${id}`);
       return response.data;
     } catch (error) {
-      console.error('Error deleting blog:', error);
+      console.error("Error deleting blog:", error);
       throw error;
     }
   },
 };
 
 export default blogApi;
-

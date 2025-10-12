@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BASE_URL } from "../../services/constants";
 
 // Base URL of your backend API
-const BASE_URL = "http://localhost:5000/api/vacancies";
+const BASE_URL = `${BASE_URL}/vacancie`;
 
 // Get all vacancies
 export const getVacancies = async () => {
