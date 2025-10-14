@@ -8,22 +8,41 @@ const VacancyForm = ({ onVacancyAdded }) => {
     location: "",
     description: "",
     requirements: "",
+    image: null,
   });
 
+  const [previewUrl, setPreviewUrl] = useState(null);
+
   const handleChange = (e) => {
-    setVacancy({ ...vacancy, [e.target.name]: e.target.value });
+    const { name, value, files } = e.target;
+    if (name === "image") {
+      const file = files && files[0] ? files[0] : null;
+      setVacancy({ ...vacancy, image: file });
+      setPreviewUrl(file ? URL.createObjectURL(file) : null);
+    } else {
+      setVacancy({ ...vacancy, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await createVacancy(vacancy);
-      onVacancyAdded(res.data); // Update parent state
-      setVacancy({ title: "", department: "", location: "", description: "", requirements: "" }); // Clear form
+      const formData = new FormData();
+      formData.append("title", vacancy.title);
+      formData.append("department", vacancy.department);
+      formData.append("location", vacancy.location);
+      formData.append("description", vacancy.description);
+      formData.append("requirements", vacancy.requirements);
+      if (vacancy.image) formData.append("image", vacancy.image);
+
+      const res = await createVacancy(formData);
+      onVacancyAdded(res); // API returns created object
+      setVacancy({ title: "", department: "", location: "", description: "", requirements: "", image: null });
+      setPreviewUrl(null);
       alert("Vacancy added successfully!");
     } catch (error) {
       console.error("Error adding vacancy:", error);
-      alert("Failed to add vacancy. Please try again.");
+      alert(error?.message || "Failed to add vacancy. Please try again.");
     }
   };
 
@@ -87,6 +106,22 @@ const VacancyForm = ({ onVacancyAdded }) => {
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
         </div>
+
+      <div>
+        <label className="block font-semibold mb-1">Image (optional)</label>
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          onChange={handleChange}
+          className="w-full border border-gray-300 rounded px-3 py-2"
+        />
+        {previewUrl && (
+          <div className="mt-3">
+            <img src={previewUrl} alt="Preview" className="h-32 w-auto rounded border" />
+          </div>
+        )}
+      </div>
 
         <button
           type="submit"

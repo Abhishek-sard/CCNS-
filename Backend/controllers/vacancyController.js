@@ -10,12 +10,30 @@ export const getVacancies = async (req, res) => {
   }
 };
 
+// Get single vacancy by id
+export const getVacancyById = async (req, res) => {
+  try {
+    const vacancy = await Vacancy.findById(req.params.id);
+    if (!vacancy) return res.status(404).json({ message: "Vacancy not found" });
+    res.json(vacancy);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 // Create new vacancy
 export const createVacancy = async (req, res) => {
-  const { title, department, location, description } = req.body;
+  const { title, department, location, description, requirements } = req.body;
 
   try {
-    const vacancy = new Vacancy({ title, department, location, description });
+    const vacancy = new Vacancy({
+      title,
+      department,
+      location,
+      description,
+      requirements,
+      image: req.file ? req.file.filename : undefined,
+    });
     const savedVacancy = await vacancy.save();
     res.status(201).json(savedVacancy);
   } catch (error) {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import VacancyForm from "./VacancyForm";
 import { getVacancies, deleteVacancy } from "./VacancyApi";
+import { BASE_URL_IMAGE } from "../../services/constants";
 
 const AdminDashboard = () => {
   const [vacancies, setVacancies] = useState([]);
@@ -71,6 +72,13 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {vacancies.map((job) => (
             <div key={job._id} className="bg-white p-6 rounded-lg shadow-md flex flex-col">
+              {job.image && (
+                <img
+                  src={`${BASE_URL_IMAGE}/uploads/${job.image}`}
+                  alt={job.title}
+                  className="w-full h-40 object-cover rounded mb-3 border"
+                />
+              )}
               <h3 className="text-xl font-bold text-blue-700">{job.title}</h3>
               <p><span className="font-semibold">Department:</span> {job.department}</p>
               <p><span className="font-semibold">Location:</span> {job.location}</p>

@@ -6,6 +6,7 @@ const vacancySchema = new mongoose.Schema({
     location: {type: String, required: true},
     description: {type: String, required: true},
     requirements: {type: String, required: false},
+    image: { type: String, required: false }, // stored filename
 },
 {timestamps: true}
 );

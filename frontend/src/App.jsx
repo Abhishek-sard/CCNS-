@@ -34,6 +34,7 @@ import SupportCoordination from './Components/Service/SupportCoordination.jsx';
 import GroupCentreActivities from './Components/Service/GroupCentreActivities.jsx';
 import BlogPage from './Components/Blog/BlogPage';
 import CurrentVaccancy from './Components/Job/CurrentVaccancy';
+import VacancyDetails from './Components/Job/VacancyDetails.jsx';
 import ApplyOnline from './Components/Job/ApplyOnline';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
@@ -122,6 +123,7 @@ const App = () => {
             {/* Blog & Job */}
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/currentvaccancy" element={<CurrentVaccancy />} />
+            <Route path="/vacancy/:id" element={<VacancyDetails />} />
             <Route path="/applyonline" element={<ApplyOnline />} />
 
             {/* Auth */}

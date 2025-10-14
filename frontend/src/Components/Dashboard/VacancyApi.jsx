@@ -15,14 +15,28 @@ export const getVacancies = async () => {
   }
 };
 
-// Create a new vacancy
-export const createVacancy = async (vacancyData) => {
+export const getVacancyById = async (id) => {
   try {
-    const response = await axios.post(VACANCY_API, vacancyData);
+    const response = await axios.get(`${VACANCY_API}/${id}`);
     return response.data;
   } catch (error) {
-    console.error("Error creating vacancy:", error);
+    console.error("Error fetching vacancy:", error);
     throw error;
+  }
+};
+
+// Create a new vacancy
+export const createVacancy = async (vacancyDataOrFormData) => {
+  try {
+    const isFormData = typeof FormData !== 'undefined' && vacancyDataOrFormData instanceof FormData;
+    const response = await axios.post(VACANCY_API, vacancyDataOrFormData, {
+      headers: isFormData ? { 'Content-Type': 'multipart/form-data' } : undefined,
+    });
+    return response.data;
+  } catch (error) {
+    const message = error?.response?.data?.message || error?.message || 'Failed to create vacancy';
+    console.error("Error creating vacancy:", message);
+    throw new Error(message);
   }
 };
 
