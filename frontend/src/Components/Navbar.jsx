@@ -150,12 +150,12 @@ const Navbar = () => {
 
           <li className="relative group">
             <NavLink
-              to="/contact"
+              to="/Staffing"
               className={`${linkClasses({
                 isActive: false,
               })} bg-gradient-to-r from-green-500/30 to-blue-500/30 hover:from-green-500/40 hover:to-blue-500/40 font-semibold`}
             >
-              Register
+              Staffing 
             </NavLink>
           </li>
 
@@ -290,11 +290,11 @@ const Navbar = () => {
             Blog
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/Staffing"
             className="block py-4 px-4 rounded-xl bg-gradient-to-r from-green-500/30 to-blue-500/30 hover:from-green-500/40 hover:to-blue-500/40 transition-all duration-300 hover:translate-x-2 font-semibold"
             onClick={() => setIsOpen(false)}
           >
-            Register
+            Staffing
           </NavLink>
           <NavLink
             to="/ndis"
