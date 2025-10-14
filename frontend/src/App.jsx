@@ -45,6 +45,7 @@ import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
 import Applied from './Components/Dashboard/Applied.jsx';
 import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
 import TeamManagement from './Components/Dashboard/TeamManagement.jsx';
+import StaffingManagement from './Components/Dashboard/StaffingManagement.jsx';
 
 // Import console cleanup utility
 import './utils/consoleCleanup';
@@ -136,11 +137,11 @@ const App = () => {
                 </ProtectedRoute>
               }
             >
-              <Route path="register" element={<Register />} />
               <Route path="online-form" element={<Applied />} />
               <Route path="vacancy" element={<VacancyForm />} />
               <Route path="blog" element={<BlogManagement />} />
               <Route path="team" element={<TeamManagement />} />
+              <Route path="staffing" element={<StaffingManagement />} />
             </Route>
           </Routes>
         </LayoutWrapper>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaUser, FaBuilding, FaEnvelope, FaPhone, FaCalendarAlt, FaComments, FaClock, FaUsers, FaCheckCircle, FaHandHoldingHeart, FaShieldAlt, FaStar, FaHeart } from "react-icons/fa";
+import { staffingApi } from "../../services/staffingApi";
 
 const Staffing = () => {
   const [formData, setFormData] = useState({
@@ -29,22 +30,24 @@ const Staffing = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     const requiredFields = ["name", "email", "phone", "requiredDate", "contactMethod", "contactDateTime", "description"];
-    const isValid =
-      requiredFields.every((field) => formData[field]) &&
-      formData.staffingNeeds.length > 0;
+    const isValid = requiredFields.every((field) => formData[field]) && formData.staffingNeeds.length > 0;
 
     if (!isValid) {
       alert("Please fill in all required fields and select at least one staffing need.");
       return;
     }
 
-    console.log("Form submitted successfully:", formData);
-    setSubmitted(true);
+    try {
+      await staffingApi.create(formData);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert(err?.message || "Failed to submit staffing request. Please try again.");
+    }
   };
 
   if (submitted) {

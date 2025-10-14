@@ -24,7 +24,7 @@ const AssistPersonalActivities = () => {
           {/* Main Image with Overlay */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
             <img
-              src="personalcare.jpg"
+              src="physical.jpg"
               alt="Healthcare Professional Assisting Client"
               className="w-full h-[250px] lg:h-[400px] object-cover rounded-2xl"
             />

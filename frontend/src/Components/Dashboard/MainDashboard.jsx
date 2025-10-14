@@ -13,11 +13,11 @@ const MainDashboard = () => {
   };
 
   const menuItems = [
-    { name: "Register", icon: <FaUser />, path: "register" },
     { name: "Online Form Applied", icon: <FaFileAlt />, path: "online-form" },
     { name: "Vacancy", icon: <FaBriefcase />, path: "vacancy" },
     { name: "Blog Management", icon: <FaBlog />, path: "blog" },
     { name: "Team Management", icon: <FaUsers />, path: "team" },
+    { name: "Staffing Requests", icon: <FaUsers />, path: "staffing" },
   ];
 
   return (
