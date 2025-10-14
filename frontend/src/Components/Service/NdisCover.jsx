@@ -1,11 +1,12 @@
-import React from "react";
-
+import React from "react"; 
 const NdisCover = () => {
   return (
     <div className="bg-gray-100 text-gray-800">
       {/* Hero Section */}
       <section className="bg-yellow-700 text-white py-24 text-center shadow-lg">
         <h1 className="text-5xl font-extrabold mb-4">NDIS Supports</h1>
+
+        <img src="" alt="" /> 
         <p className="text-xl max-w-3xl mx-auto">
           Explore the range of services we provide under the National Disability
           Insurance Scheme (NDIS) to help you achieve your goals.

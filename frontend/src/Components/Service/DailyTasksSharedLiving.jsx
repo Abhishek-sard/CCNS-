@@ -1,4 +1,5 @@
 import React from "react";
+import Image from '../../assets/dailytask.jpg'
 import { Home, UtensilsCrossed, HandCoins, Users } from "lucide-react";
 
 const DailyTasksSharedLiving = () => {
@@ -9,6 +10,7 @@ const DailyTasksSharedLiving = () => {
         <h1 className="text-4xl md:text-5xl font-extrabold text-amber-800 mb-4">
           Daily Tasks / Shared Living
         </h1>
+        <img src={Image} alt="Household Tasks" className="w-full h-auto rounded-lg shadow-md mb-6" />
         <p className="text-amber-900 text-lg leading-relaxed">
           Support with daily tasks and shared living is aimed at individuals living in shared accommodations
           or those needing help with routine activities. This scope covers meal planning, cleaning, budgeting,
