@@ -161,7 +161,7 @@ const Navbar = () => {
 
           <li className="relative group">
             <NavLink to="/ndis" className={linkClasses}>
-              <span className="relative z-10">NDIS</span>
+              <span className="relative z-10">NDIS Care</span>
             </NavLink>
           </li>
         </ul>
@@ -301,7 +301,7 @@ const Navbar = () => {
             className="block py-4 px-4 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 hover:translate-x-2"
             onClick={() => setIsOpen(false)}
           >
-            NDIS
+            NDIS Care
           </NavLink>
         </div>
       )}
