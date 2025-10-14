@@ -1,16 +1,40 @@
-import React from "react"; 
+import React from "react";
 const NdisCover = () => {
   return (
     <div className="bg-gray-100 text-gray-800">
       {/* Hero Section */}
-      <section className="bg-yellow-700 text-white py-24 text-center shadow-lg">
-        <h1 className="text-5xl font-extrabold mb-4">NDIS Supports</h1>
+      <section className="relative py-24 text-center bg-gradient-to-br from-green-50 via-white to-green-100 shadow-lg overflow-hidden">
+        {/* Decorative background circles */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
 
-        <img src="" alt="" /> 
-        <p className="text-xl max-w-3xl mx-auto">
-          Explore the range of services we provide under the National Disability
-          Insurance Scheme (NDIS) to help you achieve your goals.
-        </p>
+        {/* Main content */}
+        <div className="relative z-10 flex flex-col items-center justify-center px-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-green-700 mb-6">
+            NDIS Supports
+          </h1>
+
+          <div className="flex justify-center mb-8">
+            <img
+              src="ndis.jpg"
+              alt="NDIS"
+              className="w-130 h-90 rounded-2xl shadow-2xl transform hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Explore the range of services we provide under the{" "}
+            <span className="font-semibold text-green-600">
+              National Disability Insurance Scheme (NDIS)
+            </span>{" "}
+            to help you achieve your goals and live a more independent, fulfilling
+            life.
+          </p>
+
+          <button className="mt-10 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-full shadow-md transition duration-300 transform hover:-translate-y-1">
+            Learn More
+          </button>
+        </div>
       </section>
 
       {/* Overview */}

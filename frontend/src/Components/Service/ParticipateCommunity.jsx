@@ -64,11 +64,7 @@ const ParticipateCommunity = () => {
 
         {/* Main Image Section */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
-          <img
-            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1470&q=80"
-            alt="Community participation and social engagement"
-            className="w-full h-[400px] lg:h-[500px] object-cover"
-          />
+     
           
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent"></div>
@@ -96,6 +92,11 @@ const ParticipateCommunity = () => {
             </div>
           </div>
         </div>
+             <img
+            src="community.jpg"
+            alt="Community participation and social engagement"
+            className="w-full h-[300px] lg:h-[300px] object-cover"
+          />
 
         {/* Main Content Section - Two Columns */}
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">

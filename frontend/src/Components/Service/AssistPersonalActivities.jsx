@@ -1,5 +1,4 @@
 import React from "react";
-import Image from '../../assets/healthcare.jpg';
 
 const AssistPersonalActivities = () => {
   return (
@@ -13,26 +12,27 @@ const AssistPersonalActivities = () => {
               <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
               Personal Care Services
             </div>
-            
+
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
               Assist Personal Activities
               <span className="text-blue-600 block">High Level Care</span>
             </h1>
-            
+
             <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
           </div>
 
           {/* Main Image with Overlay */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
             <img
-              src={Image}
+              src="personalcare.jpg"
               alt="Healthcare Professional Assisting Client"
-              className="w-full h-[400px] lg:h-[500px] object-cover"
+              className="w-full h-[250px] lg:h-[400px] object-cover rounded-2xl"
             />
-            
+
+
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent"></div>
-            
+
             {/* Overlay Content */}
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <div className="space-y-4">
@@ -72,7 +72,7 @@ const AssistPersonalActivities = () => {
 
         {/* Content Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          
+
           {/* Left Content - Text Section */}
           <div className="space-y-8">
             {/* Content Paragraphs */}

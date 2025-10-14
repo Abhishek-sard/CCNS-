@@ -1,5 +1,4 @@
 import React from "react";
-import lifeSkillsImage from "../../assets/Education.jpg";
 
 const DevelopmentLifeSkills = () => {
   const lifeSkills = [
@@ -56,7 +55,7 @@ const DevelopmentLifeSkills = () => {
         {/* Main Image Section */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
           <img
-            src={lifeSkillsImage}
+            src="development.jpg"
             alt="Life Skills Development Education"
             className="w-full h-[400px] lg:h-[500px] object-cover"
           />
