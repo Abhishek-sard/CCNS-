@@ -21,7 +21,9 @@ const NdisServices = () => {
     phone: "",
     serviceType: "",
     preferredContact: "",
+    preferredContactDateTime: "",
     message: "",
+    isReferringSomeone: false,
     privacy: false,
   });
 
@@ -60,7 +62,9 @@ const NdisServices = () => {
             phone: "",
             serviceType: "",
             preferredContact: "",
+            preferredContactDateTime: "",
             message: "",
+            isReferringSomeone: false,
             privacy: false,
           });
           setSuccess(false);
@@ -191,17 +195,16 @@ const NdisServices = () => {
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700"
               >
                 <option value="">Select a service</option>
-                <option value="nursing">Nursing Care</option>
-                <option value="therapy">Therapy Services</option>
-                <option value="personalCare">Personal Care</option>
-                <option value="supportCoordination">
-                  Support Coordination
-                </option>
-                <option value="other">Other Healthcare Service</option>
+                <option value="supportCoordination">Support Coordination</option>
+                <option value="therapeuticSupports">Therapeutic Supports (e.g., OT, Physio, Speech)</option>
+                <option value="dailyLifeAssistance">Assistance with Daily Life</option>
+                <option value="assistiveTechnology">Assistive Technology</option>
+                <option value="capacityBuilding">Capacity Building Support</option>
+                <option value="other">Other (please specify in description)</option>
               </select>
             </div>
 
-            {/* Preferred Contact */}
+            {/* Preferred Contact Method */}
             <div>
               <label className="font-semibold text-gray-700">
                 Preferred Contact Method <span className="text-red-600">*</span>
@@ -229,10 +232,36 @@ const NdisServices = () => {
                   />
                   Email
                 </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="preferredContact"
+                    value="mobile"
+                    checked={formData.preferredContact === "mobile"}
+                    onChange={handleChange}
+                    required
+                  />
+                  Mobile
+                </label>
               </div>
             </div>
 
-            {/* Message */}
+            {/* Preferred Contact Date and Time */}
+            <div>
+              <label className="font-semibold text-gray-700">
+                Preferred Contact Date & Time
+              </label>
+              <input
+                type="text"
+                name="preferredContactDateTime"
+                value={formData.preferredContactDateTime}
+                onChange={handleChange}
+                placeholder="e.g., Weekdays 9am-5pm, Monday morning preferred"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700"
+              />
+            </div>
+
+            {/* Healthcare Needs Description */}
             <div>
               <label className="font-semibold text-gray-700">
                 Healthcare Needs Description{" "}
@@ -244,36 +273,66 @@ const NdisServices = () => {
                 onChange={handleChange}
                 placeholder="Please describe the healthcare services you require..."
                 required
+                rows="4"
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700"
               ></textarea>
             </div>
 
-            {/* Privacy */}
-            <div className="flex items-center gap-2">
+            {/* Are you referring someone? */}
+            <div>
+              <label className="font-semibold text-gray-700">
+                Are you referring someone?
+              </label>
+              <div className="flex items-center gap-4 mt-1">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="isReferringSomeone"
+                    value={false}
+                    checked={!formData.isReferringSomeone}
+                    onChange={() => setFormData({...formData, isReferringSomeone: false})}
+                  />
+                  No
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="isReferringSomeone"
+                    value={true}
+                    checked={formData.isReferringSomeone}
+                    onChange={() => setFormData({...formData, isReferringSomeone: true})}
+                  />
+                  Yes
+                </label>
+              </div>
+            </div>
+
+            {/* Privacy Policy */}
+            <div className="flex items-start gap-2">
               <input
                 type="checkbox"
                 name="privacy"
                 checked={formData.privacy}
                 onChange={handleChange}
                 required
+                className="mt-1"
               />
-              <label>
-                I agree to the privacy policy and consent to being contacted
-                regarding NDIS services
+              <label className="text-sm">
+                I agree to the privacy policy and consent to being contacted regarding NDIS services
               </label>
             </div>
 
-            {/* Submit */}
+            {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded font-semibold mt-2"
+              className="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded font-semibold mt-2 transition duration-200"
             >
               Submit Healthcare Inquiry
             </button>
           </form>
         </div>
 
-        {/* Right Side: CCNA Details & Map */}
+        {/* Right Side: CCNA Details & Map (Unchanged) */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md flex flex-col justify-between">
           <div className="space-y-4">
             <h3 className="text-3xl font-bold text-green-700">CCNA Agency</h3>
@@ -290,8 +349,7 @@ const NdisServices = () => {
               368 Sussex St, Sydney, NSW 2000
             </p>
             <p className="flex items-center gap-3 text-2xl">
-              <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00
-              PM
+              <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00 PM
             </p>
 
             {/* Social Media */}
@@ -299,6 +357,7 @@ const NdisServices = () => {
               <a
                 href="https://www.facebook.com/CCNASouthAustralia/"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-blue-700 hover:text-blue-900 text-2xl"
               >
                 <FaFacebookF />
@@ -306,6 +365,7 @@ const NdisServices = () => {
               <a
                 href="https://www.linkedin.com/in/ccnasa-679912282/"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-blue-500 hover:text-blue-700 text-2xl"
               >
                 <FaLinkedinIn />
@@ -313,6 +373,7 @@ const NdisServices = () => {
               <a
                 href="https://wa.me/0421079928"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-green-600 hover:text-green-800 text-2xl"
               >
                 <FaWhatsapp />

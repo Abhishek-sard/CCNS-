@@ -1,22 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+
+// Home Components
 import Hero from './Components/Home/Hero';
 import AboutSection from './Components/Home/AboutSection';
 import QuickLinks from './Components/Home/QuickLinks';
 import WhyChooseUs from './Components/Home/WhyChooseUs';
 import Testimonials from './Components/Home/Testimonials';
-import ContactPage from './Components/Contact/ContactPage';
-import NdisServices from './Components/NDIS/NdisServices';
+import ImageCollection from './Components/Home/ImageCollection';
+
+// About Components
 import ImageFile from './Components/About/ImageFile';
 import Intro from './Components/About/Intro';
 import Animation from './Components/About/Animation';
+import AboutUs from './Components/About/AboutUs';
 import Team from './Components/About/Team';
-import Advantage from './Components/Job/Advantage';
+import BranchesList from './Components/About/BranchesList';
+import ContactPage from './Components/Contact/ContactPage';
+
+// NDIS & Services
+import NdisServices from './Components/NDIS/NdisServices';
 import NdisCover from './Components/Service/NdisCover';
 import Staffing from './Components/Service/Staffing';
 import Nursing from './Components/Service/CCNANursingAgency.jsx';
@@ -32,25 +40,33 @@ import HouseholdTasks from './Components/Service/HouseholdTasks.jsx';
 import ParticipateCommunity from './Components/Service/ParticipateCommunity.jsx';
 import SupportCoordination from './Components/Service/SupportCoordination.jsx';
 import GroupCentreActivities from './Components/Service/GroupCentreActivities.jsx';
-import BlogPage from './Components/Blog/BlogPage';
-import CurrentVaccancy from './Components/Job/CurrentVaccancy';
+
+// Job & Blog
+import Advantage from './Components/Job/Advantage';
+import CurrentVacancy from './Components/Job/CurrentVaccancy';
 import VacancyDetails from './Components/Job/VacancyDetails.jsx';
 import ApplyOnline from './Components/Job/ApplyOnline';
+import BlogPage from './Components/Blog/BlogPage';
+
+// Auth
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
-import ImageCollection from './Components/Home/ImageCollection';
-import AboutUs from './Components/About/AboutUs';
-import MainDashboard from './Components/Dashboard/MainDashboard';
 
+// Dashboard Components
+import MainDashboard from './Components/Dashboard/MainDashboard';
 import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
 import Applied from './Components/Dashboard/Applied.jsx';
 import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
 import TeamManagement from './Components/Dashboard/TeamManagement.jsx';
 import StaffingManagement from './Components/Dashboard/StaffingManagement.jsx';
+import BranchManagement from './Components/Dashboard/BranchManagement.jsx';
 
-// Import console cleanup utility
+// Utils
 import './utils/consoleCleanup';
 
+// ------------------------------
+// PAGE WRAPPERS
+// ------------------------------
 function Home() {
   return (
     <>
@@ -72,12 +88,12 @@ function AboutPage() {
       <Intro />
       <AboutUs />
       <Team />
-
+      <BranchesList />
     </>
   );
 }
 
-// Wrapper to hide Navbar/Footer on /dashboard pages
+// Hide Navbar/Footer for Dashboard Pages
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith('/dashboard');
@@ -90,6 +106,9 @@ const LayoutWrapper = ({ children }) => {
   );
 };
 
+// ------------------------------
+// MAIN APP ROUTES
+// ------------------------------
 const App = () => {
   return (
     <AuthProvider>
@@ -97,6 +116,7 @@ const App = () => {
         <ScrollToTop />
         <LayoutWrapper>
           <Routes>
+            {/* Public Pages */}
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/ndis" element={<NdisServices />} />
@@ -122,7 +142,7 @@ const App = () => {
 
             {/* Blog & Job */}
             <Route path="/blog" element={<BlogPage />} />
-            <Route path="/currentvaccancy" element={<CurrentVaccancy />} />
+            <Route path="/currentvacancy" element={<CurrentVacancy />} />
             <Route path="/vacancy/:id" element={<VacancyDetails />} />
             <Route path="/applyonline" element={<ApplyOnline />} />
 
@@ -130,7 +150,9 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            {/* Admin Dashboard */}
+            {/* ============================
+                 ADMIN DASHBOARD ROUTES
+            ============================ */}
             <Route
               path="/dashboard"
               element={
@@ -144,6 +166,7 @@ const App = () => {
               <Route path="blog" element={<BlogManagement />} />
               <Route path="team" element={<TeamManagement />} />
               <Route path="staffing" element={<StaffingManagement />} />
+              <Route path="branches" element={<BranchManagement />} />
             </Route>
           </Routes>
         </LayoutWrapper>

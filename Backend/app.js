@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
 import connectDB from "./config/db.js";
@@ -14,6 +15,7 @@ import blogRoutes from "./routes/blogRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import teamRoutes from "./routes/teamRoutes.js";
 import staffingRoutes from "./routes/staffingRoutes.js";
+import branchRoutes from "./routes/branchRoutes.js"; 
 
 dotenv.config();
 const app = express();
@@ -55,12 +57,12 @@ app.use(
 // ============================================
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Static uploads
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // ============================================
 // ✅ 3. Rate Limiting (for email routes only)
 // ============================================
@@ -82,6 +84,8 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/staffing", staffingRoutes);
+app.use("/api/branches", branchRoutes);
+
 
 // ============================================
 // ✅ 5. Health Check

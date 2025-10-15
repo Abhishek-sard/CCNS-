@@ -18,6 +18,8 @@ const MainDashboard = () => {
     { name: "Blog Management", icon: <FaBlog />, path: "blog" },
     { name: "Team Management", icon: <FaUsers />, path: "team" },
     { name: "Staffing Requests", icon: <FaUsers />, path: "staffing" },
+    { name: "Branch Management", icon: <FaBriefcase />, path: "branches" },
+
   ];
 
   return (
@@ -27,7 +29,7 @@ const MainDashboard = () => {
         <h2 className="text-2xl font-bold p-6 border-b border-gray-200 text-center text-blue-600">
           Admin Dashboard
         </h2>
-        
+
         {/* User Info */}
         <div className="p-4 border-b border-gray-200 bg-blue-50">
           <p className="text-sm text-gray-600">Welcome,</p>

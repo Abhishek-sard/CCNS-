@@ -54,12 +54,14 @@ const Footer = () => {
             </ul>
           </div>
 
+
           {/* Contact Details with Icons */}
           <div className="transform hover:translate-y-1 transition-transform duration-300">
             <h3 className="text-xl font-bold mb-4 text-white border-l-4 border-green-400 pl-3">
               Contact Us
             </h3>
             <div className="space-y-3">
+              {/* Sydney Address */}
               <div className="flex items-center group">
                 <div className="bg-blue-500 p-2 rounded-lg mr-3 group-hover:scale-110 transition-transform">
                   <FaPhone className="text-white text-sm" />
@@ -80,13 +82,25 @@ const Footer = () => {
                 </div>
                 <p className="text-white text-sm font-medium">
                   Suite 616, level 6<br />
-                  368 Sussex St
-                  <br />
+                  368 Sussex St<br />
                   Sydney-NSW-2000
+                </p>
+              </div>
+
+              {/* Northern Territory Address */}
+              <div className="flex items-start group">
+                <div className="bg-purple-500 p-2 rounded-lg mr-3 mt-1 group-hover:scale-110 transition-transform">
+                  <FaMapMarkerAlt className="text-white text-sm" />
+                </div>
+                <p className="text-white text-sm font-medium">
+                  21 Grevillea Rd<br />
+                  Katherine East NT 0850<br />
+                  Phone: 0423 538 676
                 </p>
               </div>
             </div>
           </div>
+
 
           {/* NDIS Provider & Social Links */}
           <div className="transform hover:translate-y-1 transition-transform duration-300">
