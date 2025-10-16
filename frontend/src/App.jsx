@@ -43,7 +43,7 @@ import GroupCentreActivities from './Components/Service/GroupCentreActivities.js
 
 // Job & Blog
 import Advantage from './Components/Job/Advantage';
-import CurrentVacancy from './Components/Job/CurrentVaccancy';
+import CurrentVacancy from './Components/Job/CurrentVaccancy.jsx';
 import VacancyDetails from './Components/Job/VacancyDetails.jsx';
 import ApplyOnline from './Components/Job/ApplyOnline';
 import BlogPage from './Components/Blog/BlogPage';
@@ -144,7 +144,7 @@ const App = () => {
             {/* Blog & Job */}
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogDetails />} />
-            <Route path="/currentvacancy" element={<CurrentVacancy />} />
+            <Route path="/currentvaccancy" element={<CurrentVacancy />} />
             <Route path="/vacancy/:id" element={<VacancyDetails />} />
             <Route path="/applyonline" element={<ApplyOnline />} />
 
