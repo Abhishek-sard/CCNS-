@@ -47,6 +47,7 @@ import CurrentVacancy from './Components/Job/CurrentVaccancy';
 import VacancyDetails from './Components/Job/VacancyDetails.jsx';
 import ApplyOnline from './Components/Job/ApplyOnline';
 import BlogPage from './Components/Blog/BlogPage';
+import BlogDetails from './Components/Blog/BlogDetail.jsx';
 
 // Auth
 import Login from './Components/Login/Login';
@@ -142,6 +143,7 @@ const App = () => {
 
             {/* Blog & Job */}
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogDetails />} />
             <Route path="/currentvacancy" element={<CurrentVacancy />} />
             <Route path="/vacancy/:id" element={<VacancyDetails />} />
             <Route path="/applyonline" element={<ApplyOnline />} />

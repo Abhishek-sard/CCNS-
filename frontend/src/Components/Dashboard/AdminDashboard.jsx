@@ -7,6 +7,7 @@ const AdminDashboard = () => {
   const [vacancies, setVacancies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editVacancy, setEditVacancy] = useState(null); // ✅ NEW
 
   useEffect(() => {
     fetchVacancies();
@@ -27,7 +28,14 @@ const AdminDashboard = () => {
   };
 
   const handleVacancyAdded = (newVacancy) => {
-    setVacancies([...vacancies, newVacancy]);
+    if (editVacancy) {
+      // ✅ Update existing
+      setVacancies(vacancies.map(v => v._id === newVacancy._id ? newVacancy : v));
+      setEditVacancy(null);
+    } else {
+      // ✅ Add new
+      setVacancies([...vacancies, newVacancy]);
+    }
   };
 
   const handleDelete = async (id) => {
@@ -37,12 +45,20 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleEdit = (vacancy) => {
+    setEditVacancy(vacancy); // ✅ Pass selected vacancy to form
+  };
+
   return (
     <div className="p-6">
-      <VacancyForm onVacancyAdded={handleVacancyAdded} />
+      <VacancyForm
+        onVacancyAdded={handleVacancyAdded}
+        editVacancy={editVacancy} // ✅ Send vacancy to form
+        clearEdit={() => setEditVacancy(null)}
+      />
 
       <h2 className="text-3xl font-bold mt-10 mb-4 text-blue-700">All Vacancies</h2>
-      
+
       {loading && (
         <div className="flex items-center justify-center py-8">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -53,7 +69,7 @@ const AdminDashboard = () => {
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {error}
-          <button 
+          <button
             onClick={fetchVacancies}
             className="ml-4 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
           >
@@ -85,12 +101,20 @@ const AdminDashboard = () => {
               <p>{job.description}</p>
               {job.requirements && <p><span className="font-semibold">Requirements:</span> {job.requirements}</p>}
 
-              <button
-                onClick={() => handleDelete(job._id)}
-                className="mt-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
-              >
-                Delete
-              </button>
+              <div className="flex gap-2 mt-3">
+                <button
+                  onClick={() => handleEdit(job)}
+                  className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(job._id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           ))}
         </div>

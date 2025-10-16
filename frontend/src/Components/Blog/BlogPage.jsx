@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { blogApi } from "../../services/blogApi";
 import { BASE_URL_IMAGE } from "../../services/constants";
 
 const BlogCard = ({ blog }) => {
-  const [expanded, setExpanded] = useState(false);
 
-  // Create snippet from description (first 100 characters)
   const snippet =
     blog.description.length > 100
       ? blog.description.substring(0, 100) + "..."
@@ -23,22 +22,22 @@ const BlogCard = ({ blog }) => {
         )}
         <h3 className="text-lg font-bold text-blue-700 mb-2">{blog.title}</h3>
         <p className="text-gray-600 text-xs mb-2">By {blog.author}</p>
-        <p className="text-gray-700 text-sm">
-          {expanded ? blog.content : snippet}
-        </p>
+        <p className="text-gray-700 text-sm">{snippet}</p>
         <p className="text-gray-500 text-xs mt-2">
           {new Date(blog.createdAt).toLocaleDateString()}
         </p>
       </div>
-      <button
+
+      <Link
+        to={`/blog/${blog._id}`}
         className="text-blue-600 font-semibold hover:underline mt-2 self-start text-sm"
-        onClick={() => setExpanded(!expanded)}
       >
-        {expanded ? "See Less" : "See More"}
-      </button>
+        Read More →
+      </Link>
     </div>
   );
 };
+
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
