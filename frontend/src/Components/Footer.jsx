@@ -54,7 +54,6 @@ const Footer = () => {
             </ul>
           </div>
 
-
           {/* Contact Details with Icons */}
           <div className="transform hover:translate-y-1 transition-transform duration-300">
             <h3 className="text-xl font-bold mb-4 text-white border-l-4 border-green-400 pl-3">
@@ -82,7 +81,8 @@ const Footer = () => {
                 </div>
                 <p className="text-white text-sm font-medium">
                   Suite 616, level 6<br />
-                  368 Sussex St<br />
+                  368 Sussex St
+                  <br />
                   Sydney-NSW-2000
                 </p>
               </div>
@@ -93,14 +93,15 @@ const Footer = () => {
                   <FaMapMarkerAlt className="text-white text-sm" />
                 </div>
                 <p className="text-white text-sm font-medium">
-                  21 Grevillea Rd<br />
-                  Katherine East NT 0850<br />
+                  21 Grevillea Rd
+                  <br />
+                  Katherine East NT 0850
+                  <br />
                   Phone: 0423 538 676
                 </p>
               </div>
             </div>
           </div>
-
 
           {/* NDIS Provider & Social Links */}
           <div className="transform hover:translate-y-1 transition-transform duration-300">
@@ -166,8 +167,8 @@ const Footer = () => {
         <div className="text-center text-white text-sm">
           <div className="flex items-center justify-center gap-2">
             <span>
-              &copy; {new Date().getFullYear()} CCNA Agency. All rights
-              reserved.
+              Copyright &copy; {new Date().getFullYear()} CCNA Agency. All
+              rights reserved. | Powered By Nova It Solutions
             </span>
             <HiHeart className="text-red-400 animate-pulse" />
           </div>
