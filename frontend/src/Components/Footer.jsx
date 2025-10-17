@@ -168,7 +168,10 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-2">
             <span>
               Copyright &copy; {new Date().getFullYear()} CCNA Agency. All
-              rights reserved. | Powered By Nova It Solutions
+              rights reserved. | Powered By{" "}
+              <a href="https://novaitsolutionnp.com" target="_blank">
+                Nova It Solutions.
+              </a>
             </span>
             <HiHeart className="text-red-400 animate-pulse" />
           </div>
