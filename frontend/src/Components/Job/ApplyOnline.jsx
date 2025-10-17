@@ -7,6 +7,7 @@ const ApplyOnline = () => {
     email: "",
     phone: "",
     resume: null,
+    vacancyTitle: "",
     message: "",
   });
 
@@ -32,6 +33,7 @@ const ApplyOnline = () => {
       dataToSend.append("name", formData.name);
       dataToSend.append("email", formData.email);
       dataToSend.append("phone", formData.phone);
+      dataToSend.append("vacancyTitle", formData.vacancyTitle);
       dataToSend.append("message", formData.message);
       dataToSend.append("resume", formData.resume);
 
@@ -48,6 +50,7 @@ const ApplyOnline = () => {
         email: "",
         phone: "",
         resume: null,
+        vacancyTitle: "",
         message: "",
       });
       setFileName("");
@@ -148,8 +151,29 @@ const ApplyOnline = () => {
                   </div>
                 </div>
 
-                {/* Resume Upload */}
+                {/* Vacancy Title Field */}
                 <div className="space-y-2">
+                  <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wide">
+                    Vacancy Title *
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name="vacancyTitle"
+                      value={formData.vacancyTitle}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-200 bg-white/50 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400"
+                      placeholder="Enter the position you're applying for"
+                    />
+                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                      🧾
+                    </div>
+                  </div>
+                </div>
+
+                {/* Resume Upload */}
+                <div className="space-y-2 md:col-span-2">
                   <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wide">
                     Upload Resume *
                   </label>

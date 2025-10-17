@@ -1,5 +1,4 @@
 import express from 'express';
-import uploadMiddleware from '../Middleware/uploadMiddleware.js';
 import { createBlog, getBlogs, getBlogById, updateBlog, deleteBlog } from '../controllers/blogController.js';
 import upload from '../Middleware/uploadMiddleware.js';
 

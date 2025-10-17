@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../../services/constants";
+import { BASE_URL, BASE_URL_IMAGE } from "../../services/constants";
+
 
 const Applied = () => {
   const [applications, setApplications] = useState([]);
@@ -79,6 +80,8 @@ const Applied = () => {
                 <th className="p-3 text-left">Name</th>
                 <th className="p-3 text-left">Email</th>
                 <th className="p-3 text-left">Phone</th>
+                <th className="p-3 text-left">Vacancy Title</th> 
+                <th className="p-3 text-left">Resume</th>
                 <th className="p-3 text-left">Message</th>
                 <th className="p-3 text-left">Date</th>
                 <th className="p-3 text-left">Actions</th>
@@ -87,7 +90,7 @@ const Applied = () => {
             <tbody>
               {applications.length === 0 ? (
                 <tr>
-                  <td colSpan="6" className="p-8 text-center text-gray-500">
+                  <td colSpan="8" className="p-8 text-center text-gray-500">
                     No applications found
                   </td>
                 </tr>
@@ -97,6 +100,22 @@ const Applied = () => {
                     <td className="p-3 font-medium">{app.name}</td>
                     <td className="p-3">{app.email}</td>
                     <td className="p-3">{app.phone}</td>
+                    <td className="p-3">{app.vacancyTitle || "—"}</td> {/* ✅ show title */}
+                    <td className="p-3">
+                      {app.resume ? (
+                        <a
+                          href={`${BASE_URL_IMAGE}/uploads/${app.resume}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 underline"
+                        >
+                          View File
+                        </a>
+                      ) : (
+                        "No file"
+                      )}
+                    </td>
+
                     <td className="p-3 max-w-xs truncate" title={app.message}>
                       {app.message}
                     </td>

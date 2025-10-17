@@ -1,6 +1,6 @@
 import Blog from "../models/Blog.js";
 
-//create Blog
+// Create Blog
 export const createBlog = async (req, res) => {
   try {
     const newBlog = new Blog({
@@ -11,13 +11,13 @@ export const createBlog = async (req, res) => {
       image: req.file ? `/uploads/${req.file.filename}` : null,
     });
     await newBlog.save();
-    res.json({ message: "Blog created successfully", blog: newBlog });
+    res.status(201).json({ message: "Blog created successfully", blog: newBlog });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-//get all blogs
+// Get all Blogs
 export const getBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find().sort({ createdAt: -1 });
@@ -27,17 +27,18 @@ export const getBlogs = async (req, res) => {
   }
 };
 
-//get single blog
+// Get single Blog
 export const getBlogById = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
+    if (!blog) return res.status(404).json({ error: "Blog not found" });
     res.json(blog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-//update blog
+// Update Blog
 export const updateBlog = async (req, res) => {
   try {
     const updateData = {
@@ -48,20 +49,23 @@ export const updateBlog = async (req, res) => {
     };
     if (req.file) updateData.image = `/uploads/${req.file.filename}`;
 
-    const updateBlog = await Blog.findByIdAndUpdate(req.params.id, updateData, {
+    const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, updateData, {
       new: true,
     });
-    res.json(updateBlog);
+    if (!updatedBlog) return res.status(404).json({ error: "Blog not found" });
+
+    res.json(updatedBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-//Delete blog
-
+// Delete Blog
 export const deleteBlog = async (req, res) => {
   try {
-    await Blog.findByIdAndDelete(req.params.id);
+    const deletedBlog = await Blog.findByIdAndDelete(req.params.id);
+    if (!deletedBlog) return res.status(404).json({ error: "Blog not found" });
+
     res.json({ message: "Blog deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });

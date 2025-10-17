@@ -4,11 +4,11 @@ import { blogApi } from "../../services/blogApi";
 import { BASE_URL_IMAGE } from "../../services/constants";
 
 const BlogCard = ({ blog }) => {
-
   const snippet =
-    blog.description.length > 100
+    blog?.description && blog.description.length > 100
       ? blog.description.substring(0, 100) + "..."
-      : blog.description;
+      : blog?.description || "No description available.";
+
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-all duration-300 w-80 flex flex-col justify-between border-l-4 border-blue-600">

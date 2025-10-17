@@ -5,8 +5,12 @@ const applicationSchema = new mongoose.Schema({
   email: String,
   phone: String,
   message: String,
-  resume: String, // store file name
+  resume: String,
+  vacancyTitle: String,
   date: { type: Date, default: Date.now },
 });
 
-export default mongoose.model("Application", applicationSchema);
+const Application =
+  mongoose.models.Application || mongoose.model("Application", applicationSchema);
+
+export default Application;

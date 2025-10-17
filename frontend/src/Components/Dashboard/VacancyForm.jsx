@@ -13,7 +13,11 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
 
   const [previewUrl, setPreviewUrl] = useState(null);
 
-  // ✅ When editVacancy changes, load data into the form
+  // ✅ Use environment variable for API URL
+  const API_URL = import.meta.env.VITE_API_URL || "";
+
+
+  // Load form data if editing
   useEffect(() => {
     if (editVacancy) {
       setVacancy({
@@ -22,7 +26,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
         location: editVacancy.location || "",
         description: editVacancy.description || "",
         requirements: editVacancy.requirements || "",
-        image: null, // new image optional
+        image: null,
       });
       setPreviewUrl(editVacancy.image ? `/uploads/${editVacancy.image}` : null);
     } else {
@@ -38,6 +42,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
     }
   }, [editVacancy]);
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "image") {
@@ -49,6 +54,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -62,12 +68,10 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
 
       let res;
       if (editVacancy) {
-        // ✅ Update vacancy
         res = await updateVacancy(editVacancy._id, formData);
         alert("Vacancy updated successfully!");
         clearEdit();
       } else {
-        // ✅ Create new vacancy
         res = await createVacancy(formData);
         alert("Vacancy added successfully!");
       }
@@ -93,7 +97,9 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
       <h2 className="text-2xl font-bold mb-4 text-blue-700">
         {editVacancy ? "Edit Vacancy" : "Add New Vacancy"}
       </h2>
+
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Title */}
         <div>
           <label className="block font-semibold mb-1">Title</label>
           <input
@@ -106,6 +112,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
           />
         </div>
 
+        {/* Department */}
         <div>
           <label className="block font-semibold mb-1">Department</label>
           <input
@@ -118,6 +125,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
           />
         </div>
 
+        {/* Location */}
         <div>
           <label className="block font-semibold mb-1">Location</label>
           <input
@@ -130,6 +138,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
           />
         </div>
 
+        {/* Description */}
         <div>
           <label className="block font-semibold mb-1">Description</label>
           <textarea
@@ -141,8 +150,11 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
           />
         </div>
 
+        {/* Requirements */}
         <div>
-          <label className="block font-semibold mb-1">Requirements (optional)</label>
+          <label className="block font-semibold mb-1">
+            Requirements (optional)
+          </label>
           <textarea
             name="requirements"
             value={vacancy.requirements}
@@ -151,6 +163,7 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
           />
         </div>
 
+        {/* Image */}
         <div>
           <label className="block font-semibold mb-1">Image (optional)</label>
           <input
@@ -160,14 +173,13 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
             onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
-
-          {previewUrl ? (
+          {previewUrl && (
             <div className="mt-3">
               <img
                 src={
                   previewUrl.startsWith?.("blob")
                     ? previewUrl
-                    : `${process.env.REACT_APP_API_URL || ""}${previewUrl}`
+                    : `${API_URL}${previewUrl}`
                 }
                 alt="Preview"
                 className="h-32 w-auto rounded border"
@@ -176,16 +188,16 @@ const VacancyForm = ({ onVacancyAdded, editVacancy, clearEdit }) => {
                 }}
               />
             </div>
-          ) : null}
-
+          )}
         </div>
 
+        {/* Buttons */}
         <div className="flex gap-3">
           <button
             type="submit"
             className={`text-white px-4 py-2 rounded transition ${editVacancy
-              ? "bg-yellow-500 hover:bg-yellow-600"
-              : "bg-blue-700 hover:bg-blue-800"
+                ? "bg-yellow-500 hover:bg-yellow-600"
+                : "bg-blue-700 hover:bg-blue-800"
               }`}
           >
             {editVacancy ? "Update Vacancy" : "Add Vacancy"}
