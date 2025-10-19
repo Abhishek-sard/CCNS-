@@ -42,12 +42,30 @@ const NdisServices = () => {
     e.preventDefault();
     setError("");
 
+    // Prepare payload with trimmed strings
+    const payload = {
+      ...formData,
+      participantName: formData.participantName.trim(),
+      ndisNumber: formData.ndisNumber.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      serviceType: formData.serviceType,
+      preferredContact: formData.preferredContact,
+      preferredContactDateTime: formData.preferredContactDateTime.trim(),
+      message: formData.message.trim(),
+      isReferringSomeone: formData.isReferringSomeone,
+      privacy: formData.privacy,
+    };
+
     try {
-      const response = await fetch(`${BASE_URL}/enquiry/send-agency-enquiry`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${BASE_URL}/enquiry/send-agency-enquiry`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await response.json();
 
@@ -96,7 +114,7 @@ const NdisServices = () => {
         </div>
       </header>
 
-      {/* Success & Error messages */}
+      {/* Success & Error Messages */}
       {success && (
         <div className="bg-green-100 text-green-800 p-4 rounded mb-6 flex items-center">
           <FaCheckCircle className="mr-2" />
@@ -110,7 +128,6 @@ const NdisServices = () => {
         </div>
       )}
 
-      {/* Main Layout */}
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left Side: Form */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md">
@@ -196,7 +213,9 @@ const NdisServices = () => {
               >
                 <option value="">Select a service</option>
                 <option value="supportCoordination">Support Coordination</option>
-                <option value="therapeuticSupports">Therapeutic Supports (e.g., OT, Physio, Speech)</option>
+                <option value="therapeuticSupports">
+                  Therapeutic Supports (e.g., OT, Physio, Speech)
+                </option>
                 <option value="dailyLifeAssistance">Assistance with Daily Life</option>
                 <option value="assistiveTechnology">Assistive Technology</option>
                 <option value="capacityBuilding">Capacity Building Support</option>
@@ -210,39 +229,19 @@ const NdisServices = () => {
                 Preferred Contact Method <span className="text-red-600">*</span>
               </label>
               <div className="flex items-center gap-4 mt-1">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="preferredContact"
-                    value="phone"
-                    checked={formData.preferredContact === "phone"}
-                    onChange={handleChange}
-                    required
-                  />
-                  Phone
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="preferredContact"
-                    value="email"
-                    checked={formData.preferredContact === "email"}
-                    onChange={handleChange}
-                    required
-                  />
-                  Email
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="preferredContact"
-                    value="mobile"
-                    checked={formData.preferredContact === "mobile"}
-                    onChange={handleChange}
-                    required
-                  />
-                  Mobile
-                </label>
+                {["phone", "email", "mobile"].map((method) => (
+                  <label key={method} className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="preferredContact"
+                      value={method}
+                      checked={formData.preferredContact === method}
+                      onChange={handleChange}
+                      required
+                    />
+                    {method.charAt(0).toUpperCase() + method.slice(1)}
+                  </label>
+                ))}
               </div>
             </div>
 
@@ -264,8 +263,7 @@ const NdisServices = () => {
             {/* Healthcare Needs Description */}
             <div>
               <label className="font-semibold text-gray-700">
-                Healthcare Needs Description{" "}
-                <span className="text-red-600">*</span>
+                Healthcare Needs Description <span className="text-red-600">*</span>
               </label>
               <textarea
                 name="message"
@@ -280,17 +278,14 @@ const NdisServices = () => {
 
             {/* Are you referring someone? */}
             <div>
-              <label className="font-semibold text-gray-700">
-                Are you referring someone?
-              </label>
+              <label className="font-semibold text-gray-700">Are you referring someone?</label>
               <div className="flex items-center gap-4 mt-1">
                 <label className="flex items-center gap-2">
                   <input
                     type="radio"
                     name="isReferringSomeone"
-                    value={false}
                     checked={!formData.isReferringSomeone}
-                    onChange={() => setFormData({...formData, isReferringSomeone: false})}
+                    onChange={() => setFormData({ ...formData, isReferringSomeone: false })}
                   />
                   No
                 </label>
@@ -298,9 +293,8 @@ const NdisServices = () => {
                   <input
                     type="radio"
                     name="isReferringSomeone"
-                    value={true}
                     checked={formData.isReferringSomeone}
-                    onChange={() => setFormData({...formData, isReferringSomeone: true})}
+                    onChange={() => setFormData({ ...formData, isReferringSomeone: true })}
                   />
                   Yes
                 </label>
@@ -332,7 +326,7 @@ const NdisServices = () => {
           </form>
         </div>
 
-        {/* Right Side: CCNA Details & Map (Unchanged) */}
+        {/* Right Side: CCNA Details & Map */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md flex flex-col justify-between">
           <div className="space-y-4">
             <h3 className="text-3xl font-bold text-green-700">CCNA Agency</h3>
@@ -340,8 +334,7 @@ const NdisServices = () => {
               <FaPhoneAlt className="text-green-600" /> 0421 079 928
             </p>
             <p className="flex items-center gap-3">
-              <FaEnvelope className="text-green-600 text-3xl" />{" "}
-              info@ccnaagency.com
+              <FaEnvelope className="text-green-600 text-3xl" /> info@ccnaagency.com
             </p>
             <p className="flex items-start gap-3">
               <FaMapMarkerAlt className="text-green-600 text-3xl mt-1" />
@@ -380,7 +373,6 @@ const NdisServices = () => {
               </a>
             </div>
 
-            {/* Get Directions Button */}
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=368+Sussex+St,+Sydney,+NSW+2000"
               target="_blank"
@@ -391,7 +383,6 @@ const NdisServices = () => {
             </a>
           </div>
 
-          {/* Google Map */}
           <div className="mt-6">
             <iframe
               title="CCNA Location"

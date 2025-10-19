@@ -1,23 +1,40 @@
 import nodemailer from "nodemailer";
 
 const validateEmail = (email) => {
-  // simple regex email validation
   return typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
 export const sendEmail = async (req, res) => {
   try {
-    const { name, email, subject, message } = req.body;
+    const {
+      participantName,
+      ndisNumber,
+      email,
+      phone,
+      serviceType,
+      preferredContact,
+      preferredContactDateTime,
+      message,
+      isReferringSomeone,
+      privacy,
+    } = req.body;
 
-    // Basic validation
-    if (!name || !email || !message) {
-      return res.status(400).json({ success: false, message: "Name, email and message are required." });
+    // Validate important fields
+    if (!participantName || !email || !phone || !serviceType || !message) {
+      return res.status(400).json({
+        success: false,
+        message: "Required fields are missing.",
+      });
     }
+
     if (!validateEmail(email)) {
-      return res.status(400).json({ success: false, message: "Invalid email address." });
+      return res.status(400).json({
+        success: false,
+        message: "Invalid email address.",
+      });
     }
 
-    // Create transporter (Gmail example). For production use SendGrid / Mailgun etc.
+    // Create email transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -26,25 +43,56 @@ export const sendEmail = async (req, res) => {
       },
     });
 
-    // Build mail options
+    // Compose email content
     const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`, // show as client name but emails come from your sender
-      replyTo: email, // when owner clicks reply, it'll go to the sender's email
+      from: `"${participantName}" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
       to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USER,
-      subject: subject && subject.trim().length ? subject : `Contact form message from ${name}`,
-      text: `You have a new message from the contact form:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `<h3>New contact message</h3>
-             <p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>`,
+      subject: `NDIS Healthcare Inquiry from ${participantName}`,
+      text: `
+Participant Name: ${participantName}
+NDIS Number: ${ndisNumber || "N/A"}
+Email: ${email}
+Phone: ${phone}
+Service Type: ${serviceType}
+Preferred Contact: ${preferredContact}
+Preferred Contact Date/Time: ${preferredContactDateTime || "N/A"}
+Referring Someone: ${isReferringSomeone ? "Yes" : "No"}
+Privacy Agreement: ${privacy ? "Agreed" : "Not Agreed"}
+
+Message:
+${message}
+      `,
+      html: `
+        <h2>New NDIS Healthcare Inquiry</h2>
+        <p><strong>Participant Name:</strong> ${participantName}</p>
+        <p><strong>NDIS Number:</strong> ${ndisNumber || "N/A"}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Service Type:</strong> ${serviceType}</p>
+        <p><strong>Preferred Contact:</strong> ${preferredContact}</p>
+        <p><strong>Preferred Contact Date/Time:</strong> ${preferredContactDateTime || "N/A"}</p>
+        <p><strong>Referring Someone:</strong> ${isReferringSomeone ? "Yes" : "No"}</p>
+        <p><strong>Privacy Agreement:</strong> ${privacy ? "Agreed" : "Not Agreed"}</p>
+        <hr/>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br/>")}</p>
+      `,
     };
 
-    // Send
+    // Send email
     const info = await transporter.sendMail(mailOptions);
 
-    return res.status(200).json({ success: true, message: "Email sent", info: info.response || info });
+    return res.status(200).json({
+      success: true,
+      message: "Email sent successfully!",
+      info: info.response,
+    });
   } catch (error) {
     console.error("Email send error:", error);
-    return res.status(500).json({ success: false, message: "Server error sending email" });
+    return res.status(500).json({
+      success: false,
+      message: "Server error while sending email.",
+    });
   }
 };

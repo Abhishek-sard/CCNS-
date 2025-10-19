@@ -31,8 +31,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Menu with Enhanced Design */}
-        <ul className="hidden md:flex space-x-2 font-medium text-lg items-center mx-auto bg-white/10 backdrop-blur-md rounded-2xl px-6 py-2 border border-white/20 shadow-xl">
+        {/* Desktop Menu - Removed box container */}
+        <ul className="hidden md:flex space-x-2 font-medium text-lg items-center mx-auto">
           <li className="relative group">
             <NavLink to="/" className={linkClasses}>
               <span className="relative z-10">Home</span>
@@ -46,7 +46,7 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          {/* JobSeeker Dropdown - Enhanced */}
+          {/* JobSeeker Dropdown */}
           <li className="relative group">
             <span className="flex items-center text-white px-4 py-2 rounded-lg cursor-pointer bg-gradient-to-r from-green-500/20 to-blue-500/20 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300">
               JobSeeker
@@ -83,7 +83,7 @@ const Navbar = () => {
             </ul>
           </li>
 
-          {/* Services Mega Dropdown - Enhanced */}
+          {/* Services Mega Dropdown */}
           <li className="relative group">
             <span className="flex items-center text-white px-4 py-2 rounded-lg cursor-pointer bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300">
               Services
@@ -91,7 +91,7 @@ const Navbar = () => {
                 ▼
               </span>
             </span>
-            {/* Dropdown: Enhanced Design */}
+            {/* Dropdown */}
             <ul className="absolute right-1/2 translate-x-1/4 top-12 bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl hidden group-hover:grid grid-cols-3 gap-2 w-[650px] p-6 border border-white/30">
               {[
                 "/staffing",
@@ -166,7 +166,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Enhanced Mobile Menu Button */}
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-white text-2xl bg-white/20 backdrop-blur-md rounded-xl p-3 hover:bg-white/30 transition-all duration-300 border border-white/30 shadow-lg"
           onClick={() => setIsOpen(!isOpen)}
@@ -177,7 +177,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Enhanced Mobile Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gradient-to-b from-yellow-500/95 to-gray-700/95 backdrop-blur-md shadow-2xl border-t border-white/20 px-6 py-6 space-y-3 font-medium text-white">
           <NavLink
@@ -216,7 +216,7 @@ const Navbar = () => {
             CCNA Agency
           </NavLink>
 
-          {/* Mobile Dropdown - Enhanced */}
+          {/* Mobile Dropdown */}
           <div>
             <button
               className="flex items-center w-full py-4 px-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"

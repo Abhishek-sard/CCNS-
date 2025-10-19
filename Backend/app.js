@@ -57,7 +57,7 @@ app.use(
 // ============================================
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 // Static uploads
 const __filename = fileURLToPath(import.meta.url);

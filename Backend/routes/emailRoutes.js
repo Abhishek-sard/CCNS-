@@ -1,9 +1,9 @@
 import express from "express";
-import { sendEmail } from "../controllers/emailController.js"; 
+import { sendAgencyEmail } from "../controllers/enquiryController.js"; 
 
 const router = express.Router();
 
-// POST /api/email/send
-router.post("/send", sendEmail);
+// POST /api/email/send-agency-enquiry
+router.post("/send-agency-enquiry", sendAgencyEmail); 
 
 export default router;

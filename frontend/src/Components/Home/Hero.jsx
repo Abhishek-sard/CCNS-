@@ -20,10 +20,10 @@ const Hero = () => {
                         {/* Fallback image if video doesn't load */}
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-gray-700"></div>
                     </video>
-                    
+
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-700/60 to-gray-900/80"></div>
-                    
+
                     {/* Animated Background Elements */}
                     <div className="absolute inset-0">
                         <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-white rounded-full opacity-20 animate-pulse"></div>
@@ -59,12 +59,12 @@ const Hero = () => {
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                            Compassionate Care, <br /> 
+                            Compassionate Care, <br />
                             <span className="bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent">
                                 Reliable Support
                             </span>
                         </h1>
-                        
+
                         <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto md:mx-0 leading-relaxed font-light">
                             At <span className="font-semibold text-white">CCNA Agency</span>, we empower NDIS participants to live fulfilling lives
                             while providing trusted healthcare staffing solutions to facilities
@@ -112,7 +112,7 @@ const Hero = () => {
                         <div className="relative group">
                             {/* Glow Effect */}
                             <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                            
+
                             {/* Main Image Container */}
                             <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl">
                                 <img
@@ -121,7 +121,7 @@ const Hero = () => {
                                     className="w-full max-w-md rounded-xl shadow-2xl transform transition duration-500 group-hover:scale-105 group-hover:rotate-1"
                                 />
                             </div>
-                            
+
                             {/* Floating Elements */}
                             <div className="absolute -top-4 -right-4 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce">
                                 Trusted
@@ -147,14 +147,14 @@ const Hero = () => {
             {/* Enhanced WhatsApp Button */}
             <div className="fixed bottom-5 right-5 z-50 group">
                 <a
-                    href="https://wa.me/9811342113?text=Hello .....?"
+                    href="https://wa.me/61421079928?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative block"
                 >
                     {/* Pulse Animation */}
                     <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-30"></div>
-                    
+
                     {/* Main Button */}
                     <div className="relative bg-green-500 rounded-full p-2 shadow-2xl transform transition duration-300 group-hover:scale-110 group-hover:rotate-12">
                         <img
@@ -163,7 +163,7 @@ const Hero = () => {
                             className="w-12 h-12 rounded-full"
                         />
                     </div>
-                    
+
                     {/* Tooltip */}
                     <div className="absolute right-16 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                         Chat with us!
@@ -193,4 +193,4 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+export default Hero; 
