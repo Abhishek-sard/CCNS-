@@ -178,6 +178,7 @@ const Footer = () => {
           <p className="text-xs text-white text-opacity-70 mt-2">
             Empowering Communities Through Quality Care
           </p>
+          <a href="https://ramrosoft.com.au/">Powered by RamroSoft</a>
         </div>
       </div>
 
