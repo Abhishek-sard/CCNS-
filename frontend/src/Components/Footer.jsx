@@ -169,8 +169,8 @@ const Footer = () => {
             <span>
               Copyright &copy; {new Date().getFullYear()} CCNA Agency. All
               rights reserved. | Powered By{" "}
-              <a href="https://novaitsolutionnp.com" target="_blank">
-                Nova It Solutions.
+              <a href="https://ramrosoft.com.au/" target="_blank">
+                RamroSoft.
               </a>
             </span>
             <HiHeart className="text-red-400 animate-pulse" />
@@ -178,7 +178,6 @@ const Footer = () => {
           <p className="text-xs text-white text-opacity-70 mt-2">
             Empowering Communities Through Quality Care
           </p>
-          <a href="https://ramrosoft.com.au/">Powered by RamroSoft</a>
         </div>
       </div>
 
