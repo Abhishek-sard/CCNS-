@@ -15,7 +15,7 @@ import blogRoutes from "./routes/blogRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import teamRoutes from "./routes/teamRoutes.js";
 import staffingRoutes from "./routes/staffingRoutes.js";
-import branchRoutes from "./routes/branchRoutes.js"; 
+import branchRoutes from "./routes/branchRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -23,10 +23,7 @@ const app = express();
 // ============================================
 // ✅ 1. Global CORS middleware (supports cPanel)
 // ============================================
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://ccns.novaitsolutionnp.com",
-];
+const allowedOrigins = ["http://localhost:5173", "https://ccnacare.com.au"];
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
@@ -85,7 +82,6 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/staffing", staffingRoutes);
 app.use("/api/branches", branchRoutes);
-
 
 // ============================================
 // ✅ 5. Health Check
