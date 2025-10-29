@@ -23,7 +23,14 @@ const app = express();
 // ============================================
 // ✅ 1. Global CORS middleware (supports cPanel)
 // ============================================
-const allowedOrigins = ["http://localhost:5173", "https://ccnacare.com.au"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://ccnacare.com.au",
+  "https://ccnacare.com.au",
+  "https://www.ccnacare.com.au",
+  "http://server.ccnacare.com.au",
+  "https://server.ccnacare.com.au",
+];
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
