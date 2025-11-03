@@ -7,10 +7,9 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const linkClasses = ({ isActive }) =>
-    `cursor-pointer transition-all duration-300 px-4 py-2 rounded-lg ${
-      isActive
-        ? "text-white bg-white/20 shadow-lg font-semibold scale-105"
-        : "text-white/90 hover:text-white hover:bg-white/10 hover:scale-105"
+    `cursor-pointer transition-all duration-300 px-4 py-2 rounded-lg ${isActive
+      ? "text-white bg-white/20 shadow-lg font-semibold scale-105"
+      : "text-white/90 hover:text-white hover:bg-white/10 hover:scale-105"
     }`;
 
   return (
@@ -155,7 +154,7 @@ const Navbar = () => {
                 isActive: false,
               })} bg-gradient-to-r from-green-500/30 to-blue-500/30 hover:from-green-500/40 hover:to-blue-500/40 font-semibold`}
             >
-              Staffing 
+              Staffing
             </NavLink>
           </li>
 
@@ -224,15 +223,14 @@ const Navbar = () => {
             >
               Services
               <span
-                className={`ml-auto transform transition-transform duration-300 ${
-                  dropdown ? "rotate-180" : ""
-                }`}
+                className={`ml-auto transform transition-transform duration-300 ${dropdown ? "rotate-180" : ""
+                  }`}
               >
                 ▼
               </span>
             </button>
             {dropdown && (
-              <ul className="ml-4 mt-2 space-y-2 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+              <ul className="mt-3 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 flex flex-wrap gap-3 overflow-x-auto max-h-[250px]">
                 {[
                   "NDIS Services",
                   "Staffing & Nursing",
