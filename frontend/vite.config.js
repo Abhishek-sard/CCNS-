@@ -5,6 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    allowedHosts: ["ccns.novaitsolutionnp.com"],
+    allowedHosts: ["ccnacare.com.au"],
   },
 });

@@ -15,7 +15,7 @@ import blogRoutes from "./routes/blogRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import teamRoutes from "./routes/teamRoutes.js";
 import staffingRoutes from "./routes/staffingRoutes.js";
-import branchRoutes from "./routes/branchRoutes.js"; 
+import branchRoutes from "./routes/branchRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -25,7 +25,11 @@ const app = express();
 // ============================================
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://ccns.novaitsolutionnp.com",
+  "http://ccnacare.com.au",
+  "https://ccnacare.com.au",
+  "https://www.ccnacare.com.au",
+  "http://server.ccnacare.com.au",
+  "https://server.ccnacare.com.au",
 ];
 
 app.use((req, res, next) => {
@@ -86,7 +90,6 @@ app.use("/api/team", teamRoutes);
 app.use("/api/staffing", staffingRoutes);
 app.use("/api/branches", branchRoutes);
 
-
 // ============================================
 // ✅ 5. Health Check
 // ============================================
@@ -97,7 +100,7 @@ app.get("/", (req, res) => {
 // ============================================
 // ✅ 6. Start Server
 // ============================================
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, async () => {
   await connectDB();

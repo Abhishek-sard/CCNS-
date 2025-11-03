@@ -1,7 +1,7 @@
 // For domain
-export const BASE_URL = "https://ccnsserver.novaitsolutionnp.com/api";
-export const BASE_URL_IMAGE = "https://ccnsserver.novaitsolutionnp.com";
+export const BASE_URL = "https://server.ccnacare.com.au:5001/api";
+export const BASE_URL_IMAGE = "https://server.ccnacare.com.au:5001";
 
 // For localhost
-// export const BASE_URL = "http://localhost:5000/api";
-// export const BASE_URL_IMAGE = "http://localhost:5000";
+// export const BASE_URL = "http://localhost:5001/api";
+// export const BASE_URL_IMAGE = "http://localhost:5001";
