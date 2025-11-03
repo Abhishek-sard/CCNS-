@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { BASE_URL } from "../../services/constants";
 
 const ApplyOnline = () => {
+  const location = useLocation();
+  const prefilledTitle = location.state?.title || "";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     resume: null,
-    vacancyTitle: "",
+    vacancyTitle: prefilledTitle,
     message: "",
   });
 
@@ -163,9 +167,11 @@ const ApplyOnline = () => {
                       value={formData.vacancyTitle}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-200 bg-white/50 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400"
+                      readOnly
+                      className="w-full border border-gray-200 bg-gray-100 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 placeholder-gray-400 cursor-not-allowed"
                       placeholder="Enter the position you're applying for"
                     />
+
                     <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                       🧾
                     </div>
@@ -228,11 +234,10 @@ const ApplyOnline = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
-                  isSubmitting
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl"
-                } text-white`}
+                className={`w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl"
+                  } text-white`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">

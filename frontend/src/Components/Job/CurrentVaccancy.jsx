@@ -71,11 +71,17 @@ const CurrentVacancy = () => {
                       Read More
                     </button>
                   </Link>
-                  <Link to="/applyonline">
+                  {/* <Link to="/applyonline">
+                    <button className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition">
+                      Apply Now
+                    </button>
+                  </Link> */}
+                  <Link to="/applyonline" state={{ title: job.title }}>
                     <button className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition">
                       Apply Now
                     </button>
                   </Link>
+
                 </div>
               </div>
             </div>
