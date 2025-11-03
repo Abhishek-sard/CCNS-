@@ -35,7 +35,6 @@ const Navbar = () => {
           <li className="relative group">
             <NavLink to="/" className={linkClasses}>
               <span className="relative z-10">Home</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </NavLink>
           </li>
 
@@ -47,7 +46,7 @@ const Navbar = () => {
 
           {/* JobSeeker Dropdown */}
           <li className="relative group">
-            <span className="flex items-center text-white px-4 py-2 rounded-lg cursor-pointer bg-gradient-to-r from-green-500/20 to-blue-500/20 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300">
+            <span className="flex items-center text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300">
               JobSeeker
               <span className="ml-2 transform group-hover:rotate-180 transition-transform duration-300">
                 ▼
@@ -84,7 +83,7 @@ const Navbar = () => {
 
           {/* Services Mega Dropdown */}
           <li className="relative group">
-            <span className="flex items-center text-white px-4 py-2 rounded-lg cursor-pointer bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300">
+            <span className="flex items-center text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300">
               Services
               <span className="ml-2 transform group-hover:rotate-180 transition-transform duration-300">
                 ▼
@@ -148,13 +147,8 @@ const Navbar = () => {
           </li>
 
           <li className="relative group">
-            <NavLink
-              to="/Staffing"
-              className={`${linkClasses({
-                isActive: false,
-              })} bg-gradient-to-r from-green-500/30 to-blue-500/30 hover:from-green-500/40 hover:to-blue-500/40 font-semibold`}
-            >
-              Staffing
+            <NavLink to="/Staffing" className={linkClasses}>
+              <span className="relative z-10">Staffing</span>
             </NavLink>
           </li>
 
@@ -218,7 +212,7 @@ const Navbar = () => {
           {/* Mobile Dropdown */}
           <div>
             <button
-              className="flex items-center w-full py-4 px-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
+              className="flex items-center w-full py-4 px-4 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300"
               onClick={() => setDropdown(!dropdown)}
             >
               Services
@@ -289,7 +283,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/Staffing"
-            className="block py-4 px-4 rounded-xl bg-gradient-to-r from-green-500/30 to-blue-500/30 hover:from-green-500/40 hover:to-blue-500/40 transition-all duration-300 hover:translate-x-2 font-semibold"
+            className="block py-4 px-4 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 hover:translate-x-2 font-semibold"
             onClick={() => setIsOpen(false)}
           >
             Staffing
