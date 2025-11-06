@@ -3,7 +3,7 @@ import React from "react";
 const cards = [
   {
     title: "For Healthcare Facilities:",
-    text: "CCNASA is your reliable partner in healthcare staffing. We provide qualified nurses and carers to ensure your facility operates seamlessly, delivering excellent care consistently.",
+    text: "CCNA care is your reliable partner in healthcare staffing. We provide qualified nurses and carers to ensure your facility operates seamlessly, delivering excellent care consistently. We provide a range of services. ",
   },
   {
     title: "For Job Seekers:",
@@ -30,7 +30,7 @@ const Animation = () => {
             <div className="p-6">
               <p className="text-gray-700 mb-6">{card.text}</p>
               <button className="bg-blue-700 hover:bg-blue-600 text-white px-5 py-2 rounded-full transition-all duration-300">
-                Read More
+                CCNA care
               </button>
             </div>
           </div>
