@@ -8,12 +8,12 @@ const Hero = () => {
         <>
             <section className="relative bg-white text-gray-800 min-h-screen pt-18 flex items-center overflow-hidden">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-blue-50 to-blue-50">
+                <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-50 to-teal-50">
                     {/* Subtle Pattern */}
                     <div className="absolute inset-0 opacity-10">
-                        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
-                        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-float delay-2000"></div>
-                        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl animate-float delay-4000"></div>
+                        <div className="absolute top-20 left-10 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+                        <div className="absolute top-40 right-10 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl animate-float delay-2000"></div>
+                        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-100 rounded-full mix-blend-multiply filter blur-xl animate-float delay-4000"></div>
                     </div>
                 </div>
 
@@ -22,7 +22,7 @@ const Hero = () => {
                     {[...Array(10)].map((_, i) => (
                         <div
                             key={i}
-                            className="absolute w-3 h-3 bg-blue-200/50 rounded-full animate-float-slow"
+                            className="absolute w-3 h-3 bg-teal-200/50 rounded-full animate-float-slow"
                             style={{
                                 left: `${Math.random() * 100}%`,
                                 top: `${Math.random() * 100}%`,
@@ -38,20 +38,20 @@ const Hero = () => {
                     {/* Left Content with Enhanced Styling */}
                     <div className="text-center md:text-left md:w-1/2 space-y-8">
                         {/* Animated Badge */}
-                        <div className="inline-flex items-center gap-2 bg-blue-100 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200 mb-4">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                            <span className="text-sm font-semibold text-blue-700">Trusted Healthcare Partner</span>
+                        <div className="inline-flex items-center gap-2 bg-teal-100 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-200 mb-4">
+                            <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></div>
+                            <span className="text-sm font-semibold text-teal-700">Trusted Healthcare Partner</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-gray-900">
                             Compassionate Care, <br />
-                            <span className="text-transparent bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text">
+                            <span className="text-transparent bg-gradient-to-r from-teal-500 to-teal-600 bg-clip-text">
                                 Reliable Support
                             </span>
                         </h1>
 
                         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto md:mx-0 leading-relaxed font-light">
-                            At <span className="font-semibold text-blue-600">CCNA Agency</span>, we empower NDIS participants to live fulfilling lives
+                            At <span className="font-semibold text-teal-600">CCNA Agency</span>, we empower NDIS participants to live fulfilling lives
                             while providing trusted healthcare staffing solutions to facilities
                             across Australia.
                         </p>
@@ -60,7 +60,7 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start pt-4">
                             <Link
                                 to="/NdisCover"
-                                className="group relative bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center min-w-[200px] overflow-hidden"
+                                className="group relative bg-teal-500 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center min-w-[200px] overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                                 <span className="relative z-10">Explore NDIS Services</span>
@@ -68,25 +68,25 @@ const Hero = () => {
 
                             <Link
                                 to="/Staffing"
-                                className="group relative bg-white text-blue-600 px-8 py-4 rounded-xl font-bold border-2 border-blue-500 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center min-w-[200px]"
+                                className="group relative bg-white text-teal-600 px-8 py-4 rounded-xl font-bold border-2 border-teal-500 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center min-w-[200px]"
                             >
                                 <span className="relative z-10">Find Staffing Solutions</span>
-                                <div className="absolute inset-0 border-2 border-blue-200 rounded-xl transform scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="absolute inset-0 border-2 border-teal-200 rounded-xl transform scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </Link>
                         </div>
 
                         {/* Trust Indicators */}
                         <div className="flex flex-wrap gap-6 justify-center md:justify-start pt-8">
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-blue-600">500+</div>
+                                <div className="text-2xl font-bold text-teal-600">500+</div>
                                 <div className="text-sm text-gray-600">Happy Clients</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-blue-600">24/7</div>
+                                <div className="text-2xl font-bold text-teal-600">24/7</div>
                                 <div className="text-sm text-gray-600">Support</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-blue-600">100+</div>
+                                <div className="text-2xl font-bold text-teal-600">100+</div>
                                 <div className="text-sm text-gray-600">Professionals</div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ const Hero = () => {
                     <div className="relative md:w-1/2 flex justify-center">
                         <div className="relative group">
                             {/* Glow Effect */}
-                            <div className="absolute -inset-4 bg-gradient-to-r from-blue-200 to-blue-200 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                            <div className="absolute -inset-4 bg-gradient-to-r from-teal-200 to-teal-200 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
 
                             {/* Main Image Container */}
                             <div className="relative bg-white rounded-2xl p-4 border border-gray-200 shadow-2xl">
@@ -108,10 +108,10 @@ const Hero = () => {
                             </div>
 
                             {/* Floating Elements */}
-                            <div className="absolute -top-4 -right-4 bg-blue-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce">
+                            <div className="absolute -top-4 -right-4 bg-teal-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce">
                                 Trusted
                             </div>
-                            <div className="absolute -bottom-4 -left-4 bg-white text-blue-600 px-4 py-2 rounded-full font-bold text-sm shadow-lg border border-blue-200 animate-bounce delay-1000">
+                            <div className="absolute -bottom-4 -left-4 bg-white text-teal-600 px-4 py-2 rounded-full font-bold text-sm shadow-lg border border-teal-200 animate-bounce delay-1000">
                                 Certified
                             </div>
                         </div>
@@ -120,10 +120,10 @@ const Hero = () => {
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="flex flex-col items-center text-blue-600">
+                    <div className="flex flex-col items-center text-teal-600">
                         <span className="text-sm mb-2">Scroll to explore</span>
-                        <div className="w-6 h-10 border-2 border-blue-300 rounded-full flex justify-center">
-                            <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-bounce"></div>
+                        <div className="w-6 h-10 border-2 border-teal-300 rounded-full flex justify-center">
+                            <div className="w-1 h-3 bg-teal-400 rounded-full mt-2 animate-bounce"></div>
                         </div>
                     </div>
                 </div>

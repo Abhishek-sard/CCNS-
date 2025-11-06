@@ -13,7 +13,7 @@ import Logo from "../assets/logoccna1.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-yellow-500 to-yellow-600 py-8 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-r from-teal-500 to-teal-300 py-8 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div

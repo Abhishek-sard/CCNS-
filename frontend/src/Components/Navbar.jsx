@@ -9,7 +9,7 @@ const Navbar = () => {
   const linkClasses = ({ isActive }) =>
     `cursor-pointer transition-all duration-300 px-4 py-2 rounded-lg ${
       isActive
-        ? "text-white bg-blue-500 shadow-lg font-semibold scale-105"
+        ? "text-white bg-teal-500 shadow-lg font-semibold scale-105"
         : "text-gray-700 hover:text-teal-600 hover:bg-teal-50 hover:scale-105"
     }`;
 
