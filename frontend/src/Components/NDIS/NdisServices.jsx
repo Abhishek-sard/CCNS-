@@ -329,7 +329,7 @@ const NdisServices = () => {
         {/* Right Side: CCNA Details & Map */}
         <div className="flex-1 bg-white p-8 rounded-lg shadow-md flex flex-col justify-between">
           <div className="space-y-4">
-            <h3 className="text-3xl font-bold text-green-700">CCNA Agency</h3>
+            <h3 className="text-3xl font-bold text-green-700">CCNA Care</h3>
             <p className="flex items-center gap-3">
               <FaPhoneAlt className="text-green-600" /> 0421 079 928
             </p>

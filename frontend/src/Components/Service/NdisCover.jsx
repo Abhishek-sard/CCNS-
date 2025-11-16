@@ -31,9 +31,7 @@ const NdisCover = () => {
             life.
           </p>
 
-          <button className="mt-10 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-full shadow-md transition duration-300 transform hover:-translate-y-1">
-            Learn More
-          </button>
+          
         </div>
       </section>
 

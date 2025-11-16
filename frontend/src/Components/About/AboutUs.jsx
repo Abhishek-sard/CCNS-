@@ -53,7 +53,7 @@ const AboutUs = () => {
       </section>
 
       {/* Timeline */}
-      <section className="mb-20">
+      {/* <section className="mb-20">
         <h2 className="text-3xl font-bold text-center mb-10">Our Journey</h2>
         <div className="relative border-l-4 border-gradient from-green-500 to-blue-500 pl-8">
           {[
@@ -71,7 +71,7 @@ const AboutUs = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="text-center bg-gradient-to-r from-green-500 to-blue-500 text-white py-12 px-6 rounded-2xl shadow-lg">

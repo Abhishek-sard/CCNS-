@@ -76,7 +76,7 @@ const Navbar = () => {
                   to="/job"
                   className="block px-4 py-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-all duration-200 hover:translate-x-2"
                 >
-                  CCNA Agency
+                  CCNA Care 
                 </NavLink>
               </li>
             </ul>
@@ -207,7 +207,7 @@ const Navbar = () => {
             className="block py-4 px-4 rounded-xl bg-teal-50 hover:bg-teal-100 hover:text-teal-600 transition-all duration-300 hover:translate-x-2"
             onClick={() => setIsOpen(false)}
           >
-            CCNA Agency
+            CCNA Care
           </NavLink>
 
           {/* Mobile Dropdown */}

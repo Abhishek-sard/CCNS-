@@ -168,7 +168,7 @@ const AssistTravelTransport = () => {
                                             <p className="text-gray-600">
                                                 {service.description}
                                             </p>
-                                        </div>
+                                        </div> 
                                     </div>
                                 </div>
                             ))}

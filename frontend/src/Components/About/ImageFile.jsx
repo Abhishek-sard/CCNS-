@@ -21,15 +21,15 @@ const ImageFile = () => {
         {/* Right Side - Text content */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-6">
-            About CCNASA
+            About CCNA
           </h1>
           <p className="text-gray-700 mb-6">
-            At CCNASA, we are dedicated to linking healthcare careers with skilled staff to ensure excellent care delivery. With a team of highly qualified and experienced nurses and healthcare professionals at the helm, CCNASA has established itself as a leading nursing agency in Australia. Our unwavering commitment is to provide satisfaction and peace of mind to both our clients and staff.
+            At CCNA, we are dedicated to linking healthcare careers with skilled staff to ensure excellent care delivery. With a team of highly qualified and experienced nurses and healthcare professionals at the helm, CCNA has established itself as a leading nursing  in Australia. Our unwavering commitment is to provide satisfaction and peace of mind to both our clients and staff.
           </p>
 
           <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Mission</h2>
           <p className="text-gray-700">
-            At Creative Career Nursing Agency SA – CCNASA, our mission is to provide reliable, sustainable and affordable caring solutions to individuals as well as organisations.
+            At Creative Career Nursing   – CCNA, our mission is to provide reliable, sustainable and affordable caring solutions to individuals as well as organizations.
           </p>
         </div>
       </div>

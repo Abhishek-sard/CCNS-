@@ -134,7 +134,7 @@ const Footer = () => {
       {/* Bottom */}
       <div className="text-center text-xs text-white/70">
         <p>
-          Comprehensive Care Nursing Agency Pty Ltd © {new Date().getFullYear()}
+          Comprehensive Care Nursing  Pvt Ltd © {new Date().getFullYear()}
         </p>
         <p className="mt-1">
           ABN: 1867 1505 258 | NDIS Provider Registration ID: 4-LD74YXB

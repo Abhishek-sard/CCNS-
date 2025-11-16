@@ -20,7 +20,7 @@ const AboutSection = () => {
               <div className="relative z-10 bg-white rounded-2xl p-6 shadow-2xl border border-blue-100 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
                 <img 
                   src={LogoNurse}
-                  alt="About CCNA Agency"
+                  alt="About CCNA Care"
                   className="w-full max-w-md rounded-xl transform transition duration-700 group-hover:scale-110"
                 />
                 
@@ -53,7 +53,7 @@ const AboutSection = () => {
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                  Agency
+                  Care
                 </span>
               </h2>
             </div>
@@ -65,7 +65,7 @@ const AboutSection = () => {
                   <span className="text-blue-600 group-hover:text-white text-xl">🌟</span>
                 </div>
                 <p className="text-gray-700 text-lg md:text-xl leading-relaxed font-light group-hover:text-gray-800 transition-colors duration-300">
-                  CCNA Agency plays a dual role in empowering individuals and supporting facilities.
+                  CCNA  plays a dual role in empowering individuals and supporting facilities.
                   We help NDIS participants live fulfilling, independent lives while providing trusted
                   healthcare staffing solutions.
                 </p>

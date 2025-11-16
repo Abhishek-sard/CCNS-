@@ -7,11 +7,11 @@ const cards = [
   },
   {
     title: "For Job Seekers:",
-    text: "Discover rewarding healthcare careers with CCNASA. We offer tailored support to match your skills and preferences with the right opportunities, so you can make a meaningful difference in healthcare.",
+    text: "Discover rewarding healthcare careers with CCNA. We offer tailored support to match your skills and preferences with the right opportunities, so you can make a meaningful difference in healthcare.",
   },
   {
     title: "For Care Facilities:",
-    text: "CCNASA is your trusted resource for skilled healthcare staff. We understand the importance of having dedicated professionals available when you need them most, ensuring top-notch care for your residents.",
+    text: "CCNA is your trusted resource for skilled healthcare staff. We understand the importance of having dedicated professionals available when you need them most, ensuring top-notch care for your residents.",
   },
 ];
 

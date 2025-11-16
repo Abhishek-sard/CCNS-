@@ -7,17 +7,17 @@ const testimonials = [
   {
     role: "NDIS Participant",
     photo: Img1,
-    quote: "CCNA Agency has truly changed my life. Their support is compassionate and reliable."
+    quote: "CCNA care has truly changed my life. Their support is compassionate and reliable."
   },
   {
     role: "Facility Manager",
     photo: Img2,
-    quote: "The staffing solutions provided by CCNA Agency are professional and trustworthy."
+    quote: "The staffing solutions provided by CCNA  are professional and trustworthy."
   },
   {
     role: "Family Member",
     photo: Img3,
-    quote: "CCNA Agency has been a lifesaver for my son. Their staff are kind, professional, and reliable."
+    quote: "CCNA  has been a lifesaver for my son. Their staff are kind, professional, and reliable."
   }
 ];
 
@@ -48,7 +48,7 @@ const Testimonials = () => {
           </h2>
           
           <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
-            Discover how CCNA Agency has made a difference in the lives of our clients and partners
+            Discover how CCNA  has made a difference in the lives of our clients and partners
           </p>
         </div>
 
@@ -134,7 +134,7 @@ const Testimonials = () => {
         {/* CTA Section */}
         <div className="text-center mt-16">
           <p className="text-gray-600 text-lg mb-8">
-            Ready to experience the CCNA Agency difference?
+            Ready to experience the CCNA Care difference?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 min-w-[200px]">

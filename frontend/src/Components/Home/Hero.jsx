@@ -51,7 +51,7 @@ const Hero = () => {
                         </h1>
 
                         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto md:mx-0 leading-relaxed font-light">
-                            At <span className="font-semibold text-teal-600">CCNA Agency</span>, we empower NDIS participants to live fulfilling lives
+                            At <span className="font-semibold text-teal-600">CCNA Care</span>, we empower NDIS participants to live fulfilling lives
                             while providing trusted healthcare staffing solutions to facilities
                             across Australia.
                         </p>
