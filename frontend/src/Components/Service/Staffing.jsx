@@ -78,7 +78,7 @@ const Staffing = () => {
         </h1>
         <div
           className="bg-cover bg-center bg-no-repeat py-24 px-6 h-96"
-          style={{ backgroundImage: "url('/group.jpg')" }}
+          style={{ backgroundImage: "url('./group.jpg')" }}
         >
           <div className="relative z-10 max-w-5xl mx-auto text-center">
 
@@ -89,7 +89,7 @@ const Staffing = () => {
         <div className="bg-white text-gray-800 py-16 px-8">
           <div className="max-w-6xl mx-auto space-y-8">
             <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
-              Advance Care Agency is committed to delivering staffing solutions that meet the unique needs
+              Advance Care  is committed to delivering staffing solutions that meet the unique needs
               of each of our clients. Our team of professionals is dedicated to providing quality care and
               support, ensuring a positive and fulfilling experience for everyone involved.
             </p>
