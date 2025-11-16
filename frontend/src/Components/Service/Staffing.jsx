@@ -100,7 +100,7 @@ const Staffing = () => {
                   Staffing Solution - Your Perfect Care Team Starts Here
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-700">
-                  At Advance Care Agency, we understand the importance of staffing solutions when it comes to
+                  At Advance Care , we understand the importance of staffing solutions when it comes to
                   providing quality care services. That's why we offer a range of staffing solutions tailored to
                   meet our client's unique needs.
                 </p>
@@ -164,7 +164,7 @@ const Staffing = () => {
               <h2 className="text-3xl font-bold text-white mb-4">Need Care Staff in Australia?</h2>
               <p className="text-lg leading-relaxed text-white">
                 If you're looking for a staffing solution that delivers results, look no further than Advance Care
-                Agency. Let us help you find the right staff by submitting your job information. With 24-hour
+                . Let us help you find the right staff by submitting your job information. With 24-hour
                 assistance, you can rest assured you're taken care of.
               </p>
               <div className="mt-6">
