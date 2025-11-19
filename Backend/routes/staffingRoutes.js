@@ -1,14 +1,93 @@
 import express from "express";
+import nodemailer from "nodemailer";
 import StaffingRequest from "../models/Staffing.js";
 
 const router = express.Router();
+
+// Email configuration
+const staffingReceiverEmail = process.env.STAFFING_RECEIVER_EMAIL || "ndis@careccna.com.au";
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 // Create staffing request
 router.post("/", async (req, res) => {
   try {
     const staffingRequest = new StaffingRequest(req.body);
     const saved = await staffingRequest.save();
-    res.status(201).json(saved);
+
+    // Send email notification
+    let emailStatus = "not_sent";
+    try {
+      const {
+        name,
+        company,
+        email,
+        phone,
+        staffingNeeds,
+        requiredDate,
+        contactMethod,
+        contactDateTime,
+        description,
+      } = saved;
+
+      console.log("📧 Sending staffing request email...");
+      console.log("   To:", staffingReceiverEmail);
+      console.log("   Subject: New Staffing Request from", name);
+      console.log("   Contact:", email, phone);
+
+      const emailInfo = await transporter.sendMail({
+        from: `"${name}" <${process.env.EMAIL_USER}>`,
+        replyTo: email,
+        to: staffingReceiverEmail,
+        subject: `New Staffing Request from ${name}${company ? ` - ${company}` : ""}`,
+        text: `A new staffing request has been submitted.
+
+Name: ${name}
+Company: ${company || "N/A"}
+Email: ${email}
+Phone: ${phone}
+Staffing Needs: ${staffingNeeds.join(", ")}
+Required Date: ${requiredDate}
+Contact Method: ${contactMethod}
+Preferred Contact Date/Time: ${contactDateTime}
+Description:
+${description}
+`,
+        html: `<h2>New Staffing Request</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Company:</strong> ${company || "N/A"}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Staffing Needs:</strong> ${staffingNeeds.join(", ")}</p>
+        <p><strong>Required Date:</strong> ${requiredDate}</p>
+        <p><strong>Contact Method:</strong> ${contactMethod}</p>
+        <p><strong>Preferred Contact Date/Time:</strong> ${contactDateTime}</p>
+        <hr/>
+        <p><strong>Description:</strong></p>
+        <p>${description.replace(/\n/g, "<br/>")}</p>`,
+      });
+
+      emailStatus = "sent";
+      console.log("✅ Email sent successfully!");
+      console.log("   Message ID:", emailInfo.messageId);
+      console.log("   Response:", emailInfo.response);
+    } catch (emailError) {
+      emailStatus = "failed";
+      console.error("❌ Email sending failed:", emailError.message);
+      console.error("   Staffing request saved to database, but email notification failed");
+      // Don't fail the whole request if email fails - request is already saved
+    }
+
+    res.status(201).json({
+      ...saved.toObject(),
+      emailSent: emailStatus === "sent",
+    });
   } catch (error) {
     console.error("Error creating staffing request:", error);
     res.status(400).json({ message: "Invalid staffing request data" });
