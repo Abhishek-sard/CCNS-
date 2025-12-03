@@ -5,7 +5,8 @@ import StaffingRequest from "../models/Staffing.js";
 const router = express.Router();
 
 // Email configuration
-const staffingReceiverEmail = process.env.STAFFING_RECEIVER_EMAIL || "ndis@careccna.com.au";
+const staffingReceiverEmail =
+  process.env.STAFFING_RECEIVER_EMAIL || "agency@ccnacare.com.au";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -41,9 +42,20 @@ router.post("/", async (req, res) => {
       console.log("   Subject: New Staffing Request from", name);
       console.log("   Contact:", email, phone);
 
+      const senderLabel = name
+        ? email
+          ? `${name} (${email})`
+          : name
+        : email || "NDIS Staffing Request";
+
       const emailInfo = await transporter.sendMail({
-        from: `"${name}" <${process.env.EMAIL_USER}>`,
+        from: `"${senderLabel}" <${process.env.EMAIL_USER}>`,
         replyTo: email,
+        headers: email ? { "Reply-To": email } : undefined,
+        envelope: {
+          from: process.env.EMAIL_USER,
+          to: staffingReceiverEmail,
+        },
         to: staffingReceiverEmail,
         subject: `New Staffing Request from ${name}${company ? ` - ${company}` : ""}`,
         text: `A new staffing request has been submitted.

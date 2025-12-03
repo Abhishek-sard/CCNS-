@@ -83,28 +83,39 @@ const AboutSection = () => {
             </div>
 
             {/* Enhanced CTA Button */}
-            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                to="/about"
-                className="group relative bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-center min-w-[200px] overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Learn More About Us
-                  <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </span>
-              </Link>
-              
-              <Link
-                to="/contact"
-                className="group relative bg-white text-blue-700 px-8 py-4 rounded-xl font-bold border-2 border-blue-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center min-w-[200px]"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Get In Touch
-                  <span className="transform group-hover:translate-x-1 transition-transform duration-300">📞</span>
-                </span>
-              </Link>
-            </div>
+           {/* Enhanced CTA Button */}
+<div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+  <Link
+    to="/about"
+    className="group relative bg-gradient-to-r from-blue-600 to-blue-700 text-white 
+               px-6 py-3 rounded-lg font-semibold hover:shadow-xl 
+               transition-all duration-300 transform hover:scale-105 
+               text-center min-w-[170px] overflow-hidden text-base"
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                    transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] 
+                    transition-transform duration-1000"></div>
+    
+    <span className="relative z-10 flex items-center justify-center gap-2">
+      Learn More
+      <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+    </span>
+  </Link>
+
+  <Link
+    to="/contact"
+    className="group relative bg-white text-blue-700 px-6 py-3 rounded-lg 
+               font-semibold border-2 border-blue-200 hover:border-blue-300 
+               hover:shadow-lg transition-all duration-300 transform hover:scale-105 
+               text-center min-w-[170px] text-base"
+  >
+    <span className="relative z-10 flex items-center justify-center gap-2">
+      Contact Us
+      <span className="transform group-hover:translate-x-1 transition-transform duration-300">📞</span>
+    </span>
+  </Link>
+</div>
+
           </div>
         </div>
 

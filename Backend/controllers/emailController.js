@@ -45,7 +45,7 @@ export const sendEmail = async (req, res) => {
 
     // Compose email content
     const mailOptions = {
-      from: `"${participantName}" <${process.env.EMAIL_USER}>`,
+      from: `"${participantName}" <${email}>`,
       replyTo: email,
       to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USER,
       subject: `NDIS Healthcare Inquiry from ${participantName}`,

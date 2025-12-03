@@ -41,7 +41,7 @@ export const sendAgencyEmail = async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER, // your Gmail
-      to: process.env.RECEIVER_EMAIL1, // agency email (e.g. agency@ccnacare.com.au)
+      to: process.env.RECEIVER_EMAIL1 || "agency@ccnacare.com.au", // agency email
       subject: `Agency Inquiry from ${participantName}`,
       text: `
 Participant Name: ${participantName}
