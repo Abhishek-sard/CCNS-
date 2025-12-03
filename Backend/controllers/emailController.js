@@ -45,8 +45,8 @@ export const sendEmail = async (req, res) => {
 
     // Compose email content
     const mailOptions = {
-      from: `"${participantName}" <${email}>`,
-      replyTo: email,
+      from: `"CCNA Care" <${process.env.EMAIL_USER}>`, // ✅ sender must be your Gmail
+      replyTo: email, // ✅ reply goes to participant
       to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USER,
       subject: `NDIS Healthcare Inquiry from ${participantName}`,
       text: `
@@ -62,22 +62,28 @@ Privacy Agreement: ${privacy ? "Agreed" : "Not Agreed"}
 
 Message:
 ${message}
-      `,
+  `,
       html: `
-        <h2>New NDIS Healthcare Inquiry</h2>
-        <p><strong>Participant Name:</strong> ${participantName}</p>
-        <p><strong>NDIS Number:</strong> ${ndisNumber || "N/A"}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Service Type:</strong> ${serviceType}</p>
-        <p><strong>Preferred Contact:</strong> ${preferredContact}</p>
-        <p><strong>Preferred Contact Date/Time:</strong> ${preferredContactDateTime || "N/A"}</p>
-        <p><strong>Referring Someone:</strong> ${isReferringSomeone ? "Yes" : "No"}</p>
-        <p><strong>Privacy Agreement:</strong> ${privacy ? "Agreed" : "Not Agreed"}</p>
-        <hr/>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br/>")}</p>
-      `,
+    <h2>New NDIS Healthcare Inquiry</h2>
+    <p><strong>Participant Name:</strong> ${participantName}</p>
+    <p><strong>NDIS Number:</strong> ${ndisNumber || "N/A"}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <p><strong>Service Type:</strong> ${serviceType}</p>
+    <p><strong>Preferred Contact:</strong> ${preferredContact}</p>
+    <p><strong>Preferred Contact Date/Time:</strong> ${
+      preferredContactDateTime || "N/A"
+    }</p>
+    <p><strong>Referring Someone:</strong> ${
+      isReferringSomeone ? "Yes" : "No"
+    }</p>
+    <p><strong>Privacy Agreement:</strong> ${
+      privacy ? "Agreed" : "Not Agreed"
+    }</p>
+    <hr/>
+    <p><strong>Message:</strong></p>
+    <p>${message.replace(/\n/g, "<br/>")}</p>
+  `,
     };
 
     // Send email
