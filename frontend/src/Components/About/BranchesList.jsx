@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { BASE_URL } from "../../services/constants";
 
 const BranchesList = () => {
   const [branches, setBranches] = useState([]);
-  const API_URL = "http://localhost:5000/api/branches";
+  const API_URL = `${BASE_URL}/branches`;
 
   useEffect(() => {
     fetch(API_URL)
