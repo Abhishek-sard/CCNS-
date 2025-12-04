@@ -29,7 +29,9 @@ const allowedOrigins = [
   "https://ccnacare.com.au",
   "https://www.ccnacare.com.au",
   "http://server.ccnacare.com.au",
+  "http://server.ccnacare.com.au:5001",
   "https://server.ccnacare.com.au",
+  "https://server.ccnacare.com.au:5001",
 ];
 
 app.use((req, res, next) => {
@@ -100,7 +102,7 @@ app.get("/", (req, res) => {
 // ============================================
 // ✅ 6. Start Server
 // ============================================
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, async () => {
   await connectDB();
