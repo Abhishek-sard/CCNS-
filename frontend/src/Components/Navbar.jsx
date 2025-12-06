@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import LOGO from "/logoccna.png";
+import LOGO from "/finallogo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ const Navbar = () => {
             <img
               src={LOGO}
               alt="Logo"
-              className="h-94 w-140 mt-5 ml-[-15px] relative z-10 transform group-hover:scale-105 transition-transform duration-300"
+              className="h-20 w-90 ml-[-15px] relative z-10 transform group-hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
