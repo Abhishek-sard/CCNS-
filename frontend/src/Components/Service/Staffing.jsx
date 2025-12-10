@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaUser, FaBuilding, FaEnvelope, FaPhone, FaCalendarAlt, FaComments, FaClock, FaUsers, FaCheckCircle, FaHandHoldingHeart, FaShieldAlt, FaStar, FaHeart } from "react-icons/fa";
 import { staffingApi } from "../../services/staffingApi";
+import { Link } from "react-router-dom";
 
 const Staffing = () => {
   const [formData, setFormData] = useState({
@@ -363,6 +364,36 @@ const Staffing = () => {
             </button>
           </form>
         </div>
+        {/* Section Title */}
+        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center mt-15">
+          Looking for a Job?
+        </h2>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-6 mt-4">
+
+          {/* Apply Now Button */}
+          <Link
+            to="/job"
+            className="px-8 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white 
+    font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 
+    transition-all duration-300 text-center"
+          >
+            Apply Now
+          </Link>
+
+          {/* Current Vacancy Button */}
+          <Link
+            to="/currentvaccancy"
+            className="px-8 py-3 bg-white text-teal-600 border-2 border-teal-600 
+    font-semibold rounded-xl shadow-md hover:bg-teal-600 hover:text-white 
+    hover:shadow-xl hover:scale-105 transition-all duration-300 text-center"
+          >
+            Current Vacancy
+          </Link>
+        </div>
+
+
       </section>
     </div>
 

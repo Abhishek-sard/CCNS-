@@ -1,10 +1,13 @@
 import React from 'react';
+import './i18n';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import AccessibilityTools from './Components/AccessibilityTools.jsx';
+import ContactButtons from './Components/ContactButtons.jsx';
 
 // Home Components
 import Hero from './Components/Home/Hero';
@@ -41,6 +44,10 @@ import ParticipateCommunity from './Components/Service/ParticipateCommunity.jsx'
 import SupportCoordination from './Components/Service/SupportCoordination.jsx';
 import GroupCentreActivities from './Components/Service/GroupCentreActivities.jsx';
 
+
+//ndis contact page
+import NdisContact from './Components/NdisContact/NdisContact.jsx';
+
 // Job & Blog
 import Advantage from './Components/Job/Advantage';
 import CurrentVacancy from './Components/Job/CurrentVaccancy.jsx';
@@ -71,12 +78,12 @@ import './utils/consoleCleanup';
 function Home() {
   return (
     <>
-      <Hero />
-      <AboutSection />
+      {/* <Hero />
+      <AboutSection /> */}
       <QuickLinks />
-      <WhyChooseUs />
+      {/* <WhyChooseUs />
       <ImageCollection />
-      <Testimonials />
+      <Testimonials /> */}
     </>
   );
 }
@@ -97,12 +104,17 @@ function AboutPage() {
 // Hide Navbar/Footer for Dashboard Pages
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
+
   const isDashboard = location.pathname.startsWith('/dashboard');
+  const isHome = location.pathname === '/'; // 👈 Detect home page
+
+  const hideLayout = isDashboard || isHome; // 👈 Hide navbar & footer on both
+
   return (
     <>
-      {!isDashboard && <Navbar />}
+      {!hideLayout && <Navbar />}
       {children}
-      {!isDashboard && <Footer />}
+      {!hideLayout && <Footer />}
     </>
   );
 };
@@ -115,6 +127,11 @@ const App = () => {
     <AuthProvider>
       <Router>
         <ScrollToTop />
+        
+        {/* Accessibility tools available globally */}
+        <AccessibilityTools />
+        <ContactButtons/>
+
         <LayoutWrapper>
           <Routes>
             {/* Public Pages */}
@@ -123,6 +140,7 @@ const App = () => {
             <Route path="/ndis" element={<NdisServices />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/job" element={<Advantage />} />
+            <Route path='/Ndiscontact' element={<NdisContact/>} />
 
             {/* Services */}
             <Route path="/ndiscover" element={<NdisCover />} />

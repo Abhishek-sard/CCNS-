@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/* ============================== */
+/* font-size variable */
+
+:root {
+  --base-font-size: 100%;
+}
+
+html {
+  font-size: var(--base-font-size);
+}
+
+/* Button style shortcut */
+.access-btn {
+  @apply w-full py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium text-gray-700 transition;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade {
+  animation: fade 0.3s ease-out;
+}

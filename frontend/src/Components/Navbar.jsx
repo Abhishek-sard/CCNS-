@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LOGO from "/finallogo.png";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageDropDown";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  const [showTopBar, setShowTopBar] = useState(true);
+  const { t } = useTranslation();
+
+  // Only hide Layer 1 (top bar)
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // scrolling DOWN → hide LAYER 1
+        setShowTopBar(false);
+      } else {
+        // scrolling UP → show LAYER 1
+        setShowTopBar(true);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const linkClasses = ({ isActive }) =>
     `cursor-pointer transition-all duration-300 px-3 py-2 rounded-lg ${
@@ -14,137 +36,64 @@ const Navbar = () => {
     }`;
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50 border-b border-gray-100">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-50/50 to-transparent animate-pulse-slow"></div>
+    <nav className="fixed w-full z-50 bg-white shadow-lg border-b border-gray-100">
 
-      <div className="container mx-auto px-2 flex justify-between items-center h-20 relative z-10">
-        {/* Logo */}
-        <div className="flex items-center">
-          <div className="relative group">
-            <img
-              src={LOGO}
-              alt="Logo"
-              className="h-20 w-90 ml-[-15px] relative z-10 transform group-hover:scale-105 transition-transform duration-300"
-            />
+      {/* ------------------------ LAYER 1 (Hide on Scroll Down) ------------------------ */}
+      <div
+        className={`w-full bg-white border-b border-gray-200 transition-all duration-300 
+          ${showTopBar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"}
+        `}
+      >
+        <div className="container mx-auto px-2 flex justify-between items-center h-16">
+          <img
+            src={LOGO}
+            alt="Logo"
+            className="h-16 transform transition-transform duration-300 hover:scale-105"
+          />
+          <div className="hidden md:block">
+            <LanguageSwitcher />
           </div>
         </div>
+      </div>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-3 font-medium text-lg items-center ml-4 whitespace-nowrap">
-          <li className="relative group">
-            <NavLink to="/" className={linkClasses}>Home</NavLink>
-          </li>
+      {/* ------------------------ LAYER 2 (Always Visible) ------------------------ */}
+      <div className="container mx-auto px-2 flex justify-between items-center h-16 bg-white relative">
 
-          <li className="relative group">
-            <NavLink to="/about" className={linkClasses}>About</NavLink>
-          </li>
-
-          {/* JobSeeker Dropdown */}
-          <li className="relative group">
-            <span className="flex items-center text-gray-700 px-3 py-2 rounded-lg cursor-pointer hover:text-teal-600 hover:bg-teal-50 transition-all duration-300">
-              JobSeeker
-              <span className="ml-2 transform group-hover:rotate-180 transition-transform duration-300">▼</span>
-            </span>
-
-            <ul className="absolute left-0 top-12 bg-white/95 backdrop-blur-md shadow-2xl rounded-xl w-48 hidden group-hover:block border border-gray-200 overflow-hidden">
-              <li className="border-b border-gray-100">
-                <NavLink to="/currentvaccancy" className="block px-4 py-3 hover:bg-teal-50 hover:text-teal-600">Current Vacancy</NavLink>
-              </li>
-              <li className="border-b border-gray-100">
-                <NavLink to="/applyonline" className="block px-4 py-3 hover:bg-teal-50 hover:text-teal-600">Apply Online</NavLink>
-              </li>
-              <li>
-                <NavLink to="/job" className="block px-4 py-3 hover:bg-teal-50 hover:text-teal-600">CCNA Care</NavLink>
-              </li>
-            </ul>
-          </li>
-
-          {/* Services Mega Menu */}
-          <li className="relative group">
-            <span className="flex items-center text-gray-700 px-3 py-2 rounded-lg cursor-pointer hover:text-teal-600 hover:bg-teal-50 transition-all duration-300">
-              Services
-              <span className="ml-2 transform group-hover:rotate-180 transition-transform duration-300">▼</span>
-            </span>
-
-            <ul className="absolute right-1/2 translate-x-1/4 top-12 bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl hidden group-hover:grid grid-cols-3 gap-2 w-[650px] p-6 border border-gray-200">
-              {[
-                "/staffing",
-                "/ndiscover",
-                "/nursing",
-                "/assist",
-                "/lifeStage",
-                "/stage",
-                "/travel",
-                "/community",
-                "/dailyTask",
-                "/development",
-                "/innovCommunity",
-                "/household",
-                "/participation",
-                "/support",
-                "/center",
-              ].map((path, index) => (
-                <li key={index}>
-                  <NavLink
-                    to={path}
-                    className="block px-3 py-3 text-gray-700 rounded-lg hover:bg-teal-50 hover:text-teal-600 border-l-4 border-transparent hover:border-teal-400"
-                  >
-                    {
-                      [
-                        "Staffing & Nursing",
-                        "NDIS Services",
-                        "Accommodation",
-                        "Personal Activities High",
-                        "Life Stage Transition",
-                        "Personal Activities",
-                        "Travel/Transport",
-                        "Community Care",
-                        "Daily Tasks",
-                        "Life Skills",
-                        "Community Participation",
-                        "Household Tasks",
-                        "Community Engage",
-                        "Support Coordinator",
-                        "Group Activities",
-                      ][index]
-                    }
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </li>
-
-          <li className="relative group">
-            <NavLink to="/blog" className={linkClasses}>Blog</NavLink>
-          </li>
-
-          <li className="relative group">
-            <NavLink to="/Staffing" className={linkClasses}>Staffing</NavLink>
-          </li>
-
-          <li className="relative group">
-            <NavLink to="/ndis" className={linkClasses}>NDIS Care</NavLink>
-          </li>
+        <ul className="hidden md:flex space-x-4 font-medium text-lg items-center">
+          <li><NavLink to="/" className={linkClasses}>{t("Home")}</NavLink></li>
+          <li><NavLink to="/about" className={linkClasses}>{t("About")}</NavLink></li>
+          <li><NavLink to="/job" className={linkClasses}>{t("JobSeeker")}</NavLink></li>
+          <li><NavLink to="/currentvaccancy" className={linkClasses}>{t("Current Vacancy")}</NavLink></li>
+          <li><NavLink to="/applyonline" className={linkClasses}>{t("Apply Online")}</NavLink></li>
+          <li><NavLink to="/blog" className={linkClasses}>{t("Blog")}</NavLink></li>
+          <li><NavLink to="/Staffing" className={linkClasses}>{t("Staffing")}</NavLink></li>
+          <li><NavLink to="/ndis" className={linkClasses}>{t("NDIS Care")}</NavLink></li>
+          <li><NavLink to="/NdisContact" className={linkClasses}>{t("Contact")}</NavLink></li>
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-teal-600 text-2xl bg-teal-50 rounded-xl p-3 hover:bg-teal-100 transition-all duration-300 border border-teal-200 shadow-lg"
+          className="md:hidden text-teal-600 text-2xl bg-teal-50 rounded-xl p-3 hover:bg-teal-100 border border-teal-200 shadow-lg"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ------------------------ Mobile Menu ------------------------ */}
       {isOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md shadow-2xl border-t border-gray-200 px-6 py-6 space-y-3 font-medium text-gray-700">
-          <NavLink to="/" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>Home</NavLink>
-          <NavLink to="/about" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>About</NavLink>
-          <NavLink to="/currentvaccancy" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>Current Vacancy</NavLink>
-          <NavLink to="/applyonline" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>Apply Online</NavLink>
-          <NavLink to="/job" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>CCNA Care</NavLink>
+          <NavLink to="/" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Home")}</NavLink>
+          <NavLink to="/about" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("About")}</NavLink>
+          <NavLink to="/job" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("JobSeeker")}</NavLink>
+          <NavLink to="/currentvaccancy" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Current Vacancy")}</NavLink>
+          <NavLink to="/applyonline" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Apply Online")}</NavLink>
+          <NavLink to="/blog" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Blog")}</NavLink>
+          <NavLink to="/Staffing" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Staffing")}</NavLink>
+          <NavLink to="/ndis" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("NDIS Care")}</NavLink>
+
+          <div className="mt-4">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </nav>

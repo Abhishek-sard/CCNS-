@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   FaFacebookF,
   FaTwitter,
@@ -10,12 +11,20 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const quickLinks = [
+    { name: "NDIS Services", path: "/ndis" },
+    { name: "Staffing Solution", path: "/Staffing" },
+    { name: "Careers", path: "/job" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact us", path: "/contact" },
+    { name: "About", path: "/about" },
+    { name: "Current Vaccancy", path: "/currentvaccancy" },
+  ];
+
   return (
     <footer className="bg-[#0D2F3F] text-white pt-8 pb-4 relative">
-
       {/* Top Section */}
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-
         {/* Column 1 – Quick Links */}
         <div>
           <h3 className="text-md font-semibold mb-3 relative">
@@ -23,15 +32,15 @@ const Footer = () => {
             <span className="block w-10 h-[2px] bg-teal-400 mt-1"></span>
           </h3>
           <ul className="space-y-2 text-sm">
-            {["NDIS Services", "Staffing Services", "Careers", "Blog", "Contact"].map((item, idx) => (
+            {quickLinks.map((item, idx) => (
               <li key={idx}>
-                <a
-                  href="#"
+                <NavLink
+                  to={item.path}
                   className="hover:text-teal-300 transition-all flex items-center gap-2"
                 >
                   <span className="w-1.5 h-1.5 bg-teal-400 rounded-full"></span>
-                  {item}
-                </a>
+                  {item.name}
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -85,7 +94,7 @@ const Footer = () => {
         {/* Column 3 – Certifications & Socials */}
         <div>
           <h3 className="text-md font-semibold mb-3 relative">
-            NDIS Provider
+            NDIS Registered Provider
             <span className="block w-10 h-[2px] bg-yellow-400 mt-1"></span>
           </h3>
 
@@ -151,7 +160,6 @@ const Footer = () => {
           </a>
         </p>
       </div>
-
     </footer>
   );
 };

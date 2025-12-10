@@ -1,5 +1,8 @@
 import React from "react";
 import { FaAward, FaBook, FaShieldAlt, FaUsers, FaCertificate } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const benefitsData = [
   {
@@ -35,13 +38,15 @@ const benefitsData = [
 ];
 
 const Advantage = () => {
+  const { t } = useTranslation();
+
   return (
-    <section className="py-20 bg-gray-100 ">
+    <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-6 max-w-6xl mt-19">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-blue-900 mb-4">Working with CCNA </h2>
+          <h2 className="text-4xl font-bold text-blue-900 mb-4">{t('working_with_ccna')}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Join our agency and enjoy a rewarding healthcare career. We provide the right support, training, and benefits to help you succeed.
+            {t('join_agency_message')}
           </p>
         </div>
 
@@ -55,11 +60,25 @@ const Advantage = () => {
                 {benefit.icon}
               </div>
               <h3 className="text-xl font-semibold text-blue-900 mb-2 text-center">
-                {benefit.title}
+                {t(benefit.title)}
               </h3>
-              <p className="text-gray-700 text-center">{benefit.description}</p>
+              <p className="text-gray-700 text-center">{t(benefit.description)}</p>
             </div>
           ))}
+        </div>
+
+        {/* Call-to-Action Buttons */}
+        <div className="flex gap-4 justify-center mt-12">
+          <Link to="/currentvaccancy">
+            <button className="flex items-center gap-2 px-6 py-3 bg-teal-500 text-white rounded-xl shadow-lg hover:bg-teal-600 transition-all duration-300">
+              {t('see_vacancy')} <FaArrowRight />
+            </button>
+          </Link>
+          <Link to="/applyonline">
+            <button className="px-6 py-3 bg-blue-500 text-white rounded-xl shadow-lg hover:bg-blue-600 transition-all duration-300">
+              {t('apply_now')}
+            </button>
+          </Link>
         </div>
       </div>
     </section>

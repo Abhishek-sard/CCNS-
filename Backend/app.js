@@ -16,6 +16,7 @@ import applicationRoutes from "./routes/applicationRoutes.js";
 import teamRoutes from "./routes/teamRoutes.js";
 import staffingRoutes from "./routes/staffingRoutes.js";
 import branchRoutes from "./routes/branchRoutes.js";
+import formRoutes from "./routes/formRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -91,6 +92,7 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/team", teamRoutes);
 app.use("/api/staffing", staffingRoutes);
 app.use("/api/branches", branchRoutes);
+app.use("/api/forms", formRoutes);
 
 // ============================================
 // ✅ 5. Health Check
