@@ -17,72 +17,82 @@ const Referrial = () => {
   }, []);
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">All Submitted Form Details</h1>
+    <div className="p-6 bg-gray-50 min-h-screen">
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        All Submitted Form Details
+      </h1>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border shadow text-sm">
-          <thead>
-            <tr className="bg-gray-200">
-              <th>Participant Name</th>
-              <th>Address</th>
-              <th>Suburb</th>
-              <th>State</th>
-              <th>Birthday</th>
-              <th>Contact</th>
-              <th>Email</th>
-              <th>Interest</th>
-              <th>Accommodation</th>
-              <th>NDIS Number</th>
-              <th>Plan Dates</th>
-              <th>Plan Managed</th>
-              <th>Disability</th>
-              <th>Hours</th>
-              <th>Goals</th>
-              <th>Referral Name</th>
-              <th>Company</th>
-              <th>Referral Email</th>
-              <th>Referral Phone</th>
-              <th>File</th>
+      <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200 bg-white">
+        <table className="w-full text-left text-sm">
+          <thead className="bg-blue-600 text-white sticky top-0">
+            <tr>
+              <th className="p-3">Participant Name</th>
+              <th className="p-3">Address</th>
+              <th className="p-3">Suburb</th>
+              <th className="p-3">State</th>
+              <th className="p-3">Birthday</th>
+              <th className="p-3">Contact</th>
+              <th className="p-3">Email</th>
+              <th className="p-3">Interest</th>
+              <th className="p-3">Accommodation</th>
+              <th className="p-3">NDIS Number</th>
+              <th className="p-3">Plan Dates</th>
+              <th className="p-3">Plan Managed</th>
+              <th className="p-3">Disability</th>
+              <th className="p-3">Hours</th>
+              <th className="p-3">Goals</th>
+              <th className="p-3">Referral Name</th>
+              <th className="p-3">Company</th>
+              <th className="p-3">Referral Email</th>
+              <th className="p-3">Referral Phone</th>
+              <th className="p-3">File</th>
             </tr>
           </thead>
 
           <tbody>
             {forms.length === 0 ? (
               <tr>
-                <td colSpan="20" className="text-center text-gray-500 p-4">
+                <td colSpan="20" className="text-center p-6 text-gray-500 italic">
                   No forms submitted yet.
                 </td>
               </tr>
             ) : (
-              forms.map((f) => (
-                <tr key={f._id} className="hover:bg-gray-100">
-                  <td>{f.participantName}</td>
-                  <td>{f.address}</td>
-                  <td>{f.suburb}</td>
-                  <td>{f.state}</td>
-                  <td>{f.birthday}</td>
-                  <td>{f.contactNumber}</td>
-                  <td>{f.email}</td>
-                  <td>{f.hobbies}</td>
-                  <td>{f.accommodation}</td>
-                  <td>{f.ndisNumber}</td>
-                  <td>{f.planDates}</td>
-                  <td>{f.planManaged}</td>
-                  <td>{f.primaryDisability}</td>
-                  <td>{f.allocatedHours}</td>
-                  <td>{f.goals}</td>
-                  <td>{f.referralName}</td>
-                  <td>{f.referralCompany}</td>
-                  <td>{f.referralEmail}</td>
-                  <td>{f.referralPhone}</td>
-                  <td>
+              forms.map((f, idx) => (
+                <tr
+                  key={f._id}
+                  className={`hover:bg-blue-50 ${idx % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                >
+                  <td className="p-3">{f.participantName}</td>
+                  <td className="p-3">{f.address}</td>
+                  <td className="p-3">{f.suburb}</td>
+                  <td className="p-3">{f.state}</td>
+                  <td className="p-3">{f.birthday}</td>
+                  <td className="p-3">{f.contactNumber}</td>
+                  <td className="p-3">{f.email}</td>
+                  <td className="p-3">{f.interest}</td>
+                  <td className="p-3">{f.accommodation}</td>
+                  <td className="p-3">{f.ndisNumber}</td>
+                  <td className="p-3">{f.planDates}</td>
+                  <td className="p-3">{f.management}</td>
+                  <td className="p-3">{f.disability}</td>
+                  <td className="p-3">{f.hours}</td>
+                  <td className="p-3">{f.goals}</td>
+                  <td className="p-3">{f.refName}</td>
+                  <td className="p-3">{f.company}</td>
+                  <td className="p-3">{f.refEmail}</td>
+                  <td className="p-3">{f.refPhone}</td>
+                  <td className="p-3 text-blue-600">
                     {f.uploadedFile ? (
-                      <a href={`http://localhost:5000/uploads/${f.uploadedFile}`} target="_blank" rel="noreferrer" className="text-blue-600 underline">
+                      <a
+                        href={`http://localhost:5000/uploads/${f.uploadedFile}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline hover:text-blue-800"
+                      >
                         View File
                       </a>
                     ) : (
-                      "No file"
+                      <span className="text-gray-400">No file</span>
                     )}
                   </td>
                 </tr>
