@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const AssistLifeStage = () => {
   const transitions = [
@@ -35,7 +37,7 @@ const AssistLifeStage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-100 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -129,18 +131,7 @@ const AssistLifeStage = () => {
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                <span>Learn More</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <button className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md">
-                Get Support
-              </button>
-            </div>
+
 
             {/* Quick Contact */}
             <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
@@ -218,6 +209,16 @@ const AssistLifeStage = () => {
           </div>
         </div>
       </div>
+
+      <div className="flex justify-center mt-4">
+        <Link
+          to="/NdisContact"
+          className="px-8 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-4"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
+      </div>
+
     </div>
   );
 };

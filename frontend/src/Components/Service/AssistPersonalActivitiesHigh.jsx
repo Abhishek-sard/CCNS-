@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const AssistPersonalActivitiesHigh = () => {
   const services = [
@@ -120,9 +122,15 @@ const AssistPersonalActivitiesHigh = () => {
                 </div>
 
                 {/* Additional CTA */}
-                <button className="mt-6 border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 w-full">
-                  Get Started Today
-                </button>
+                <div className="flex justify-center mt-4">
+                  <Link
+                    to="/NdisContact"
+                    className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2"
+                  >
+                    Get Started Now<FaArrowRight />
+                  </Link>
+                </div>
+
               </div>
             </div>
           </div>

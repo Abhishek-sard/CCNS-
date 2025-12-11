@@ -21,13 +21,13 @@ const NdisCover = () => {
       title: "High Intensity Personal Activities",
       color: "purple",
       text: "Includes PEG feed management, tracheostomy care, catheter care, ventilator support, and complex wound care.",
-      link: "/personal-activities",
+      link: "/stage",
     },
     {
       title: "Life Stages / Transitions Support",
       color: "red",
       text: "We support major life changes such as managing finances, personal hygiene, cooking, marriage, and more.",
-      link: "/life-transitions",
+      link: "/lifeStage",
     },
     {
       title: "Support Coordination",
