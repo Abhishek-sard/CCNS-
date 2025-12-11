@@ -64,7 +64,7 @@ const Navbar = () => {
           <li><NavLink to="/about" className={linkClasses}>{t("About")}</NavLink></li>
           <li><NavLink to="/job" className={linkClasses}>{t("JobSeeker")}</NavLink></li>
           <li><NavLink to="/currentvaccancy" className={linkClasses}>{t("Current Vacancy")}</NavLink></li>
-          <li><NavLink to="/applyonline" className={linkClasses}>{t("Apply Online")}</NavLink></li>
+          {/* <li><NavLink to="/applyonline" className={linkClasses}>{t("Apply Online")}</NavLink></li> */}
           <li><NavLink to="/blog" className={linkClasses}>{t("Blog")}</NavLink></li>
           <li><NavLink to="/Staffing" className={linkClasses}>{t("Staffing")}</NavLink></li>
           <li><NavLink to="/ndis" className={linkClasses}>{t("NDIS Care")}</NavLink></li>
@@ -86,7 +86,7 @@ const Navbar = () => {
           <NavLink to="/about" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("About")}</NavLink>
           <NavLink to="/job" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("JobSeeker")}</NavLink>
           <NavLink to="/currentvaccancy" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Current Vacancy")}</NavLink>
-          <NavLink to="/applyonline" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Apply Online")}</NavLink>
+          {/* <NavLink to="/applyonline" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Apply Online")}</NavLink> */}
           <NavLink to="/blog" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Blog")}</NavLink>
           <NavLink to="/Staffing" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("Staffing")}</NavLink>
           <NavLink to="/ndis" className="block py-4 px-4 rounded-xl bg-teal-50" onClick={() => setIsOpen(false)}>{t("NDIS Care")}</NavLink>

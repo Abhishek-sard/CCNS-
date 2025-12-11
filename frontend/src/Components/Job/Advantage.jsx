@@ -3,6 +3,7 @@ import { FaAward, FaBook, FaShieldAlt, FaUsers, FaCertificate } from "react-icon
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import ApplyOnline from "./ApplyOnline";
 
 const benefitsData = [
   {
@@ -66,6 +67,12 @@ const Advantage = () => {
             </div>
           ))}
         </div>
+
+
+
+        {/* Render ApplyOnline component here if needed */}
+        <ApplyOnline />
+
 
         {/* Call-to-Action Buttons */}
         <div className="flex gap-4 justify-center mt-12">

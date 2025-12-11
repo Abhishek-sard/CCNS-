@@ -5,16 +5,28 @@ const Referrial = () => {
   const [forms, setForms] = useState([]);
 
   useEffect(() => {
-    const fetchForms = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/forms/all");
-        setForms(res.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
     fetchForms();
   }, []);
+
+  const fetchForms = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/forms/all");
+      setForms(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this form?")) return;
+
+    try {
+      await axios.delete(`http://localhost:5000/api/forms/${id}`);
+      setForms(forms.filter((f) => f._id !== id));
+    } catch (err) {
+      console.error("Failed to delete form:", err);
+    }
+  };
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
@@ -46,13 +58,14 @@ const Referrial = () => {
               <th className="p-3">Referral Email</th>
               <th className="p-3">Referral Phone</th>
               <th className="p-3">File</th>
+              <th className="p-3">Action</th> {/* <-- Added Action column */}
             </tr>
           </thead>
 
           <tbody>
             {forms.length === 0 ? (
               <tr>
-                <td colSpan="20" className="text-center p-6 text-gray-500 italic">
+                <td colSpan="21" className="text-center p-6 text-gray-500 italic">
                   No forms submitted yet.
                 </td>
               </tr>
@@ -94,6 +107,14 @@ const Referrial = () => {
                     ) : (
                       <span className="text-gray-400">No file</span>
                     )}
+                  </td>
+                  <td className="p-3">
+                    <button
+                      onClick={() => handleDelete(f._id)}
+                      className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))

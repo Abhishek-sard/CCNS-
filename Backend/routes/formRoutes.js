@@ -30,6 +30,18 @@ router.post("/submit", upload.single("file"), async (req, res) => {
   }
 });
 
+//Delete button
+// Delete form by ID
+router.delete("/:id", async (req, res) => {
+  try {
+    await NdisForm.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Form deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to delete form" });
+  }
+});
+
 // Dashboard (All submissions)
 router.get("/all", async (req, res) => {
   try {
