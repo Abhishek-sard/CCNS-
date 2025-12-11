@@ -33,7 +33,7 @@ const NdisCover = () => {
       title: "Support Coordination",
       color: "yellow",
       text: "Connect with quality providers and maximize your NDIS plan with expert coordination.",
-      link: "/support-coordination",
+      link: "/support",
     },
     {
       title: "Daily Personal Activities",
