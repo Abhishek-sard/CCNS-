@@ -209,13 +209,20 @@ const NdisCover = () => {
       {/* Cards Section */}
       <section className="py-16 px-6 md:px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((item, idx) => (
-          <div key={idx} className={`bg-white rounded-2xl shadow-lg p-6 flex flex-col justify-between border-l-4 border-${item.color}-600 hover:shadow-2xl transition-all duration-300`}>
+          <div
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-6 flex flex-col justify-between border-l-4 border-teal-600 hover:shadow-2xl transition-all duration-300"
+          >
             <div>
-              <h3 className={`text-2xl font-bold text-${item.color}-600 mb-4`}>{item.title}</h3>
+              <h3 className="text-2xl font-bold text-teal-600 mb-4">{item.title}</h3>
               <p className="text-gray-700">{item.text}</p>
             </div>
+
             <div className="mt-6">
-              <Link to={item.link} className={`flex items-center justify-center gap-2 px-5 py-3 bg-${item.color}-600 text-white font-semibold rounded-xl hover:bg-${item.color}-700 transition`}>
+              <Link
+                to={item.link}
+                className="flex items-center justify-center gap-2 px-5 py-3 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition"
+              >
                 Get Started <FiArrowRight />
               </Link>
             </div>
