@@ -19,7 +19,7 @@ const MainDashboard = () => {
     { name: "Team Management", icon: <FaUsers />, path: "team" },
     { name: "Staffing Requests", icon: <FaUsers />, path: "staffing" },
     { name: "Branch Management", icon: <FaBriefcase />, path: "branches" },
-
+    { name: "Referrial Submit", icon: <FaUser />, path: "referrial" }
   ];
 
   return (
@@ -37,11 +37,12 @@ const MainDashboard = () => {
           <p className="text-xs text-gray-500">{user?.email}</p>
         </div>
 
-        <nav className="mt-6 flex flex-col gap-2 px-2 flex-1">
+        {/* Navigation */}
+        <nav className="mt-6 flex flex-col gap-2 px-2 flex-1 overflow-y-auto">
           {menuItems.map((item) => (
             <Link
               key={item.name}
-              to={item.path} // Relative path works with nested routing
+              to={item.path}
               className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 font-medium hover:bg-blue-100 transition cursor-pointer"
             >
               {item.icon}
@@ -50,7 +51,7 @@ const MainDashboard = () => {
           ))}
         </nav>
 
-        {/* Logout Button */}
+        {/* Logout */}
         <div className="p-4 border-t border-gray-200">
           <button
             onClick={handleLogout}
@@ -62,9 +63,9 @@ const MainDashboard = () => {
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="ml-64 p-8 flex-1 overflow-auto pb-20">
-        {/* Render child routes here */}
+      {/* Main Content */}
+      <div className="ml-64 flex-1 p-6 overflow-y-auto h-screen">
+        {/* All child routes will render here */}
         <Outlet />
       </div>
     </div>

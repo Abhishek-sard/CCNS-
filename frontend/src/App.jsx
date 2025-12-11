@@ -68,6 +68,7 @@ import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
 import TeamManagement from './Components/Dashboard/TeamManagement.jsx';
 import StaffingManagement from './Components/Dashboard/StaffingManagement.jsx';
 import BranchManagement from './Components/Dashboard/BranchManagement.jsx';
+import Referrial from './Components/Dashboard/Referrial.jsx';
 
 // Utils
 import './utils/consoleCleanup';
@@ -187,6 +188,7 @@ const App = () => {
               <Route path="team" element={<TeamManagement />} />
               <Route path="staffing" element={<StaffingManagement />} />
               <Route path="branches" element={<BranchManagement />} />
+              <Route path="referrial" element={<Referrial />}/>
             </Route>
           </Routes>
         </LayoutWrapper>

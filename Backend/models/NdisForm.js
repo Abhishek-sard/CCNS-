@@ -8,18 +8,18 @@ const NdisFormSchema = new mongoose.Schema({
   birthday: String,
   contactNumber: String,
   email: String,
-  hobbies: String,
+  interest: String, // matches frontend "interest"
   accommodation: String,
   ndisNumber: String,
   planDates: String,
-  planManaged: String,
-  primaryDisability: String,
-  allocatedHours: String,
+  management: String, // matches frontend radio input "management"
+  disability: String, // primaryDisability
+  hours: String, // allocatedHours
   goals: String,
-  referralName: String,
-  referralCompany: String,
-  referralEmail: String,
-  referralPhone: String,
+  refName: String, // matches frontend
+  company: String, // matches frontend
+  refEmail: String,
+  refPhone: String,
   uploadedFile: String, // file path
 }, { timestamps: true });
 
