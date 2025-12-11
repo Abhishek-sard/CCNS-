@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+
 import {
   Home,
   Search,
@@ -81,14 +84,14 @@ const CCNANursingAgency = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[100px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[140px]">
         {/* Title Section */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="p-3 bg-blue-100 rounded-2xl">
               <Home className="w-8 h-8 text-blue-600" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
+            <h1 className="text-3xl md:text-6xl font-bold text-gray-900">
               Home
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Secure
@@ -205,6 +208,17 @@ const CCNANursingAgency = () => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center ">
+        <Link
+          to="/NdisContact"
+          className="px-8 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-6"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
+      </div>
+
+
+
     </div>
   );
 };

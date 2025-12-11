@@ -9,7 +9,7 @@ const NdisCover = () => {
       title: "Accommodation / Tenancy Assistance",
       color: "blue",
       text: "We assist with housing needs, identifying issues, and finding solutions for suitable accommodation.",
-      link: "/accommodation",
+      link: "/nursing",
     },
     {
       title: "Assistance in Accessing and Maintaining Employment / Education",
