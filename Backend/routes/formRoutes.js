@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from'multer';
-import NdisForm from '../models/NdisForm';
+import NdisForm from '../models/NdisForm.js';
 
 
 const router = express.Router();
