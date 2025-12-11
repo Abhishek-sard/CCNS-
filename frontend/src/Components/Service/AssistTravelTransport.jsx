@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const AssistTravelTransport = () => {
     const travelServices = [
@@ -168,7 +170,7 @@ const AssistTravelTransport = () => {
                                             <p className="text-gray-600">
                                                 {service.description}
                                             </p>
-                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -215,6 +217,15 @@ const AssistTravelTransport = () => {
                     </div>
                 </div>
             </div>
+            <div className="flex justify-center mt-4">
+                <Link
+                    to="/NdisContact"
+                    className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-5"
+                >
+                    Contact Us <FaArrowRight />
+                </Link>
+            </div>
+
         </div>
     );
 };

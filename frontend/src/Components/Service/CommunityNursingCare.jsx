@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const CommunityNursingCare = () => {
   const services = [
@@ -56,12 +58,12 @@ const CommunityNursingCare = () => {
             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
             Professional Healthcare Services
           </div>
-          
+
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
             Community Nursing Care
             <span className="text-blue-600 block">Compassionate Care in Your Home</span>
           </h1>
-          
+
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-8"></div>
         </div>
 
@@ -72,10 +74,10 @@ const CommunityNursingCare = () => {
             alt="Community nursing care professional assisting patient"
             className="w-full h-[400px] lg:h-[500px] object-cover"
           />
-          
+
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent"></div>
-          
+
           {/* Overlay Content */}
           <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div className="space-y-4">
@@ -242,6 +244,15 @@ const CommunityNursingCare = () => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center mt-4">
+        <Link
+          to="/NdisContact"
+          className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-5"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
+      </div>
+
     </div>
   );
 };

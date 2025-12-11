@@ -39,19 +39,19 @@ const NdisCover = () => {
       title: "Daily Personal Activities",
       color: "pink",
       text: "We help with cooking, cleaning, personal hygiene, and mobility assistance.",
-      link: "/daily-activities",
+      link: "/assist",
     },
     {
       title: "Travel & Transport Assistance",
       color: "pink",
       text: "Supporting individuals with disabilities who face difficulty accessing transport.",
-      link: "/transport",
+      link: "/travel",
     },
     {
       title: "Community Nursing Care",
       color: "pink",
       text: "Professional nursing care provided in the community by experienced nurses.",
-      link: "/nursing-care",
+      link: "/community",
     },
     {
       title: "Daily Tasks / Shared Living",
