@@ -30,8 +30,8 @@ const NdisContact = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-xl ">
-      <h1 className="text-2xl font-bold mb-4 text-center">Client Information</h1>
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-xl  ">
+      <h1 className="text-2xl font-bold mb-4 text-center mt-20">Participate referral form</h1>
 
       <form className="space-y-6" onSubmit={handleSubmit}>
         {/* Participant Info */}

@@ -97,7 +97,7 @@ function AboutPage() {
       <Intro />
       <AboutUs />
       <Team />
-      <BranchesList />
+      {/* <BranchesList /> */}
     </>
   );
 }
