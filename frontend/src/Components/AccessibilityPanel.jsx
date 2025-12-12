@@ -2,7 +2,7 @@ import React from "react";
 
 const AccessibilityPanel = ({ increaseText, decreaseText, grayScale, highContrast, negativeContrast, lightBackground, underlineLinks, readableFont, reset }) => {
   return (
-    <div className="bg-white w-64 p-4 rounded-xl shadow-2xl border space-y-3 animate-fade fixed right-20 bottom-20 z-50">
+    <div className="bg-white w-64 p-4 rounded-xl shadow-2xl border  animate-fade fixed right-20 bottom-5 z-45">
       <h3 className="text-lg font-bold text-gray-700 text-center">Accessibility</h3>
 
       <button onClick={increaseText} className="access-btn">Increase Text</button>
