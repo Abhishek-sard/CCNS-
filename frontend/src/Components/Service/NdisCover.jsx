@@ -231,7 +231,7 @@ const NdisCover = () => {
       </section>
 
       {/* CTA Section */}
-      <div className="text-center my-12">
+      <div className="text-center my-2">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Why Choose Us?</h1>
         <Link to="/contact">
           <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Get Started Now</button>
@@ -242,7 +242,7 @@ const NdisCover = () => {
       <section className="py-16 px-6 md:px-20 max-w-5xl mx-auto">
     
 
-        <div className="text-center my-12 space-y-4">
+        <div className="text-center my-2 space-y-4">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Ready to Explore</h1>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/contact">
