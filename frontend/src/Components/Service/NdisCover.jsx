@@ -15,7 +15,7 @@ const NdisCover = () => {
       title: "Assistance in Accessing and Maintaining Employment / Education",
       color: "green",
       text: "We help participants secure and maintain employment, develop skills, and achieve career goals.",
-      link: "/employment",
+      link: "/support",
     },
     {
       title: "High Intensity Personal Activities",
@@ -33,7 +33,7 @@ const NdisCover = () => {
       title: "Support Coordination",
       color: "yellow",
       text: "Connect with quality providers and maximize your NDIS plan with expert coordination.",
-      link: "/support",
+      link: "/travel",
     },
     {
       title: "Daily Personal Activities",
@@ -87,7 +87,7 @@ const NdisCover = () => {
       title: "Special Support Employment",
       color: "pink",
       text: "Assisting individuals with disabilities who need support to engage in employment.",
-      link: "/special-employment",
+      link: "/support",
     },
     {
       title: "Group / Centre Activities",
