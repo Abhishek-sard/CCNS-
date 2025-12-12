@@ -42,7 +42,7 @@ const NdisContact = () => {
         <input type="date" name="birthday" onChange={handleChange} className="w-full border p-2 rounded-lg" />
         <input type="number" name="contactNumber" onChange={handleChange} placeholder="Contact Number*" className="w-full border p-2 rounded-lg" />
         <input type="email" name="email" onChange={handleChange} placeholder="Email" className="w-full border p-2 rounded-lg" />
-        <input type="text" name="hobbies" onChange={handleChange} placeholder="Interest / Hobbies" className="w-full border p-2 rounded-lg" />
+        <input type="text" name="interest" onChange={handleChange} placeholder="Interest / Hobbies" className="w-full border p-2 rounded-lg" />
         <input type="text" name="accommodation" onChange={handleChange} placeholder="SDA/SIL Accommodation" className="w-full border p-2 rounded-lg" />
 
         {/* NDIS Info */}
@@ -52,7 +52,7 @@ const NdisContact = () => {
         
         <div>
           <label>Plan Managed*</label>
-          <select name="planManaged" onChange={handleChange} className="w-full border p-2 rounded-lg">
+          <select name="management" onChange={handleChange} className="w-full border p-2 rounded-lg">
             <option value="">Select</option>
             <option value="Self-managed">Self-managed</option>
             <option value="Plan-managed">Plan-managed</option>
@@ -60,16 +60,16 @@ const NdisContact = () => {
           </select>
         </div>
 
-        <input type="text" name="primaryDisability" onChange={handleChange} placeholder="Primary Disability*" className="w-full border p-2 rounded-lg" />
-        <input type="text" name="allocatedHours" onChange={handleChange} placeholder="Allocated Hours*" className="w-full border p-2 rounded-lg" />
+        <input type="text" name="disability" onChange={handleChange} placeholder="Primary Disability*" className="w-full border p-2 rounded-lg" />
+        <input type="text" name="hours" onChange={handleChange} placeholder="Allocated Hours*" className="w-full border p-2 rounded-lg" />
         <input type="text" name="goals" onChange={handleChange} placeholder="NDIS Goals" className="w-full border p-2 rounded-lg" />
 
         {/* Referral Info */}
         <h2 className="font-bold text-xl pt-4">Referral Details</h2>
-        <input type="text" name="referralName" onChange={handleChange} placeholder="Referral Name*" className="w-full border p-2 rounded-lg" />
-        <input type="text" name="referralCompany" onChange={handleChange} placeholder="Company" className="w-full border p-2 rounded-lg" />
-        <input type="email" name="referralEmail" onChange={handleChange} placeholder="Referral Email*" className="w-full border p-2 rounded-lg" />
-        <input type="number" name="referralPhone" onChange={handleChange} placeholder="Referral Phone*" className="w-full border p-2 rounded-lg" />
+        <input type="text" name="refName" onChange={handleChange} placeholder="Referral Name*" className="w-full border p-2 rounded-lg" />
+        <input type="text" name="company" onChange={handleChange} placeholder="Company" className="w-full border p-2 rounded-lg" />
+        <input type="email" name="refEmail" onChange={handleChange} placeholder="Referral Email*" className="w-full border p-2 rounded-lg" />
+        <input type="number" name="refPhone" onChange={handleChange} placeholder="Referral Phone*" className="w-full border p-2 rounded-lg" />
 
         <input type="file" onChange={handleFile} className="w-full" />
 
