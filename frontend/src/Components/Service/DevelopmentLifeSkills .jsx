@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+ import { FaArrowRight } from "react-icons/fa";
 
 const DevelopmentLifeSkills = () => {
   const lifeSkills = [
@@ -43,12 +45,12 @@ const DevelopmentLifeSkills = () => {
             <span className="w-2 h-2 bg-indigo-600 rounded-full"></span>
             Personal Development Services
           </div>
-          
+
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
             Development - Life Skills
             <span className="text-indigo-600 block">Empowering Independent Living</span>
           </h1>
-          
+
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto"></div>
         </div>
 
@@ -59,10 +61,10 @@ const DevelopmentLifeSkills = () => {
             alt="Life Skills Development Education"
             className="w-full h-[400px] lg:h-[500px] object-cover"
           />
-          
+
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent"></div>
-          
+
           {/* Overlay Content */}
           <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div className="space-y-4">
@@ -148,18 +150,6 @@ const DevelopmentLifeSkills = () => {
               </ul>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                <span>Enroll Now</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <button className="border-2 border-gray-300 hover:border-indigo-600 text-gray-700 hover:text-indigo-600 font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md">
-                View Curriculum
-              </button>
-            </div>
           </div>
         </div>
 
@@ -215,6 +205,15 @@ const DevelopmentLifeSkills = () => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center mt-4">
+        <Link
+          to="/NdisContact"
+          className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-5"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
+      </div>
+
     </div>
   );
 };

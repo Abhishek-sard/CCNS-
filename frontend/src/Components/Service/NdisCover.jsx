@@ -63,13 +63,13 @@ const NdisCover = () => {
       title: "Innovative Community Participation",
       color: "pink",
       text: "Helping participants join community clubs, attend events, and engage socially.",
-      link: "/community-participation",
+      link: "/innovCommunity",
     },
     {
       title: "Life Skill Development",
       color: "pink",
       text: "Teaching budgeting, public transport use, cooking, hygiene, and personal development.",
-      link: "/life-skills",
+      link: "/development",
     },
     {
       title: "Household Tasks",

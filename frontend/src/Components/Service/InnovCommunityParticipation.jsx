@@ -1,5 +1,7 @@
 import React from "react";
 import Image from '../../assets/finance.jpg'
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 import {
   Sparkles,
   Users,
@@ -28,9 +30,9 @@ const InnovCommunityParticipation = () => {
         {/* Image Section */}
         <div className="relative mb-12 max-w-4xl mx-auto">
           <div className="absolute -inset-4 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-2xl blur-lg opacity-30"></div>
-          <img 
+          <img
             src="communityparty.jpg"
-            alt="Community participation and engagement" 
+            alt="Community participation and engagement"
             className="relative w-full h-auto rounded-xl shadow-2xl object-cover transform hover:scale-[1.02] transition-transform duration-500"
           />
           <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
@@ -99,7 +101,7 @@ const InnovCommunityParticipation = () => {
           >
             {/* Gradient Border Effect */}
             <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-            
+
             <div className="flex flex-col items-center text-center relative z-10">
               {/* Icon with Gradient Background */}
               <div className="relative mb-6">
@@ -112,16 +114,11 @@ const InnovCommunityParticipation = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors duration-300">
                 {item.title}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed mb-6">
                 {item.desc}
               </p>
 
-              {/* Learn More Button */}
-              <button className="flex items-center gap-2 text-purple-600 font-semibold text-sm group/btn hover:text-purple-700 transition-colors duration-300">
-                Learn More
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-              </button>
             </div>
           </div>
         ))}
@@ -136,9 +133,18 @@ const InnovCommunityParticipation = () => {
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
             Join our community today and start your journey towards meaningful participation and personal growth.
           </p>
-      
+
         </div>
       </div>
+      <div className="flex justify-center mt-4">
+        <Link
+          to="/NdisContact"
+          className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
+      </div>
+
     </div>
   );
 };
