@@ -267,6 +267,7 @@ const NdisCover = () => {
         </div>
       </section>
 
+
     </div>
   );
 };

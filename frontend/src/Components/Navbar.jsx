@@ -67,8 +67,8 @@ const Navbar = () => {
           {/* <li><NavLink to="/applyonline" className={linkClasses}>{t("Apply Online")}</NavLink></li> */}
           <li><NavLink to="/blog" className={linkClasses}>{t("Blog")}</NavLink></li>
           <li><NavLink to="/Staffing" className={linkClasses}>{t("Staffing")}</NavLink></li>
-          <li><NavLink to="/ndis" className={linkClasses}>{t("NDIS Care")}</NavLink></li>
-          <li><NavLink to="/NdisContact" className={linkClasses}>{t("Contact")}</NavLink></li>
+          <li><NavLink to="/ndis" className={linkClasses}>{t("Contact Us")}</NavLink></li>
+          <li><NavLink to="/NdisContact" className={linkClasses}>{t("Referral")}</NavLink></li>
         </ul>
 
         <button

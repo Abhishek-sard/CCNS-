@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import BranchesList from "../About/BranchesList.jsx";
+import Faq from "../About/Faq.jsx";
 import {
   FaHandHoldingHeart,
   FaFileMedical,
@@ -398,7 +401,10 @@ const NdisServices = () => {
           </div>
         </div>
       </div>
+      <BranchesList />
+      <Faq/>
     </div>
+
   );
 };
 
