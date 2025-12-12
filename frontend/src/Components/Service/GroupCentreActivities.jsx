@@ -1,5 +1,7 @@
 import React from "react";
 import { Users, Brush, Activity, Book, Calendar, Heart, Star, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const GroupCentreActivities = () => {
   const activities = [
@@ -149,6 +151,15 @@ const GroupCentreActivities = () => {
         </p>
         
       </div>
+      <div className="flex justify-center mt-4">
+  <Link
+    to="/NdisContact"
+    className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-5"
+  >
+    Contact Us <FaArrowRight />
+  </Link>
+</div>
+
     </div>
   );
 };

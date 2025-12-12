@@ -1,5 +1,7 @@
 import React from "react";
 import { Users, Calendar, Handshake, Smile, Heart, Star, Target, Award } from "lucide-react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const ParticipateCommunity = () => {
   const features = [
@@ -53,22 +55,22 @@ const ParticipateCommunity = () => {
             <span className="w-2 h-2 bg-teal-600 rounded-full"></span>
             Community Engagement Services
           </div>
-          
+
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
             Participate Community
             <span className="text-teal-600 block">Building Stronger Connections</span>
           </h1>
-          
+
           <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-green-500 rounded-full mx-auto mb-8"></div>
         </div>
 
         {/* Main Image Section */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
-     
-          
+
+
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent"></div>
-          
+
           {/* Overlay Content */}
           <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div className="space-y-4">
@@ -92,11 +94,11 @@ const ParticipateCommunity = () => {
             </div>
           </div>
         </div>
-             <img
-            src="community.jpg"
-            alt="Community participation and social engagement"
-            className="w-full h-[300px] lg:h-[300px] object-cover"
-          />
+        <img
+          src="community.jpg"
+          alt="Community participation and social engagement"
+          className="w-full h-[300px] lg:h-[300px] object-cover"
+        />
 
         {/* Main Content Section - Two Columns */}
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
@@ -114,7 +116,7 @@ const ParticipateCommunity = () => {
             <div className="bg-teal-50 p-6 rounded-2xl border border-teal-200">
               <p className="text-lg text-gray-700 leading-relaxed">
                 The focus is on <span className="text-teal-600 font-semibold">building social skills, fostering relationships, and enhancing
-                a sense of belonging</span>. By breaking down isolation, this service enriches lives and
+                  a sense of belonging</span>. By breaking down isolation, this service enriches lives and
                 strengthens community ties.
               </p>
             </div>
@@ -174,7 +176,7 @@ const ParticipateCommunity = () => {
           </div>
         </div>
 
-g
+
 
         {/* Bottom Features */}
         <div className="grid md:grid-cols-3 gap-8">
@@ -203,6 +205,15 @@ g
           </div>
         </div>
       </div>
+      <div className="flex justify-center mt-4">
+        <Link
+          to="/NdisContact"
+          className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-5"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
+      </div>
+
     </div>
   );
 };

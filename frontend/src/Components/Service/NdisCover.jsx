@@ -75,13 +75,13 @@ const NdisCover = () => {
       title: "Household Tasks",
       color: "pink",
       text: "Support with cleaning, laundry, groceries, home maintenance, and grooming.",
-      link: "/household-tasks",
+      link: "/household",
     },
     {
       title: "Community Participation",
       color: "pink",
       text: "Building social skills, accessing facilities, support with transport, and wellbeing activities.",
-      link: "/community-skills",
+      link: "/participation",
     },
     {
       title: "Special Support Employment",
@@ -93,7 +93,7 @@ const NdisCover = () => {
       title: "Group / Centre Activities",
       color: "pink",
       text: "Support to join recreational activities like camping, movies, sports, and museums.",
-      link: "/group-activities",
+      link: "/center",
     },
   ];
 

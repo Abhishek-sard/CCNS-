@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "../../assets/housholdtask.jpg";
 import { Brush, ShoppingBag, WashingMachine, Home, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+
 
 const HouseholdTasks = () => {
   return (
@@ -79,11 +82,15 @@ const HouseholdTasks = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="mt-16 text-center">
-        <button className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">
-          Keep Your Home Shining
-        </button>
+      <div className="flex justify-center mt-4">
+        <Link
+          to="/NdisContact"
+          className="px-10 py-5 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2"
+        >
+          Contact Us <FaArrowRight />
+        </Link>
       </div>
+
     </div>
   );
 };
