@@ -15,6 +15,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { BASE_URL } from "../../services/constants";
+import Cover from "../About/Cover.jsx";
 
 const NdisServices = () => {
   const [formData, setFormData] = useState({
@@ -101,6 +102,7 @@ const NdisServices = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-5">
+      <Cover/>
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-8 rounded-t-lg shadow-md text-center mb-8 mt-20">
         <div className="flex flex-col md:flex-row items-center justify-center mb-4">

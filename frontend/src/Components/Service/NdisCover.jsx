@@ -240,19 +240,7 @@ const NdisCover = () => {
 
       {/* FAQs */}
       <section className="py-16 px-6 md:px-20 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-blue-700 mb-8 text-center">FAQs for Participants</h2>
-        <div className="space-y-4">
-          {[
-            { q: "What is the NDIS?", a: "The National Disability Insurance Scheme supports Australians with disabilities." },
-            { q: "How do I know which supports I can access?", a: "Supports depend on your NDIS plan and goals. We help you identify suitable services." },
-            { q: "Do you provide plan management?", a: "Yes, we help track spending, pay invoices, and provide financial guidance." }
-          ].map((faq, i) => (
-            <details key={i} className="border-l-4 border-blue-600 bg-white rounded p-4 shadow hover:shadow-md transition-shadow duration-300">
-              <summary className="font-medium cursor-pointer">{faq.q}</summary>
-              <p className="mt-2 text-gray-700">{faq.a}</p>
-            </details>
-          ))}
-        </div>
+    
 
         <div className="text-center my-12 space-y-4">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Ready to Explore</h1>
