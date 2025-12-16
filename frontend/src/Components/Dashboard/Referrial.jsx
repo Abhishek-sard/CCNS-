@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL, BASE_URL_IMAGE } from "../../services/constants";
 
 const Referrial = () => {
   const [forms, setForms] = useState([]);
@@ -10,7 +11,7 @@ const Referrial = () => {
 
   const fetchForms = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/forms/all");
+      const res = await axios.get(`${BASE_URL}/forms/all`);
       setForms(res.data);
     } catch (err) {
       console.error(err);
@@ -21,7 +22,7 @@ const Referrial = () => {
     if (!window.confirm("Are you sure you want to delete this form?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/forms/${id}`);
+      await axios.delete(`${BASE_URL}/forms/${id}`);
       setForms(forms.filter((f) => f._id !== id));
     } catch (err) {
       console.error("Failed to delete form:", err);
@@ -65,7 +66,10 @@ const Referrial = () => {
           <tbody>
             {forms.length === 0 ? (
               <tr>
-                <td colSpan="21" className="text-center p-6 text-gray-500 italic">
+                <td
+                  colSpan="21"
+                  className="text-center p-6 text-gray-500 italic"
+                >
                   No forms submitted yet.
                 </td>
               </tr>
@@ -73,7 +77,9 @@ const Referrial = () => {
               forms.map((f, idx) => (
                 <tr
                   key={f._id}
-                  className={`hover:bg-blue-50 ${idx % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                  className={`hover:bg-blue-50 ${
+                    idx % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  }`}
                 >
                   <td className="p-3">{f.participantName}</td>
                   <td className="p-3">{f.address}</td>
@@ -97,7 +103,7 @@ const Referrial = () => {
                   <td className="p-3 text-blue-600">
                     {f.uploadedFile ? (
                       <a
-                        href={`http://localhost:5000/uploads/${f.uploadedFile}`}
+                        href={`${BASE_URL_IMAGE}/uploads/${f.uploadedFile}`}
                         target="_blank"
                         rel="noreferrer"
                         className="underline hover:text-blue-800"
