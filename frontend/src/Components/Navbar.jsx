@@ -16,12 +16,14 @@ const Navbar = () => {
     <nav className="fixed w-full z-50 bg-white shadow-md border-b border-gray-100">
       <div className="container mx-auto px-4 flex justify-between items-center h-20">
 
-        {/* Logo */}
-        <img
-          src={LOGO}
-          alt="Logo"
-          className="h-19 transform transition-transform duration-300 hover:scale-105"
-        />
+        {/* Logo (Click → Home) */}
+        <NavLink to="/" className="flex items-center">
+          <img
+            src={LOGO}
+            alt="Logo"
+            className="h-19 transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+          />
+        </NavLink>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-4 font-medium text-lg items-center">
@@ -47,7 +49,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg border-t border-gray-200 px-6 py-6 space-y-3 font-medium text-gray-700">
-          <NavLink to="/" className="block py-6 px-4 rounded-lg bg-teal-50" onClick={() => setIsOpen(false)}>Home</NavLink>
+          <NavLink to="/" className="block py-3 px-4 rounded-lg bg-teal-50" onClick={() => setIsOpen(false)}>Home</NavLink>
           <NavLink to="/about" className="block py-3 px-4 rounded-lg bg-teal-50" onClick={() => setIsOpen(false)}>About</NavLink>
           <NavLink to="/job" className="block py-3 px-4 rounded-lg bg-teal-50" onClick={() => setIsOpen(false)}>Job Seeker</NavLink>
           <NavLink to="/currentvaccancy" className="block py-3 px-4 rounded-lg bg-teal-50" onClick={() => setIsOpen(false)}>Current Vacancy</NavLink>
