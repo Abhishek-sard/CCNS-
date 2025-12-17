@@ -93,8 +93,8 @@ function AboutPage() {
   return (
     <>
       <ImageFile />
-      <Animation />
       <Intro />
+      <Animation />
       <AboutUs />
       <Team />
       {/* <BranchesList /> */}
