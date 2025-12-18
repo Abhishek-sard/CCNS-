@@ -77,7 +77,7 @@ const Navbar = () => {
           </AnimatedItem>
 
           <AnimatedItem show={!isStaffingPage}>
-            <NavLink to="/ndis" className={linkClasses}>Ndis Care</NavLink>
+            <NavLink to="/ndis" className={linkClasses}>Contact Us</NavLink>
           </AnimatedItem>
 
           <AnimatedItem show={true}>
@@ -119,7 +119,7 @@ const Navbar = () => {
 
           {!isStaffingPage && (
             <NavLink to="/ndis" className="block py-3 px-4 rounded-lg bg-teal-50">
-              Ndis Care
+              Contact Us
             </NavLink>
           )}
 
