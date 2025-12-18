@@ -1,7 +1,7 @@
 import React from "react";
 import ImageHero from "../../assets/nurse.png";
 import { Link } from "react-router-dom";
-import { FiArrowRight } from "react-icons/fi"; // Arrow icon
+import { FiArrowRight } from "react-icons/fi"; 
 
 const NdisCover = () => {
   const services = [
@@ -231,25 +231,122 @@ const NdisCover = () => {
       </section>
 
       {/* CTA Section */}
-      <div className="text-center my-2">
+      {/* <div className="text-center my-2">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Why Choose Us?</h1>
         <Link to="/contact">
           <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Get Started Now</button>
         </Link>
-      </div>
+      </div> */}
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
+            Why Choose <span className="text-teal-600">CCNA Care</span>?
+          </h2>
+
+          <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+            At CCNA Care, we are committed to delivering high-quality, person-centred
+            NDIS support that empowers individuals to live independently and with dignity.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-teal-600 mb-3">
+                Person-Centred Approach
+              </h3>
+              <p className="text-gray-700">
+                Every participant is unique. We design flexible support plans that
+                align with your goals, preferences, and lifestyle.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-teal-600 mb-3">
+                Qualified & Compassionate Staff
+              </h3>
+              <p className="text-gray-700">
+                Our team consists of trained, experienced, and caring professionals
+                who deliver support with empathy and respect.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-teal-600 mb-3">
+                Reliable & 24/7 Support
+              </h3>
+              <p className="text-gray-700">
+                We provide dependable services with round-the-clock availability to
+                ensure peace of mind for participants and families.
+              </p>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-teal-600 mb-3">
+                NDIS Expertise
+              </h3>
+              <p className="text-gray-700">
+                Our in-depth understanding of NDIS guidelines helps participants
+                maximise their plans and access the right supports.
+              </p>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-teal-600 mb-3">
+                Community Focused
+              </h3>
+              <p className="text-gray-700">
+                We encourage social inclusion, skill development, and active
+                participation in community life.
+              </p>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-teal-600 mb-3">
+                Trusted Care Provider
+              </h3>
+              <p className="text-gray-700">
+                CCNA Care is built on trust, transparency, and consistent quality
+                service across Australia.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Link to="/contact">
+              <button className="bg-teal-600 text-white px-10 py-3 rounded-xl font-semibold hover:bg-teal-700 transition">
+                Start Your Journey With Us
+                <FiArrowRight className="inline-block ml-2" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* FAQs */}
-      <section className="py-16 px-6 md:px-20 max-w-5xl mx-auto">
-    
+      <section className="py-16 px-6 md:px-20 max-w-5xl mx-auto mt-[-20px]">
+
 
         <div className="text-center my-2 space-y-4">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Ready to Explore</h1>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/contact">
-              <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Get Started Now</button>
+              <button className="bg-teal-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Get Started Now
+              <FiArrowRight className="inline-block ml-2" />
+              </button>
             </Link>
             <Link to="https://business.google.com/reviews">
-              <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Google Reviews</button>
+              <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Google Reviews
+                <FiArrowRight className="inline-block ml-2" />
+              </button>
             </Link>
           </div>
         </div>
@@ -260,4 +357,4 @@ const NdisCover = () => {
   );
 };
 
-export default NdisCover;
+export default NdisCover; 
