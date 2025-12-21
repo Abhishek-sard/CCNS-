@@ -1,7 +1,7 @@
 import React from "react";
 import ImageHero from "../../assets/nurse.png";
 import { Link } from "react-router-dom";
-import { FiArrowRight } from "react-icons/fi"; 
+import { FiArrowRight } from "react-icons/fi";
 
 const NdisCover = () => {
   const services = [
@@ -320,7 +320,7 @@ const NdisCover = () => {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <Link to="/contact">
+            <Link to="/ndis">
               <button className="bg-teal-600 text-white px-10 py-3 rounded-xl font-semibold hover:bg-teal-700 transition">
                 Start Your Journey With Us
                 <FiArrowRight className="inline-block ml-2" />
@@ -340,7 +340,7 @@ const NdisCover = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/contact">
               <button className="bg-teal-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Get Started Now
-              <FiArrowRight className="inline-block ml-2" />
+                <FiArrowRight className="inline-block ml-2" />
               </button>
             </Link>
             <Link to="https://business.google.com/reviews">
