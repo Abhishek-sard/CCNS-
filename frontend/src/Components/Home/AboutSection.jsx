@@ -9,21 +9,21 @@ const AboutSection = () => {
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       <div className="absolute bottom-0 left-1/2 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-      
+
       <div className="relative container mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          
+
           {/* Left Image with Enhanced Styling */}
           <div className="lg:w-1/2 flex justify-center">
             <div className="relative group">
               {/* Main Image Container */}
               <div className="relative z-10 bg-white rounded-2xl p-6 shadow-2xl border border-blue-100 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                <img 
+                <img
                   src={LogoNurse}
                   alt="About CCNA Care"
                   className="w-full max-w-md rounded-xl transform transition duration-700 group-hover:scale-110"
                 />
-                
+
                 {/* Floating Badges */}
                 <div className="absolute -top-4 -left-4 bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce">
                   🏆 Trusted
@@ -32,7 +32,7 @@ const AboutSection = () => {
                   ⭐ Certified
                 </div>
               </div>
-              
+
               {/* Background Decorative Elements */}
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-green-400 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             </div>
@@ -46,7 +46,7 @@ const AboutSection = () => {
                 <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
                 About Our Organization
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
                   About CCNA
@@ -76,45 +76,45 @@ const AboutSection = () => {
                   <span className="text-green-600 group-hover:text-white text-xl">💪</span>
                 </div>
                 <p className="text-gray-700 text-lg md:text-xl leading-relaxed font-light group-hover:text-gray-800 transition-colors duration-300">
-                  Our dedicated team across Australia is committed to delivering compassionate, 
+                  Our dedicated team across Australia is committed to delivering compassionate,
                   high-quality services that make a real difference in people's lives every day.
                 </p>
               </div>
             </div>
 
             {/* Enhanced CTA Button */}
-           {/* Enhanced CTA Button */}
-<div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-  <Link
-    to="/about"
-    className="group relative bg-gradient-to-r from-blue-600 to-blue-700 text-white 
+            {/* Enhanced CTA Button */}
+            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link
+                to="/about"
+                className="group relative bg-gradient-to-r from-blue-600 to-blue-700 text-white 
                px-6 py-3 rounded-lg font-semibold hover:shadow-xl 
                transition-all duration-300 transform hover:scale-105 
                text-center min-w-[170px] overflow-hidden text-base"
-  >
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
                     transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] 
                     transition-transform duration-1000"></div>
-    
-    <span className="relative z-10 flex items-center justify-center gap-2">
-      Learn More
-      <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-    </span>
-  </Link>
 
-  <Link
-    to="/contact"
-    className="group relative bg-white text-blue-700 px-6 py-3 rounded-lg 
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Learn More
+                  <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </span>
+              </Link>
+
+              <Link
+                to="/contact"
+                className="group relative bg-white text-blue-700 px-6 py-3 rounded-lg 
                font-semibold border-2 border-blue-200 hover:border-blue-300 
                hover:shadow-lg transition-all duration-300 transform hover:scale-105 
                text-center min-w-[170px] text-base"
-  >
-    <span className="relative z-10 flex items-center justify-center gap-2">
-      Contact Us
-      <span className="transform group-hover:translate-x-1 transition-transform duration-300">📞</span>
-    </span>
-  </Link>
-</div>
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Contact Us 
+                  <span className="transform group-hover:translate-x-1 transition-transform duration-300">📞</span>
+                </span>
+              </Link>
+            </div>
 
           </div>
         </div>
