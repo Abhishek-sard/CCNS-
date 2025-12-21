@@ -76,7 +76,7 @@ const Navbar = () => {
     // Default Menu
     return (
       <>
-        <AnimatedItem show={true}><NavLink to="/" className={linkClasses}>Home</NavLink></AnimatedItem>
+        <AnimatedItem show={true}><NavLink to="/NdisCover" className={linkClasses}>Ndis Care</NavLink></AnimatedItem>
         <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About</NavLink></AnimatedItem>
         <AnimatedItem show={!isNdisPage}><NavLink to="/job" className={linkClasses}>Job Seeker</NavLink></AnimatedItem>
         <AnimatedItem show={!isNdisPage}><NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink></AnimatedItem>
@@ -132,7 +132,7 @@ const Navbar = () => {
     // Default Mobile Menu
     return (
       <>
-        <NavLink to="/" className={mobileLinkClass}>Home</NavLink>
+        <NavLink to="/NdisCover" className={mobileLinkClass}>Ndis Care</NavLink>
         <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
         {!isNdisPage && <NavLink to="/job" className={mobileLinkClass}>Job Seeker</NavLink>}
         {!isNdisPage && <NavLink to="/currentvaccancy" className={mobileLinkClass}>Current Vacancy</NavLink>}
