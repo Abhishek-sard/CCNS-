@@ -124,7 +124,7 @@ const AssistPersonalActivitiesHigh = () => {
                 {/* Additional CTA */}
                 <div className="flex justify-center mt-4">
                   <Link
-                    to="/NdisContact"
+                    to="/ndis"
                     className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2"
                   >
                     Get Started Now<FaArrowRight />

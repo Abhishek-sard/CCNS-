@@ -148,6 +148,7 @@ const NdisCover = () => {
                 className="group  bg-white text-teal-600 px-6 py-3 rounded-xl font-semibold border-2 border-teal-500 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center min-w-[180px]"
               >
                 <span className="relative z-10">Contact Us</span>
+              
                 <div className="absolute inset-0 border-2 border-teal-200 rounded-xl transform scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </div>

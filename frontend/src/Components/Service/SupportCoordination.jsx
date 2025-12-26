@@ -102,7 +102,7 @@ const SupportCoordination = () => {
 
       <div className="flex justify-center mt-4">
         <Link
-          to="/NdisContact"
+          to="/ndis"
           className="px-8 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-5 "
         >
           Contact Us <FaArrowRight />

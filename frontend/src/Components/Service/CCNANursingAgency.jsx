@@ -210,7 +210,7 @@ const CCNANursingAgency = () => {
       </div>
       <div className="flex justify-center ">
         <Link
-          to="/NdisContact"
+          to="/ndis"
           className="px-8 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center gap-2 mb-6"
         >
           Contact Us <FaArrowRight />
