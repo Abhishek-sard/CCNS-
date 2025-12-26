@@ -61,7 +61,7 @@ const Navbar = () => {
         <>
           <AnimatedItem show={true}><NavLink to="/ndis" className={linkClasses}>NDIS</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/Staffing" className={linkClasses}>Staffing</NavLink></AnimatedItem>
-          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About</NavLink></AnimatedItem>
+          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About Us</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/blog" className={linkClasses}>Blog</NavLink></AnimatedItem>
         </>
       );
@@ -74,7 +74,7 @@ const Navbar = () => {
           <AnimatedItem show={true}><NavLink to="/Staffing" className={linkClasses}>Staffing</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/job" className={linkClasses}>Job Seeker</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink></AnimatedItem>
-          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About</NavLink></AnimatedItem>
+          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About Us</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/blog" className={linkClasses}>Blog</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/ndis" className={linkClasses}>NDIS Services</NavLink></AnimatedItem>
         </>
@@ -85,10 +85,10 @@ const Navbar = () => {
     if (menuMode === "ndis") {
       return (
         <>
-          <AnimatedItem show={true}><NavLink to="/ndiscover" className={linkClasses}>NDIS Cover</NavLink></AnimatedItem>
+          <AnimatedItem show={true}><NavLink to="/ndiscover" className={linkClasses}>NDIS Services</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/NdisContact" className={linkClasses}>Referral</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/ndis" className={linkClasses}>Contact Us</NavLink></AnimatedItem>
-          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About</NavLink></AnimatedItem>
+          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About Us</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/blog" className={linkClasses}>Blog</NavLink></AnimatedItem>
           <AnimatedItem show={true}><NavLink to="/Staffing" className={linkClasses}>Staffing Solution</NavLink></AnimatedItem>
         </>
@@ -109,8 +109,8 @@ const Navbar = () => {
 
     return (
       <>
-        <AnimatedItem show={true}><NavLink to="/NdisCover" className={linkClasses}>Ndis Care</NavLink></AnimatedItem>
-        <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About</NavLink></AnimatedItem>
+        <AnimatedItem show={true}><NavLink to="/NdisCover" className={linkClasses}>NDIS Services</NavLink></AnimatedItem>
+        <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About Us</NavLink></AnimatedItem>
         <AnimatedItem show={true}><NavLink to="/job" className={linkClasses}>Job Seeker</NavLink></AnimatedItem>
         <AnimatedItem show={true}><NavLink to="/currentvaccancy" className={linkClasses}>Current Vacancy</NavLink></AnimatedItem>
         <AnimatedItem show={true}><NavLink to="/blog" className={linkClasses}>Blog</NavLink></AnimatedItem>
@@ -131,7 +131,7 @@ const Navbar = () => {
         <>
           <NavLink to="/ndis" className={mobileLinkClass}>NDIS</NavLink>
           <NavLink to="/Staffing" className={mobileLinkClass}>Staffing</NavLink>
-          <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
+          <NavLink to="/about" className={mobileLinkClass}>About Us</NavLink>
           <NavLink to="/blog" className={mobileLinkClass}>Blog</NavLink>
         </>
       );
@@ -144,7 +144,7 @@ const Navbar = () => {
           <NavLink to="/Staffing" className={mobileLinkClass}>Staffing</NavLink>
           <NavLink to="/job" className={mobileLinkClass}>Job Seeker</NavLink>
           <NavLink to="/currentvaccancy" className={mobileLinkClass}>Current Vacancy</NavLink>
-          <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
+          <NavLink to="/about" className={mobileLinkClass}>About Us</NavLink>
           <NavLink to="/blog" className={mobileLinkClass}>Blog</NavLink>
           <NavLink to="/ndis" className={mobileLinkClass}>NDIS Services</NavLink>
         </>
@@ -155,10 +155,10 @@ const Navbar = () => {
     if (menuMode === "ndis") {
       return (
         <>
-          <NavLink to="/ndiscover" className={mobileLinkClass}>NDIS Cover</NavLink>
+          <NavLink to="/ndiscover" className={mobileLinkClass}>NDIS Services</NavLink>
           <NavLink to="/NdisContact" className={mobileLinkClass}>Referral</NavLink>
           <NavLink to="/ndis" className={mobileLinkClass}>Contact Us</NavLink>
-          <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
+          <NavLink to="/about" className={mobileLinkClass}>About Us</NavLink>
           <NavLink to="/blog" className={mobileLinkClass}>Blog</NavLink>
           <NavLink to="/Staffing" className={mobileLinkClass}>Staffing Solution</NavLink>
         </>
@@ -168,8 +168,8 @@ const Navbar = () => {
     // 4. Default Mobile Menu
     return (
       <>
-        <NavLink to="/Ndiscover" className={mobileLinkClass}>Ndis Care</NavLink>
-        <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
+        <NavLink to="/Ndiscover" className={mobileLinkClass}>NDIS Services</NavLink>
+        <NavLink to="/about" className={mobileLinkClass}>About Us</NavLink>
         <NavLink to="/job" className={mobileLinkClass}>Job Seeker</NavLink>
         <NavLink to="/currentvaccancy" className={mobileLinkClass}>Current Vacancy</NavLink>
         <NavLink to="/blog" className={mobileLinkClass}>Blog</NavLink>

@@ -17,7 +17,7 @@ const Footer = () => {
     { name: "Careers", path: "/job" },
     { name: "Blog", path: "/blog" },
     { name: "Contact us", path: "/contact" },
-    { name: "About", path: "/about" },
+    { name: "About Us", path: "/about" },
     { name: "Current Vaccancy", path: "/currentvaccancy" },
   ];
 
@@ -99,7 +99,7 @@ const Footer = () => {
           </h3>
 
           <p className="inline-block bg-white text-yellow-700 px-3 py-1 rounded-full text-xs font-bold shadow-md mb-4">
-           NDIS PROVIDER ID: 4-LD74YXB
+            NDIS PROVIDER ID: 4-LD74YXB
           </p>
 
           <h3 className="text-md font-semibold mb-3 relative">

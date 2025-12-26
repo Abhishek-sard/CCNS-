@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 
 const cards = [
   {
-    title: "For Healthcare Facilities:",
-    text: "CCNA care is your reliable partner in healthcare staffing. We provide qualified nurses and carers to ensure your facility operates seamlessly, delivering excellent care consistently. We provide a range of services.",
+    title: "For NDIS Support Services:",
+    text: "NDIS provides supports to help participants live independently, engage in community activities, and achieve their personal goals. Our services are flexible and tailored to meet your individual needs.",
     buttonText: "Get Staffing Now",
     link: "/staffing",
     gradient: "from-blue-600 to-blue-800",
   },
   {
-    title: "For Job Seekers:",
-    text: "Discover rewarding healthcare careers with CCNA. We offer tailored support to match your skills and preferences with the right opportunities, so you can make a meaningful difference in healthcare.",
+    title: "For Staffing Support Solutions:",
+    text: "CCNA is your trusted resource for skilled healthcare staff. We understand the importance of having dedicated professionals available when you need them most, ensuring top-notch care for your residents.",
     buttonText: "Apply Now",
     link: "/job",
     gradient: "from-green-600 to-green-800",
   },
   {
-    title: "For Care Facilities:",
-    text: "CCNA is your trusted resource for skilled healthcare staff. We understand the importance of having dedicated professionals available when you need them most, ensuring top-notch care for your residents.",
+    title: "For Job Seekers:",
+    text: "Discover rewarding healthcare careers with CCNA. We offer tailored support to match your skills and preferences with the right opportunities, so you can make a meaningful difference in healthcare.Apply now.",
     buttonText: "Get Staffing Now",
     link: "/staffing",
     gradient: "from-purple-600 to-purple-800",
