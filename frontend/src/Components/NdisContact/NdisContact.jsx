@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 import { BASE_URL } from "../../services/constants";
 
 const NdisContact = () => {
@@ -194,6 +196,25 @@ const NdisContact = () => {
           Submit
         </button>
       </form>
+      <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center bg-gradient-to-r from-teal-50 to-amber-50 p-8 rounded-xl shadow-inner">
+
+        <Link to="/ndisCover">
+          <button className="group flex items-center px-10 py-3 rounded-full font-semibold text-white bg-teal-700 hover:bg-teal-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-teal-300">
+             Go To Home Page 
+            <FaArrowRight className="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </Link>
+
+        <Link to="/ndis">
+          <button className="group flex items-center px-10 py-3 rounded-full font-semibold text-teal-700 border-2 border-teal-700 hover:bg-teal-700 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-teal-300">
+            Contact Us Now
+            <FaArrowRight className="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </Link>
+
+      </div>
+
+
     </div>
   );
 };
