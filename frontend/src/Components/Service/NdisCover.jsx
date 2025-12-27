@@ -148,7 +148,7 @@ const NdisCover = () => {
                 className="group  bg-white text-teal-600 px-6 py-3 rounded-xl font-semibold border-2 border-teal-500 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center min-w-[180px]"
               >
                 <span className="relative z-10">Contact Us</span>
-              
+
                 <div className="absolute inset-0 border-2 border-teal-200 rounded-xl transform scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </div>
@@ -339,13 +339,18 @@ const NdisCover = () => {
         <div className="text-center my-2 space-y-4">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Ready to Explore</h1>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact">
-              <button className="bg-teal-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Get Started Now
+            <Link to="/ndis">
+              <button className="bg-teal-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Contact Now
+                <FiArrowRight className="inline-block ml-2" />
+              </button>
+            </Link>
+            <Link to="/ndiscontact">
+              <button className="bg-teal-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Refer Someone
                 <FiArrowRight className="inline-block ml-2" />
               </button>
             </Link>
             <Link to="https://business.google.com/reviews">
-              <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">Google Reviews
+              <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition">About Us
                 <FiArrowRight className="inline-block ml-2" />
               </button>
             </Link>

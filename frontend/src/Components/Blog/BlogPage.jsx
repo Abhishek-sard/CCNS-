@@ -109,19 +109,31 @@ const BlogPage = () => {
               {/* Card */}
               <BlogCard blog={blog} />
 
-          
+
               {/* Buttons OUTSIDE Card */}
               <div className="mt-4 flex gap-4">
                 <Link
                   to={`/blog/${blog._id}`}
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded text-sm font-semibold transition"
                 >
-                  Ndis Care
+                  Read More
                   <FaArrowRight className="text-xs" />
                 </Link>
 
+
+
+
                 <Link
-                  to="/contact"
+                  to="/ndis"
+                  className="flex items-center gap-2 border border-blue-600 text-blue-600 hover:bg-blue-50 px-5 py-2 rounded text-sm font-semibold transition"
+                >
+                  NDIS Care
+                  <FaArrowRight className="text-xs" />
+                </Link>
+
+
+                <Link
+                  to="/staffing"
                   className="flex items-center gap-2 border border-blue-600 text-blue-600 hover:bg-blue-50 px-5 py-2 rounded text-sm font-semibold transition"
                 >
                   Staffing
