@@ -79,7 +79,7 @@ const AboutUs = () => {
         <p className="max-w-2xl mx-auto mb-6">
           Whether you're a patient seeking care or a healthcare professional looking to join our team, we invite you to be part of our mission to transform healthcare.
         </p>
-        <a href="/" className="bg-white text-blue-600 px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition inline-flex items-center gap-2">
+        <a href="/ndis" className="bg-white text-blue-600 px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition inline-flex items-center gap-2">
           Get In Touch <FaArrowRight />
         </a>
       </section>

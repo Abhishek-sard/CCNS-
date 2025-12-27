@@ -124,7 +124,7 @@ const BlogPage = () => {
 
 
                 <Link
-                  to="/ndis"
+                  to="/ndiscover"
                   className="flex items-center gap-2 border border-blue-600 text-blue-600 hover:bg-blue-50 px-5 py-2 rounded text-sm font-semibold transition"
                 >
                   NDIS Care
