@@ -16,24 +16,35 @@ const Navbar = () => {
   useEffect(() => {
     const path = location.pathname.toLowerCase();
 
-    // Define paths that FORCE a specific mode
-    if (path === "/ndis" || path === "/ndiscover" || path === "/ndiscontact") {
-      setMenuMode("ndis");
-      sessionStorage.setItem("menuMode", "ndis");
-    } else if (path === "/staffing") {
-      setMenuMode("staffing");
-      sessionStorage.setItem("menuMode", "staffing");
-    } else if (path === "/") {
-      // Home resets to default
+    // 1. Blog path forces blog mode
+    if (path.startsWith("/blog")) {
+      setMenuMode("blog");
+      sessionStorage.setItem("menuMode", "blog");
+    }
+    // 2. NDIS paths force NDIS mode UNLESS we are in blog mode
+    else if (path === "/ndis" || path === "/ndiscover" || path === "/ndiscontact") {
+      if (menuMode !== "blog") {
+        setMenuMode("ndis");
+        sessionStorage.setItem("menuMode", "ndis");
+      }
+    }
+    // 3. Staffing path forces staffing mode UNLESS we are in blog mode
+    else if (path === "/staffing") {
+      if (menuMode !== "blog") {
+        setMenuMode("staffing");
+        sessionStorage.setItem("menuMode", "staffing");
+      }
+    }
+    // 4. Home resets to default
+    else if (path === "/") {
       setMenuMode("default");
       sessionStorage.setItem("menuMode", "default");
     }
-    // Shared paths like /about, /contact, /job, /currentvaccancy KEEP the current mode
-    // Blog pages also keep current mode but override rendering
+    // Shared paths like /about, /contact, /job KEEP the current mode (including blog)
 
     // Auto-close mobile menu on route change
     setIsOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, menuMode]);
 
   const linkClasses = ({ isActive }) =>
     `cursor-pointer transition-all duration-300 px-3 py-2 rounded-lg ${isActive
@@ -55,8 +66,8 @@ const Navbar = () => {
 
   // Helper to render desktop menu items
   const renderDesktopMenu = () => {
-    // 1. Blog Page always shows Blog Menu (per user request "blog ... same as preview")
-    if (isBlogPage) {
+    // 1. Blog Mode (Persistent)
+    if (menuMode === "blog" || isBlogPage) {
       return (
         <>
           <AnimatedItem show={true}><NavLink to="/ndis" className={linkClasses}>NDIS</NavLink></AnimatedItem>
@@ -125,8 +136,8 @@ const Navbar = () => {
   const renderMobileMenu = () => {
     const mobileLinkClass = "block py-3 px-4 rounded-lg bg-teal-50";
 
-    // 1. Blog Page
-    if (isBlogPage) {
+    // 1. Blog Mode (Persistent)
+    if (menuMode === "blog" || isBlogPage) {
       return (
         <>
           <NavLink to="/ndis" className={mobileLinkClass}>NDIS</NavLink>

@@ -128,10 +128,10 @@ const App = () => {
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        
+
         {/* Accessibility tools available globally */}
         <AccessibilityTools />
-        <ContactButtons/>
+        <ContactButtons />
 
         <LayoutWrapper>
           <Routes>
@@ -141,7 +141,7 @@ const App = () => {
             <Route path="/ndis" element={<NdisServices />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/job" element={<Advantage />} />
-            <Route path='/Ndiscontact' element={<NdisContact/>} />
+            <Route path='/Ndiscontact' element={<NdisContact />} />
 
             {/* Services */}
             <Route path="/ndiscover" element={<NdisCover />} />
@@ -188,7 +188,7 @@ const App = () => {
               <Route path="team" element={<TeamManagement />} />
               <Route path="staffing" element={<StaffingManagement />} />
               <Route path="branches" element={<BranchManagement />} />
-              <Route path="referrial" element={<Referrial />}/>
+              <Route path="referrial" element={<Referrial />} />
             </Route>
           </Routes>
         </LayoutWrapper>
