@@ -125,23 +125,56 @@ const BlogPage = () => {
               {/* Blog Card */}
               <BlogCard blog={blog} />
 
-              {/* Extra Buttons */}
-              <div className="flex gap-5 mt-5 mb-10">
-                <Link
-                  to="/ndiscover"
-                  className="flex items-center gap-2 border border-blue-600 bg-blue-700 text-white hover:bg-blue-500 px-5 py-2 rounded text-sm font-semibold transition"
-                >
-                  NDIS Care
-                  <FaArrowRight className="text-xs" />
-                </Link>
+             
+              {/* Feature Icons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5 max-w-4xl mx-auto">
 
-                <Link
-                  to="/staffing"
-                  className="flex items-center gap-2 border border-blue-600 bg-blue-700 text-white hover:bg-blue-500 px-5 py-2 rounded text-sm font-semibold transition"
-                >
-                  Staffing
-                  <FaArrowRight className="text-xs" />
-                </Link>
+                {/* Card 1 */}
+                <div className="flex items-center gap-4 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl">
+                    🛡️
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-800 mb-1">
+                      NDIS Registered Provider
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      Fully accredited and compliant
+                    </p>
+
+                    <Link
+                      to="/ndisCover"
+                      className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition"
+                    >
+                      Learn More →
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Card 2 */}
+                <div className="flex items-center gap-4 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-green-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className="flex-shrink-0 w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-2xl">
+                    👥
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-800 mb-1">
+                      Staffing Solution
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-3">
+                      Trusted by healthcare facilities
+                    </p>
+
+                    <Link
+                      to="/staffing"
+                      className="inline-flex items-center text-sm font-semibold text-green-600 hover:text-green-800 transition"
+                    >
+                      View Services →
+                    </Link>
+                  </div>
+                </div>
+
               </div>
 
             </div>
