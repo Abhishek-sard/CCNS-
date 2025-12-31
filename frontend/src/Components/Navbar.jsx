@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const isBlogPage = location.pathname.startsWith("/blog");
 
   // Initialize menu mode from session storage or default
   const [menuMode, setMenuMode] = useState(() => {
@@ -16,31 +15,22 @@ const Navbar = () => {
   useEffect(() => {
     const path = location.pathname.toLowerCase();
 
-    // 1. Blog path forces blog mode
-    if (path.startsWith("/blog")) {
-      setMenuMode("blog");
-      sessionStorage.setItem("menuMode", "blog");
+    // 1. NDIS paths force NDIS mode
+    if (path === "/ndis" || path === "/ndiscover" || path === "/ndiscontact") {
+      setMenuMode("ndis");
+      sessionStorage.setItem("menuMode", "ndis");
     }
-    // 2. NDIS paths force NDIS mode UNLESS we are in blog mode
-    else if (path === "/ndis" || path === "/ndiscover" || path === "/ndiscontact") {
-      if (menuMode !== "blog") {
-        setMenuMode("ndis");
-        sessionStorage.setItem("menuMode", "ndis");
-      }
-    }
-    // 3. Staffing path forces staffing mode UNLESS we are in blog mode
+    // 2. Staffing path forces staffing mode
     else if (path === "/staffing") {
-      if (menuMode !== "blog") {
-        setMenuMode("staffing");
-        sessionStorage.setItem("menuMode", "staffing");
-      }
+      setMenuMode("staffing");
+      sessionStorage.setItem("menuMode", "staffing");
     }
-    // 4. Home resets to default
+    // 3. Home resets to default
     else if (path === "/") {
       setMenuMode("default");
       sessionStorage.setItem("menuMode", "default");
     }
-    // Shared paths like /about, /contact, /job KEEP the current mode (including blog)
+    // Shared paths like /about, /contact, /job KEEP the current mode
 
     // Auto-close mobile menu on route change
     setIsOpen(false);
@@ -66,17 +56,6 @@ const Navbar = () => {
 
   // Helper to render desktop menu items
   const renderDesktopMenu = () => {
-    // 1. Blog Mode (Persistent)
-    if (menuMode === "blog" || isBlogPage) {
-      return (
-        <>
-          <AnimatedItem show={true}><NavLink to="/ndis" className={linkClasses}>NDIS</NavLink></AnimatedItem>
-          <AnimatedItem show={true}><NavLink to="/Staffing" className={linkClasses}>Staffing</NavLink></AnimatedItem>
-          <AnimatedItem show={true}><NavLink to="/about" className={linkClasses}>About Us</NavLink></AnimatedItem>
-          <AnimatedItem show={true}><NavLink to="/blog" className={linkClasses}>Blog</NavLink></AnimatedItem>
-        </>
-      );
-    }
 
     // 2. Staffing Mode (Persistent)
     if (menuMode === "staffing") {
@@ -136,17 +115,6 @@ const Navbar = () => {
   const renderMobileMenu = () => {
     const mobileLinkClass = "block py-3 px-4 rounded-lg bg-teal-50";
 
-    // 1. Blog Mode (Persistent)
-    if (menuMode === "blog" || isBlogPage) {
-      return (
-        <>
-          <NavLink to="/ndis" className={mobileLinkClass}>NDIS</NavLink>
-          <NavLink to="/Staffing" className={mobileLinkClass}>Staffing</NavLink>
-          <NavLink to="/about" className={mobileLinkClass}>About Us</NavLink>
-          <NavLink to="/blog" className={mobileLinkClass}>Blog</NavLink>
-        </>
-      );
-    }
 
     // 2. Staffing Mode
     if (menuMode === "staffing") {
