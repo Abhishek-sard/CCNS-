@@ -65,7 +65,16 @@ const Footer = () => {
               <div className="bg-red-500 p-1.5 rounded-lg">
                 <FaEnvelope className="text-xs" />
               </div>
-              <p>info@ccnaagency.com</p>
+              <p>agency@ccnacare.com.au</p>
+              
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <div className="bg-red-500 p-1.5 rounded-lg">
+                <FaEnvelope className="text-xs" />
+              </div>
+              <p>ndis@ccnacare.com.au</p>
+              
             </div>
 
             <div className="flex items-start gap-3">

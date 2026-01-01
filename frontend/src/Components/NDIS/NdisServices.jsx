@@ -102,7 +102,7 @@ const NdisServices = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-5">
-      <Cover/>
+      <Cover />
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white p-8 rounded-t-lg shadow-md text-center mb-8 mt-20">
         <div className="flex flex-col md:flex-row items-center justify-center mb-4">
@@ -339,12 +339,21 @@ const NdisServices = () => {
               <FaPhoneAlt className="text-green-600" /> 0421 079 928
             </p>
             <p className="flex items-center gap-3">
-              <FaEnvelope className="text-green-600 text-3xl" /> info@ccnaagency.com
+              <FaEnvelope className="text-green-600 text-3xl" /> agency@ccnacare.com.au
+            </p>
+            <p className="flex items-center gap-3">
+              <FaEnvelope className="text-green-600 text-3xl" /> ndis@ccnacare.com.au
             </p>
             <p className="flex items-start gap-3">
               <FaMapMarkerAlt className="text-green-600 text-3xl mt-1" />
-              Suite 616, Level 6, <br />
-              368 Sussex St, Sydney, NSW 2000
+              17 Larkham St
+              Oran Park NSW 2570
+            </p>
+            <p className="flex items-start gap-3">
+              <FaMapMarkerAlt className="text-green-600 text-3xl mt-1" />
+              21 Grevillea Rd
+              Katherine East NT 0850
+              Phone: 0423 538 676
             </p>
             <p className="flex items-center gap-3 text-2xl">
               <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00 PM
@@ -404,7 +413,7 @@ const NdisServices = () => {
         </div>
       </div>
       <BranchesList />
-      <Faq/>
+      <Faq />
     </div>
 
   );
