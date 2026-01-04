@@ -58,7 +58,7 @@ const Footer = () => {
               <div className="bg-teal-500 p-1.5 rounded-lg">
                 <FaPhone className="text-xs" />
               </div>
-              <p>0421 079 928</p>
+              <p>0433 525 858</p>
             </div>
 
             <div className="flex items-center gap-3">
