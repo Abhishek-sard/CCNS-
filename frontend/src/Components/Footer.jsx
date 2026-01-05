@@ -66,15 +66,15 @@ const Footer = () => {
                 <FaEnvelope className="text-xs" />
               </div>
               <p>agency@ccnacare.com.au</p>
-              
+
             </div>
-            
+
             <div className="flex items-center gap-3">
               <div className="bg-red-500 p-1.5 rounded-lg">
                 <FaEnvelope className="text-xs" />
               </div>
               <p>ndis@ccnacare.com.au</p>
-              
+
             </div>
 
             <div className="flex items-start gap-3">
@@ -94,7 +94,7 @@ const Footer = () => {
               <p className="text-xs">
                 21 Grevillea Rd<br />
                 Katherine East NT 0850<br />
-                Phone: 0423 538 676
+                Phone: 0433 525 858
               </p>
             </div>
           </div>

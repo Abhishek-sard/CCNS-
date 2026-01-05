@@ -28,7 +28,7 @@ const ContactButtons = () => {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/61421079928"
+        href="https://wa.me/61433525858"
         target="_blank"
         rel="noopener noreferrer"
         className="relative block group"
@@ -46,7 +46,7 @@ const ContactButtons = () => {
       </a>
 
       {/* Call Button */}
-      <a href="tel:+61421079928" className="relative block group mb-15">
+      <a href="tel:+61433525858" className="relative block group mb-15">
         <div className="absolute inset-0 bg-green-700 rounded-full animate-ping opacity-20"></div>
 
         <div className="relative bg-green-700 rounded-full p-3 shadow-2xl transition transform group-hover:scale-110">

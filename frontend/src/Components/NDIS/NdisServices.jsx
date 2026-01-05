@@ -336,7 +336,7 @@ const NdisServices = () => {
           <div className="space-y-4">
             <h3 className="text-3xl font-bold text-green-700">CCNA Care</h3>
             <p className="flex items-center gap-3">
-              <FaPhoneAlt className="text-green-600" /> 0421 079 928
+              <FaPhoneAlt className="text-green-600" /> 0433 525 858
             </p>
             <p className="flex items-center gap-3">
               <FaEnvelope className="text-green-600 text-3xl" /> agency@ccnacare.com.au
@@ -353,7 +353,7 @@ const NdisServices = () => {
               <FaMapMarkerAlt className="text-green-600 text-3xl mt-1" />
               21 Grevillea Rd
               Katherine East NT 0850
-              Phone: 0423 538 676
+              Phone: 0433 525 858
             </p>
             <p className="flex items-center gap-3 text-2xl">
               <FaClock className="text-green-600" /> Mon - Fri: 9:00 AM – 6:00 PM
@@ -378,7 +378,7 @@ const NdisServices = () => {
                 <FaLinkedinIn />
               </a>
               <a
-                href="https://wa.me/0421079928"
+                href="https://wa.me/61433525858"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-600 hover:text-green-800 text-2xl"

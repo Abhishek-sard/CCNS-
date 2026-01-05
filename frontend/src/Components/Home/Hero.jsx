@@ -125,7 +125,7 @@ const Hero = () => {
             {/* WhatsApp Button */}
             <div className="fixed bottom-5 right-5 z-50 group">
                 <a
-                    href="https://wa.me/61421079928?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services"
+                    href="https://wa.me/61433525858?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative block"
