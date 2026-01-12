@@ -1,77 +1,81 @@
-import React from 'react';
-import './i18n';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
-import ScrollToTop from './components/ScrollToTop';
-import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
-import AccessibilityTools from './Components/AccessibilityTools.jsx';
-import ContactButtons from './Components/ContactButtons.jsx';
+import React from "react";
+import "./i18n";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import AccessibilityTools from "./Components/AccessibilityTools.jsx";
+import ContactButtons from "./Components/ContactButtons.jsx";
 
 // Home Components
-import Hero from './Components/Home/Hero';
-import AboutSection from './Components/Home/AboutSection';
-import QuickLinks from './Components/Home/QuickLinks';
-import WhyChooseUs from './Components/Home/WhyChooseUs';
-import Testimonials from './Components/Home/Testimonials';
-import ImageCollection from './Components/Home/ImageCollection';
+import Hero from "./Components/Home/Hero";
+import AboutSection from "./Components/Home/AboutSection";
+import QuickLinks from "./Components/Home/QuickLinks";
+import WhyChooseUs from "./Components/Home/WhyChooseUs";
+import Testimonials from "./Components/Home/Testimonials";
+import ImageCollection from "./Components/Home/ImageCollection";
 
 // About Components
-import ImageFile from './Components/About/ImageFile';
-import Intro from './Components/About/Intro';
-import Animation from './Components/About/Animation';
-import AboutUs from './Components/About/AboutUs';
-import Team from './Components/About/Team';
-import BranchesList from './Components/About/BranchesList';
-import ContactPage from './Components/Contact/ContactPage';
+import ImageFile from "./Components/About/ImageFile";
+import Intro from "./Components/About/Intro";
+import Animation from "./Components/About/Animation";
+import AboutUs from "./Components/About/AboutUs";
+import Team from "./Components/About/Team";
+import BranchesList from "./Components/About/BranchesList";
+import ContactPage from "./Components/Contact/ContactPage";
 
 // NDIS & Services
-import NdisServices from './Components/NDIS/NdisServices';
-import NdisCover from './Components/Service/NdisCover';
-import Staffing from './Components/Service/Staffing';
-import Nursing from './Components/Service/CCNANursingAgency.jsx';
-import Assist from './Components/Service/AssistPersonalActivities.jsx';
-import LifeStage from './Components/Service/AssistLifeStage.jsx';
-import AssistStage from './Components/Service/AssistPersonalActivitiesHigh.jsx';
-import Travel from './Components/Service/AssistTravelTransport.jsx';
-import CommunityNurse from './Components/Service/CommunityNursingCare.jsx';
-import DailyTask from './Components/Service/DailyTasksSharedLiving.jsx';
-import DailyLife from './Components/Service/DevelopmentLifeSkills .jsx';
-import InvolveCommunity from './Components/Service/InnovCommunityParticipation.jsx';
-import HouseholdTasks from './Components/Service/HouseholdTasks.jsx';
-import ParticipateCommunity from './Components/Service/ParticipateCommunity.jsx';
-import SupportCoordination from './Components/Service/SupportCoordination.jsx';
-import GroupCentreActivities from './Components/Service/GroupCentreActivities.jsx';
-
+import NdisServices from "./Components/NDIS/NdisServices";
+import NdisCover from "./Components/Service/NdisCover";
+import Staffing from "./Components/Service/Staffing";
+import Nursing from "./Components/Service/CCNANursingAgency.jsx";
+import Assist from "./Components/Service/AssistPersonalActivities.jsx";
+import LifeStage from "./Components/Service/AssistLifeStage.jsx";
+import AssistStage from "./Components/Service/AssistPersonalActivitiesHigh.jsx";
+import Travel from "./Components/Service/AssistTravelTransport.jsx";
+import CommunityNurse from "./Components/Service/CommunityNursingCare.jsx";
+import DailyTask from "./Components/Service/DailyTasksSharedLiving.jsx";
+import DailyLife from "./Components/Service/DevelopmentLifeSkills .jsx";
+import InvolveCommunity from "./Components/Service/InnovCommunityParticipation.jsx";
+import HouseholdTasks from "./Components/Service/HouseholdTasks.jsx";
+import ParticipateCommunity from "./Components/Service/ParticipateCommunity.jsx";
+import SupportCoordination from "./Components/Service/SupportCoordination.jsx";
+import GroupCentreActivities from "./Components/Service/GroupCentreActivities.jsx";
 
 //ndis contact page
-import NdisContact from './Components/NdisContact/NdisContact.jsx';
+import NdisContact from "./Components/NdisContact/NdisContact.jsx";
 
 // Job & Blog
-import Advantage from './Components/Job/Advantage';
-import CurrentVacancy from './Components/Job/CurrentVaccancy.jsx';
-import VacancyDetails from './Components/Job/VacancyDetails.jsx';
-import ApplyOnline from './Components/Job/ApplyOnline';
-import BlogPage from './Components/Blog/BlogPage';
-import BlogDetails from './Components/Blog/BlogDetail.jsx';
+import Advantage from "./Components/Job/Advantage";
+import CurrentVacancy from "./Components/Job/CurrentVaccancy.jsx";
+import VacancyDetails from "./Components/Job/VacancyDetails.jsx";
+import ApplyOnline from "./Components/Job/ApplyOnline";
+import BlogPage from "./Components/Blog/BlogPage";
+import BlogDetails from "./Components/Blog/BlogDetail.jsx";
 
 // Auth
-import Login from './Components/Login/Login';
-import Register from './Components/Login/Register';
+import Login from "./Components/Login/Login";
+import Register from "./Components/Login/Register";
 
 // Dashboard Components
-import MainDashboard from './Components/Dashboard/MainDashboard';
-import VacancyForm from './Components/Dashboard/AdminDashboard.jsx';
-import Applied from './Components/Dashboard/Applied.jsx';
-import BlogManagement from './Components/Dashboard/BlogManagement.jsx';
-import TeamManagement from './Components/Dashboard/TeamManagement.jsx';
-import StaffingManagement from './Components/Dashboard/StaffingManagement.jsx';
-import BranchManagement from './Components/Dashboard/BranchManagement.jsx';
-import Referrial from './Components/Dashboard/Referrial.jsx';
+import MainDashboard from "./Components/Dashboard/MainDashboard";
+import VacancyForm from "./Components/Dashboard/AdminDashboard.jsx";
+import Applied from "./Components/Dashboard/Applied.jsx";
+import BlogManagement from "./Components/Dashboard/BlogManagement.jsx";
+import TeamManagement from "./Components/Dashboard/TeamManagement.jsx";
+import StaffingManagement from "./Components/Dashboard/StaffingManagement.jsx";
+import BranchManagement from "./Components/Dashboard/BranchManagement.jsx";
+import Referrial from "./Components/Dashboard/Referrial.jsx";
 
 // Utils
-import './utils/consoleCleanup';
+import "./utils/consoleCleanup";
+import ProtectedRoute from "./Components/ProtectedRoute.jsx";
+import ScrollToTop from "./Components/ScrollToTop.jsx";
 
 // ------------------------------
 // PAGE WRAPPERS
@@ -106,8 +110,8 @@ function AboutPage() {
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
 
-  const isDashboard = location.pathname.startsWith('/dashboard');
-  const isHome = location.pathname === '/'; // 👈 Detect home page
+  const isDashboard = location.pathname.startsWith("/dashboard");
+  const isHome = location.pathname === "/"; // 👈 Detect home page
 
   const hideLayout = isDashboard || isHome; // 👈 Hide navbar & footer on both
 
@@ -141,7 +145,7 @@ const App = () => {
             <Route path="/ndis" element={<NdisServices />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/job" element={<Advantage />} />
-            <Route path='/Ndiscontact' element={<NdisContact />} />
+            <Route path="/Ndiscontact" element={<NdisContact />} />
 
             {/* Services */}
             <Route path="/ndiscover" element={<NdisCover />} />
