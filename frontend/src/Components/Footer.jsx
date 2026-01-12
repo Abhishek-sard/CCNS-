@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   FaFacebookF,
   FaTwitter,
@@ -11,6 +11,8 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const location = useLocation();
+  const isStaffingPage = location.pathname.toLowerCase().startsWith('/staffing');
   const quickLinks = [
     { name: "NDIS Services", path: "/ndis" },
     { name: "Staffing Solution", path: "/Staffing" },
@@ -69,13 +71,14 @@ const Footer = () => {
 
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="bg-red-500 p-1.5 rounded-lg">
-                <FaEnvelope className="text-xs" />
+            {!isStaffingPage && (
+              <div className="flex items-center gap-3">
+                <div className="bg-red-500 p-1.5 rounded-lg">
+                  <FaEnvelope className="text-xs" />
+                </div>
+                <p>ndis@ccnacare.com.au</p>
               </div>
-              <p>ndis@ccnacare.com.au</p>
-
-            </div>
+            )}
 
             <div className="flex items-start gap-3">
               <div className="bg-purple-500 p-1.5 rounded-lg mt-0.5">
@@ -102,14 +105,18 @@ const Footer = () => {
 
         {/* Column 3 – Certifications & Socials */}
         <div>
-          <h3 className="text-md font-semibold mb-3 relative">
-            NDIS Registered Provider
-            <span className="block w-10 h-[2px] bg-yellow-400 mt-1"></span>
-          </h3>
+          {!isStaffingPage && (
+            <>
+              <h3 className="text-md font-semibold mb-3 relative">
+                NDIS Registered Provider
+                <span className="block w-10 h-[2px] bg-yellow-400 mt-1"></span>
+              </h3>
 
-          <p className="inline-block bg-white text-yellow-700 px-3 py-1 rounded-full text-xs font-bold shadow-md mb-4">
-            NDIS PROVIDER ID: 4-LD74YXB
-          </p>
+              <p className="inline-block bg-white text-yellow-700 px-3 py-1 rounded-full text-xs font-bold shadow-md mb-4">
+                NDIS PROVIDER ID: 4-LD74YXB
+              </p>
+            </>
+          )}
 
           <h3 className="text-md font-semibold mb-3 relative">
             Follow Us
@@ -137,13 +144,17 @@ const Footer = () => {
         </div>
 
         {/* Column 4 – Logo */}
-        <div className="flex justify-center md:justify-end">
-          <img
-            src="./provider.jpg"
-            alt="CCNA Logo"
-            className="h-44 w-56 object-contain opacity-95 hover:opacity-100 transition-all rounded-lg"
-          />
-        </div>
+
+
+        {!isStaffingPage && (
+          <div className="flex justify-center md:justify-end">
+            <img
+              src="/provider.jpg"
+              alt="CCNA Logo"
+              className="h-44 w-56 object-contain opacity-95 hover:opacity-100 transition-all rounded-lg"
+            />
+          </div>
+        )}
       </div>
 
       {/* Divider */}
@@ -154,9 +165,11 @@ const Footer = () => {
         <p>
           Comprehensive Care Nursing  Pvt Ltd © {new Date().getFullYear()}
         </p>
-        <p className="mt-1">
-          ABN: 1867 1505 258 | NDIS Provider Registration ID: 4-LD74YXB
-        </p>
+        {!isStaffingPage && (
+          <p className="mt-1">
+            ABN: 1867 1505 258 | NDIS Provider Registration ID: 4-LD74YXB
+          </p>
+        )}
         <p className="mt-1">
           Powered by{" "}
           <a

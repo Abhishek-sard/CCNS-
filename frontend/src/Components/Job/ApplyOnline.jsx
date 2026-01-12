@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { BASE_URL } from "../../services/constants";
 
 const ApplyOnline = () => {
   const location = useLocation();
   const prefilledTitle = location.state?.title || "";
+  const prefilledJobType = location.state?.jobType || "";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -12,8 +13,19 @@ const ApplyOnline = () => {
     phone: "",
     resume: null,
     vacancyTitle: prefilledTitle,
+    jobType: prefilledJobType,
     message: "",
   });
+
+  useEffect(() => {
+    if (location.state?.title) {
+      setFormData(prev => ({
+        ...prev,
+        vacancyTitle: location.state.title,
+        jobType: location.state.jobType || ""
+      }));
+    }
+  }, [location.state]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fileName, setFileName] = useState("");
@@ -38,6 +50,7 @@ const ApplyOnline = () => {
       dataToSend.append("email", formData.email);
       dataToSend.append("phone", formData.phone);
       dataToSend.append("vacancyTitle", formData.vacancyTitle);
+      dataToSend.append("jobType", formData.jobType);
       dataToSend.append("message", formData.message);
       dataToSend.append("resume", formData.resume);
 
@@ -173,7 +186,7 @@ const ApplyOnline = () => {
                     />
 
                     <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                      
+
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ const applicationSchema = new mongoose.Schema({
   message: String,
   resume: String,
   vacancyTitle: String,
+  jobType: String,
   date: { type: Date, default: Date.now },
 });
 

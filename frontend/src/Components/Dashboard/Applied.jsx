@@ -63,80 +63,150 @@ const Applied = () => {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-blue-700">
-        Submitted Applications
-      </h1>
+    <div className="p-8 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">
+              Submitted Applications
+            </h1>
+            <p className="text-gray-500 mt-2">Manage and review all job applications</p>
+          </div>
+          <div className="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 text-sm font-medium text-gray-600">
+            Total: {applications.length}
+          </div>
 
-      {loading ? (
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
         </div>
-      ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse bg-white shadow-md rounded-lg">
-            <thead>
-              <tr className="bg-blue-600 text-white">
-                <th className="p-3 text-left">Name</th>
-                <th className="p-3 text-left">Email</th>
-                <th className="p-3 text-left">Phone</th>
-                <th className="p-3 text-left">Vacancy Title</th> 
-                <th className="p-3 text-left">Resume</th>
-                <th className="p-3 text-left">Message</th>
-                <th className="p-3 text-left">Date</th>
-                <th className="p-3 text-left">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {applications.length === 0 ? (
-                <tr>
-                  <td colSpan="8" className="p-8 text-center text-gray-500">
-                    No applications found
-                  </td>
-                </tr>
-              ) : (
-                applications.map((app) => (
-                  <tr key={app._id} className="border-b hover:bg-gray-50">
-                    <td className="p-3 font-medium">{app.name}</td>
-                    <td className="p-3">{app.email}</td>
-                    <td className="p-3">{app.phone}</td>
-                    <td className="p-3">{app.vacancyTitle || "—"}</td> {/* ✅ show title */}
-                    <td className="p-3">
-                      {app.resume ? (
-                        <a
-                          href={`${BASE_URL_IMAGE}/uploads/${app.resume}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 underline"
-                        >
-                          View File
-                        </a>
-                      ) : (
-                        "No file"
-                      )}
-                    </td>
 
-                    <td className="p-3 max-w-xs truncate" title={app.message}>
-                      {app.message}
-                    </td>
-                    <td className="p-3 text-sm text-gray-600">
-                      {new Date(app.date).toLocaleString()}
-                    </td>
-                    <td className="p-3">
-                      <button
-                        onClick={() => handleDelete(app._id)}
-                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition text-sm"
-                      >
-                        Delete
-                      </button>
-                    </td>
+        {loading ? (
+          <div className="flex flex-col items-center justify-center h-96 bg-white rounded-2xl shadow-sm border border-gray-100">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-100 border-t-blue-600"></div>
+            <p className="mt-4 text-gray-500 font-medium">Loading applications...</p>
+          </div>
+        ) : (
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50/50 border-b border-gray-100">
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Candidate</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Contact</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Position</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Type</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Resume</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
+                    <th className="px-6 py-4 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-      )}
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {applications.length === 0 ? (
+                    <tr>
+                      <td colSpan="7" className="px-6 py-12 text-center text-gray-400">
+                        <div className="flex flex-col items-center justify-center">
+                          <span className="text-4xl mb-3">📭</span>
+                          <span className="font-medium">No applications received yet</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ) : (
+                    applications.map((app) => (
+                      <tr key={app._id} className="hover:bg-blue-50/30 transition-colors group">
+
+                        {/* Candidate Name & Avatar Placeholder */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0 h-10 w-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                              {app.name.charAt(0).toUpperCase()}
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-bold text-gray-900">{app.name}</div>
+                              {/* Message Tooltip/Preview could go here if crowded, but let's keep clean */}
+                            </div>
+                          </div>
+                        </td>
+
+                        {/* Contact Info */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex flex-col">
+                            <div className="text-sm text-gray-900 flex items-center gap-2">
+                              <span className="text-gray-400 text-xs">✉️</span> {app.email}
+                            </div>
+                            <div className="text-sm text-gray-500 flex items-center gap-2 mt-1">
+                              <span className="text-gray-400 text-xs">📞</span> {app.phone}
+                            </div>
+                          </div>
+                        </td>
+
+                        {/* Position */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                            {app.vacancyTitle || "General Application"}
+                          </span>
+                        </td>
+
+                        {/* Job Type */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full border ${app.jobType === 'Permanent' ? 'bg-green-50 text-green-700 border-green-100' :
+                              app.jobType === 'Temporary' ? 'bg-orange-50 text-orange-700 border-orange-100' :
+                                'bg-gray-50 text-gray-700 border-gray-100'
+                            }`}>
+                            {app.jobType || "N/A"}
+                          </span>
+                        </td>
+
+                        {/* Resume */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {app.resume ? (
+                            <a
+                              href={`${BASE_URL_IMAGE}/uploads/${app.resume}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-indigo-600 hover:text-indigo-900 font-medium text-sm flex items-center gap-1 group-hover:underline"
+                            >
+                              <span>📄</span> View Resume
+                            </a>
+                          ) : (
+                            <span className="text-gray-400 text-sm italic">No resume</span>
+                          )}
+                        </td>
+
+                        {/* Date */}
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          {new Date(app.date).toLocaleDateString(undefined, {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </td>
+
+                        {/* Actions */}
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <button
+                            onClick={() => handleDelete(app._id)}
+                            className="text-red-400 hover:text-red-600 transition-colors p-2 rounded-lg hover:bg-red-50"
+                            title="Delete Application"
+                          >
+                            <span className="sr-only">Delete</span>
+                            🗑️
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Optional Pagination Footer could go here */}
+            {applications.length > 0 && (
+              <div className="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500">
+                Showing all {applications.length} applications
+              </div>
+            )}
+
+          </div>
+        )}
+      </div>
     </div>
   );
 };
