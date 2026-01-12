@@ -12,7 +12,16 @@ import {
 
 const Footer = () => {
   const location = useLocation();
-  const isStaffingPage = location.pathname.toLowerCase().startsWith('/staffing');
+  const menuMode = sessionStorage.getItem("menuMode") || "default";
+  const path = location.pathname.toLowerCase();
+
+  const isStaffingPage =
+    menuMode === "staffing" ||
+    path.startsWith('/staffing') ||
+    path.startsWith('/job') ||
+    path.startsWith('/currentvaccancy') ||
+    path.startsWith('/vacancy') ||
+    path.startsWith('/applyonline');
   const quickLinks = [
     { name: "NDIS Services", path: "/ndis" },
     { name: "Staffing Solution", path: "/Staffing" },
