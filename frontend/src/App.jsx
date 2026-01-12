@@ -124,6 +124,40 @@ const LayoutWrapper = ({ children }) => {
   );
 };
 
+const AccessibilityWrapper = () => {
+  const location = useLocation();
+  const path = location.pathname.toLowerCase();
+
+  // Determine the current context mode (e.g. 'ndis' or 'staffing')
+  // This matches the logic in Navbar.jsx
+  const menuMode = sessionStorage.getItem("menuMode") || "default";
+
+  // List of paths where accessibility is ALWAYS hidden (e.g. auth, dashboard)
+  const alwaysHidden =
+    path.startsWith("/dashboard") ||
+    path.startsWith("/login") ||
+    path.startsWith("/register") ||
+    path.startsWith("/staffing") || // core staffing page
+    path.startsWith("/job") ||      // job seeker
+    path.startsWith("/currentvaccancy") ||
+    path.startsWith("/vacancy") ||
+    path.startsWith("/applyonline");
+
+  // List of shared paths where it depends on the mode
+  const isSharedPage =
+    path.startsWith("/blog") ||
+    path.startsWith("/about");
+
+  // Logic: 
+  // 1. If it's an always-hidden path, hide it.
+  // 2. If it's a shared page AND we are in 'staffing' mode, hide it.
+  const shouldHide = alwaysHidden || (isSharedPage && menuMode === "staffing");
+
+  if (shouldHide) return null;
+
+  return <AccessibilityTools />;
+};
+
 // ------------------------------
 // MAIN APP ROUTES
 // ------------------------------
@@ -134,7 +168,7 @@ const App = () => {
         <ScrollToTop />
 
         {/* Accessibility tools available globally */}
-        <AccessibilityTools />
+        <AccessibilityWrapper />
         <ContactButtons />
 
         <LayoutWrapper>
